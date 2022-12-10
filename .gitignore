@@ -1,0 +1,25 @@
+# Godot binary files
+*.exe
+*.pck
+*.apk
+*.exe.debug
+
+# Godot temporary files
+*.pid
+*.recover
+
+# Godot build files
+*.build
+
+# Godot export templates
+export/*
+
+# Godot editor backup files
+*.editor_backup
+
+# Godot log files
+*.log
+
+.DS_Store
+.mono/
+.vscode/
