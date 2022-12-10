@@ -1,0 +1,9 @@
+/Users/bgi/dev/godot/ammo/.mono/temp/bin/Debug/Ammo.dll
+/Users/bgi/dev/godot/ammo/.mono/temp/bin/Debug/Ammo.pdb
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.csproj.AssemblyReference.cache
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.AssemblyInfoInputs.cache
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.AssemblyInfo.cs
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.csproj.CoreCompileInputs.cache
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.dll
+/Users/bgi/dev/godot/ammo/.mono/temp/obj/Debug/Ammo.pdb
