@@ -127,6 +127,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 4
+frame = 2
 script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
