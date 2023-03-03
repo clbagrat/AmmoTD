@@ -3,6 +3,7 @@
 #### 03.03.2023
 - AliveCreature
 - Tower can kill Skeletons
+- Skeletons have a health bar 
 
 #### 02.03.2023
 - In-game cursor

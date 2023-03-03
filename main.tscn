@@ -21,6 +21,9 @@ speed = 25
 
 [node name="Cursor" parent="Node2D" instance=ExtResource( 4 )]
 
+[node name="Tower2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 224, 94 )
+
 [node name="Tower" parent="." instance=ExtResource( 5 )]
 position = Vector2( 112, 47 )
 
