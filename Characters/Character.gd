@@ -1,6 +1,7 @@
 extends Node2D
 
 
+export var health = 10
 onready var prev_pos = global_position;
 onready var animation_tree = $AnimationTree;
 
@@ -11,5 +12,4 @@ func play_run_animation ():
 
 func _process(_delta):
 	play_run_animation()
-
 

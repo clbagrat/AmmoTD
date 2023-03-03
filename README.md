@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 03.03.2023
+- AliveCreature
+- Tower can kill Skeletons
+
 #### 02.03.2023
 - In-game cursor
 
