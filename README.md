@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 04.03.2023
+- Tower can shoot projectiles
+
 #### 03.03.2023
 - AliveCreature
 - Tower can kill Skeletons

@@ -136,7 +136,7 @@ hframes = 4
 vframes = 4
 script = ExtResource( 2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 0, 4 )
