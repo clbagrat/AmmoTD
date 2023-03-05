@@ -13,6 +13,9 @@ func set_target(target):
 func _physics_process(delta):
 	if (is_instance_valid(current_target)):
 		global_position = (current_target.global_position - global_position).normalized() * speed * delta + global_position
+	
+	if (current_target && !is_instance_valid(current_target)):
+		queue_free()
 
 
 func _on_Area2D_body_entered(body:Node):

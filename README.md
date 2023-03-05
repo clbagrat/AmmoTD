@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 05.03.2023
+- Skeletons are spawning constantly
+
 #### 04.03.2023
 - Tower can shoot projectiles
 

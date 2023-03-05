@@ -2,7 +2,7 @@ extends Node
 
 export var health = 100;
 
-signal died;
+signal died(aliveCreature);
 
 onready var health_bar = $ProgressBar;
 onready var current_health = health;
@@ -18,6 +18,6 @@ func apply_damage(amount):
 		health_bar.value = (float(current_health) / health) * 100
 
 func die():
-	emit_signal("died")
+	emit_signal("died", self)
 	get_parent().queue_free()
 
