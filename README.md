@@ -2,6 +2,7 @@
 
 #### 05.03.2023
 - Skeletons are spawning constantly
+- Add source of ammo and ammo
 
 #### 04.03.2023
 - Tower can shoot projectiles
