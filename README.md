@@ -1,5 +1,10 @@
 ## Changelog
 
+#### 06.03.2023
+- Cursor now can hold and release ammo
+- Towers can fetch ammo
+- Towers shoot only when ammo > 0
+
 #### 05.03.2023
 - Skeletons are spawning constantly
 - Add source of ammo and ammo

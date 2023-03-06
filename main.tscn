@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/Maps/Map1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Ammo/AmmoSource.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ammo/Mine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/InGameCursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tower/Bullet.gd" type="Script" id=6]
@@ -23,10 +23,10 @@ position = Vector2( 112, 48 )
 [node name="Tower4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 176, 128 )
 
-[node name="AmmoSource" parent="." instance=ExtResource( 2 )]
-position = Vector2( 272, 48 )
+[node name="Mine" parent="." instance=ExtResource( 2 )]
+position = Vector2( 270, 36 )
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
-position = Vector2( 16, 17 )
+position = Vector2( 182, 31 )
 
 [editable path="Node2D"]
