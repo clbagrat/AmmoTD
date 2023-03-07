@@ -1,7 +1,5 @@
 extends Node2D
 
-
-export var health = 10
 onready var prev_pos = global_position;
 onready var animation_tree = $AnimationTree;
 

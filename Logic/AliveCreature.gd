@@ -1,5 +1,7 @@
 extends Node
 
+class_name AliveCreature
+
 export var health = 100;
 
 signal died(aliveCreature);

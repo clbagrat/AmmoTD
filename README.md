@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 07.03.2023
+- Cursor now follow keyboard and joystick
+- StateMachine pattern
+
 #### 06.03.2023
 - Cursor now can hold and release ammo
 - Towers can fetch ammo

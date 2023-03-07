@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name AmmoSource
 
 const Ammo = preload("res://Ammo/Ammo.tscn");
 

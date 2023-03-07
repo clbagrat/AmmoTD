@@ -1,5 +1,7 @@
 extends Node
 
+class_name AmmoHolder
+
 export var capacity = 30;
 export var activeByDefault = true;
 
@@ -7,7 +9,7 @@ onready var timer = $Cooldown;
 
 signal amount_change(amount);
 
-var currentAmount = 0;
+var currentAmount: int = 0;
 
 var activeAmmo = [];
 

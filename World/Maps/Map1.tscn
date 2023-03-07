@@ -10,6 +10,7 @@ _data = {
 
 [node name="Map1" type="Node2D"]
 script = ExtResource( 2 )
+cooldown = 5.0
 
 [node name="Grass" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
