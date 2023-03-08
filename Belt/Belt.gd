@@ -1,0 +1,37 @@
+extends Node2D
+
+
+# on area entry
+	# check if ammo
+	# drag it over to the destination
+
+# ammo should be draggable
+	# active dragger
+
+
+onready var destination: Node2D = $Destination;
+
+var bodies_to_move: Array = []
+
+func _on_Area2D_body_entered(body:Node):
+	if not body.is_in_group("ammo"):
+		return;
+
+	var draggable: Draggable = body.get_node("Draggable")
+	draggable.set_handler(self);
+	bodies_to_move.push_back(draggable);
+
+func _physics_process(delta):
+	for i in range(bodies_to_move.size() - 1, -1, -1):
+		print(i);
+		var draggable = bodies_to_move[i]
+		if !is_instance_valid(draggable):
+			bodies_to_move.remove(i)
+			continue
+		if draggable.current_handler != self:
+			bodies_to_move.remove(i)
+			continue
+		var draggablePos = draggable.body.global_position;
+		var newPos = (destination.global_position - draggablePos).normalized() * delta * 18 + draggablePos;
+		draggable.move_body(self, newPos)
+

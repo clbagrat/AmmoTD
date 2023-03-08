@@ -17,7 +17,7 @@ func _ready():
 func _on_Timer_timeout():
 	var ammo = Ammo.instance()
 	get_tree().get_root().add_child(ammo);
-	var ammoPos = Vector2(rand_range(-3, 3), rand_range(1, 5));
+	var ammoPos = Vector2(rand_range(1, 3), rand_range(1, 5));
 	ammoPos += ammoPos.normalized() * 8 + ammoPos
 	ammo.global_position = self.global_position + ammoPos;
 	emit_signal("ammo_create");

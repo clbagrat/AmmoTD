@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 08.03.2023
+- Introduce belts, they can carry ammo
+- Ammo will dissapear after staying still for 3 sec
+
 #### 07.03.2023
 - Cursor now follow keyboard and joystick
 - StateMachine pattern

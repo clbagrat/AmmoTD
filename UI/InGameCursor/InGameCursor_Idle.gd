@@ -2,7 +2,7 @@ extends State
 
 var cursorPosition;
 var direction = Vector2(0, 0);
-var isMouseControl = false;
+var isMouseControl = true;
 
 var lastTimeControlFired = 0;
 var currentTime = 0;
