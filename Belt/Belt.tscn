@@ -36,9 +36,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 6 )
+extents = Vector2( 8, 8 )
 
-[node name="Belt" type="Node2D"]
+[node name="Belt" type="Node2D" groups=["building"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

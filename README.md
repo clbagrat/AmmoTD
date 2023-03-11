@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 11.03.2023
+- Building system (everything is for free)
+
 #### 08.03.2023
 - Introduce belts, they can carry ammo
 - Ammo will dissapear after staying still for 3 sec
