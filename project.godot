@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://Config/GlobalConfig.gd"
 }, {
 "base": "Node",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Ammo/Inventory.gd"
+}, {
+"base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://Logic/StateMachine/State.gd"
@@ -56,6 +61,7 @@ _global_script_class_icons={
 "Building": "",
 "Draggable": "",
 "GlobalConfig": "",
+"Inventory": "",
 "State": "",
 "StateMachine": ""
 }

@@ -8,5 +8,7 @@ func _ready():
 func _set_active(mode):
 	self.visible = mode == GameModeService.GAME_MODES.Play;
 
-func _on_AmmoHolder_amount_change(amount):
+
+func _on_Inventory_amount_change(amount: int):
 	AmmoCount.text = str(amount);
+

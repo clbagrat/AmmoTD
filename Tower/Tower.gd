@@ -3,7 +3,7 @@ extends Node2D
 export var cooldown = 0.5;
 export var damage = 10;
 
-onready var AmmoHolder = $AmmoHolder;
+onready var Inventory = $Inventory;
 
 const BulletPath = preload("res://Tower/Bullet.tscn")
 
@@ -38,10 +38,9 @@ var last_hit_time = 0;
 func _process(delta):
 	time_passed += delta;
 	if (targets.size() > 0 && (time_passed - last_hit_time) > cooldown):
-		if (AmmoHolder.currentAmount <= 0):
+		if (!Inventory.can_spend(1)):
 			return
-
-		AmmoHolder.remove(1)
+		Inventory.spend(1)
 		last_hit_time = time_passed
 		var bullet = BulletPath.instance();
 		bullet.position = self.position;

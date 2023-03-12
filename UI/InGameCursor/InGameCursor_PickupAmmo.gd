@@ -1,7 +1,7 @@
 extends State
 
 
-onready var ammoHolder: AmmoHolder = owner.get_node("AmmoHolder");
+onready var ammoHolder: AmmoHolder = owner.get_node("Inventory/AmmoHolder");
 
 func handle_input(event: InputEvent) -> void:
 	if (event.is_action_released("pickup")):
