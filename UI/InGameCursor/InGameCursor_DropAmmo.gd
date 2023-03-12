@@ -5,8 +5,7 @@ onready var ammoSource: AmmoSource = owner.get_node("AmmoSource")
 
 
 func _ready() -> void:
-	var a = ammoSource.connect("ammo_create", self, "_on_ammo_create");
-	print(a);
+	var _a = ammoSource.connect("ammo_create", self, "_on_ammo_create");
 
 func _on_ammo_create() -> void:
 	ammoHolder.remove(1)	;
@@ -20,9 +19,7 @@ func update(_delta) -> void:
 		state_machine.transition_to("Idle")
 
 func enter():
-	print("enter ammo source")
 	ammoSource.turn_on();
 
 func exit():
-	print("exit ammor source")
 	ammoSource.turn_off();

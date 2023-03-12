@@ -1,7 +1,5 @@
 extends Node;
 
-class_name CursorMovementService
-
 var cursorPosition = Vector2(0, 0);
 var direction = Vector2(0, 0);
 var isMouseControl = true;
@@ -13,12 +11,13 @@ var currentTime = 0;
 func get_current_position() -> Vector2:
 	return cursorPosition
 
+func _ready() -> void:
+	self.set_pause_mode(PAUSE_MODE_PROCESS);
+
 func _process(delta) -> void:
 	currentTime += delta;
 	var newCursorPosition = cursorPosition;
-	print(isMouseControl)
 	if isMouseControl:
-		print("here")
 		newCursorPosition = (get_viewport().get_mouse_position() / GlobalConfig.GRID_SIZE).round() * GlobalConfig.GRID_SIZE
 	
 	if not isMouseControl and currentTime - lastTimeControlFired > 0.15:

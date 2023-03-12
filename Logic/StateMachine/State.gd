@@ -5,7 +5,7 @@ class_name State
 var state_machine = null;
 
 func _ready():
-	print(state_machine)
+	print("state machine", state_machine)
 	pass;
 
 

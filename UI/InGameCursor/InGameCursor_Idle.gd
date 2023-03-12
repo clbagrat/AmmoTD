@@ -1,13 +1,11 @@
 extends State
 
-export var cursorServicePath := NodePath();
-onready var cursorMovementService: CursorMovementService = get_node(cursorServicePath)
 
 
 onready var lastCursorPosition: Vector2 = Vector2(-100, -100);
 
 func update(_delta) -> void:
-	var cursorPosition = cursorMovementService.get_current_position();
+	var cursorPosition = CursorMovementService.get_current_position();
 	if (cursorPosition != lastCursorPosition):
 		lastCursorPosition = cursorPosition
 		var tween = create_tween();

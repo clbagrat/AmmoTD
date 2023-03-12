@@ -30,11 +30,6 @@ _global_script_classes=[ {
 "path": "res://Logic/BuildingSystem/Building.gd"
 }, {
 "base": "Node",
-"class": "CursorMovementService",
-"language": "GDScript",
-"path": "res://Logic/Services/CursorMovementService.gd"
-}, {
-"base": "Node",
 "class": "Draggable",
 "language": "GDScript",
 "path": "res://Logic/Draggable.gd"
@@ -59,7 +54,6 @@ _global_script_class_icons={
 "AmmoHolder": "",
 "AmmoSource": "",
 "Building": "",
-"CursorMovementService": "",
 "Draggable": "",
 "GlobalConfig": "",
 "State": "",
@@ -71,6 +65,11 @@ _global_script_class_icons={
 config/name="Ammo"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+CursorMovementService="*res://Logic/Services/CursorMovementService.gd"
+GameModeService="*res://Logic/Services/GameModeService.gd"
 
 [debug]
 
