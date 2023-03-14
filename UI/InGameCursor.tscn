@@ -26,6 +26,7 @@ align = 1
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource( 9 )
 capacity = 5
+startAtFullCapacity = true
 
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource( 3 )]
 activeByDefault = false

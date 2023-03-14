@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseAmmo
 
 
 export var speed = 10;

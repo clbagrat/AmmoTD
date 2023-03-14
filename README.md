@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 15.03.2023
+- Different type of ammo
+- Towers can understand what they shoot with
+
 #### 11.03.2023
 - Building system (everything is for free)
 

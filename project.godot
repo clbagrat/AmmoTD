@@ -19,10 +19,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Ammo/AmmoHolder.gd"
 }, {
+"base": "Node",
+"class": "AmmoMeta",
+"language": "GDScript",
+"path": "res://Ammo/Variations/AmmoMeta.gd"
+}, {
 "base": "Node2D",
 "class": "AmmoSource",
 "language": "GDScript",
 "path": "res://Ammo/AmmoSource.gd"
+}, {
+"base": "Node2D",
+"class": "BaseAmmo",
+"language": "GDScript",
+"path": "res://Ammo/BaseAmmo.gd"
 }, {
 "base": "Node",
 "class": "Building",
@@ -57,7 +67,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AliveCreature": "",
 "AmmoHolder": "",
+"AmmoMeta": "",
 "AmmoSource": "",
+"BaseAmmo": "",
 "Building": "",
 "Draggable": "",
 "GlobalConfig": "",
@@ -74,8 +86,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CursorMovementService="*res://Logic/Services/CursorMovementService.gd"
 GameModeService="*res://Logic/Services/GameModeService.gd"
+CursorMovementService="*res://Logic/Services/CursorMovementService.gd"
+AmmoService="*res://Logic/Services/AmmoService.gd"
 
 [debug]
 

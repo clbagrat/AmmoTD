@@ -1,7 +1,5 @@
 extends State
 
-
-
 onready var lastCursorPosition: Vector2 = Vector2(-100, -100);
 
 func update(_delta) -> void:

@@ -3,12 +3,15 @@ extends Node2D
 export var cooldown = 0.5;
 export var damage = 10;
 
-onready var Inventory = $Inventory;
+onready var inventory = $Inventory;
+onready var AmmoCount = $AmmoCount;
 
-const BulletPath = preload("res://Tower/Bullet.tscn")
 
 var targets = [];
 
+
+func _on_Inventory_amount_change(amount: int):
+	AmmoCount.text = str(amount);
 
 func _on_Area2D_body_entered(body:Node):
 	if (body.is_in_group("enemy")):
@@ -37,12 +40,13 @@ var time_passed = 0;
 var last_hit_time = 0;
 func _process(delta):
 	time_passed += delta;
+	
 	if (targets.size() > 0 && (time_passed - last_hit_time) > cooldown):
-		if (!Inventory.can_spend(1)):
+		if (!inventory.can_spend(1)):
 			return
-		Inventory.spend(1)
+		var spentAmmoType = inventory.spend(1)
 		last_hit_time = time_passed
-		var bullet = BulletPath.instance();
+		var bullet = AmmoService.create_projectile(spentAmmoType);
 		bullet.position = self.position;
 		bullet.set_target(targets.front())
 		bullet.connect("target_reached", self, "_on_target_reached")

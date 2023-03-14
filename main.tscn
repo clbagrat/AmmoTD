@@ -12,25 +12,16 @@
 [node name="Map1" parent="." instance=ExtResource( 1 )]
 
 [node name="Tower2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 224, 96 )
-
-[node name="Tower3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 144, 80 )
-
-[node name="Tower" parent="." instance=ExtResource( 5 )]
-position = Vector2( 112, 48 )
-
-[node name="Tower4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 176, 128 )
+position = Vector2( 208, 96 )
 
 [node name="Mine" parent="." instance=ExtResource( 2 )]
 position = Vector2( 272, 48 )
 
 [node name="Mine2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 48, 128 )
+position = Vector2( 64, 112 )
 
-[node name="Mine3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 272, 128 )
+[node name="Inventory" parent="Mine2" index="1"]
+ammoType = 0
 
 [node name="Belt" parent="." instance=ExtResource( 3 )]
 position = Vector2( 272, 64 )
@@ -47,3 +38,5 @@ position = Vector2( 182, 31 )
 [node name="BuildingSystem" parent="UI" instance=ExtResource( 7 )]
 
 [editable path="Map1"]
+[editable path="Mine2"]
+[editable path="Mine2/Inventory/AmmoSource"]

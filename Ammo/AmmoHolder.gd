@@ -23,6 +23,7 @@ func _on_Area2D_body_exited(body:Node):
 	if (body.is_in_group("ammo")):
 		var index = activeAmmo.find(body);
 		if (index >= 0):
+			print("LEFT", self)
 			activeAmmo.remove(index);
 
 
@@ -31,9 +32,11 @@ func _on_Area2D_body_entered(body:Node):
 		activeAmmo.push_back(body);
 
 func _on_Cooldown_timeout():
+	print(inventory.can_receive(1));
 	if (inventory.can_receive(1) && activeAmmo.size() > 0): 
+		var type = activeAmmo.back().get_ammo_type();
 		activeAmmo.back().queue_free();
-		inventory.receive(1)
+		inventory.receive(1, type);
 
 func turn_on():
 	timer.start();
