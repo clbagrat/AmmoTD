@@ -1,5 +1,13 @@
 ## Changelog
 
+#### 16.03.2023
+- Economy
+- Building Prices
+- Visible collection areas for Towers
+- Alert UI
+- Money UI
+- Enemies drop money on death
+
 #### 15.03.2023
 - Different type of ammo
 - Towers can understand what they shoot with

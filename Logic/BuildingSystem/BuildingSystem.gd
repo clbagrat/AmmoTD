@@ -3,6 +3,7 @@ extends Node2D
 var isActive = false
 var availableBuilding = []
 var activeBuilding = null;
+var activeBuildingInstance = null;
 
 onready var buildingUI = $BuildingUI;
 onready var buildings = $Buildings;
@@ -12,9 +13,13 @@ func _unhandled_input(event):
 		return
 
 	if (event.is_action_pressed("building_accept")):
-		activeBuilding = null
+		if (EconomyService.can_spend(activeBuilding.price)):
+			activeBuildingInstance = null
+			EconomyService.spend(activeBuilding.price);
+		else:
+			AlertService.alert("No money")
 	if (event.is_action_pressed("building_rotate")):
-		activeBuilding.rotate(PI/2);
+		activeBuildingInstance.rotate(PI/2);
 	if (event.is_action_pressed("building_destroy")):
 		var allBuildings = get_tree().get_nodes_in_group("building");
 		for building in allBuildings:
@@ -27,9 +32,9 @@ func _set_active(mode):
 	isActive = mode == GameModeService.GAME_MODES.Build;
 	get_tree().paused = isActive;
 	buildingUI.visible = isActive
-	if (activeBuilding):
-		activeBuilding.queue_free();
-		activeBuilding = null
+	if (activeBuildingInstance):
+		activeBuildingInstance.queue_free();
+		activeBuildingInstance = null
 
 func _ready():
 	var _subscription = GameModeService.connect("gameModeChanged", self, "_set_active");
@@ -38,12 +43,12 @@ func _ready():
 			availableBuilding.push_back(node)
 
 
-
 func _process(_delta):
 	if !isActive:
 		return;
-	if !activeBuilding:
-		activeBuilding =  availableBuilding.front().buildingScene.instance()
-		get_parent().get_parent().add_child(activeBuilding);
+	if !activeBuildingInstance:
+		activeBuilding = availableBuilding.front()
+		activeBuildingInstance = activeBuilding.buildingScene.instance()
+		get_parent().get_parent().add_child(activeBuildingInstance);
 	
-	activeBuilding.global_position = CursorMovementService.get_current_position();
+	activeBuildingInstance.global_position = CursorMovementService.get_current_position();

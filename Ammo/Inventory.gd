@@ -35,7 +35,7 @@ func spend(amount: int) -> int:
 		return _charges.pop_front()
 	return ammoType
 
-func can_receive(amount: int) -> bool:
+func can_receive(amount: int, _type: int) -> bool:
 	assert(amount > 0, "Amount should be positive");
 	return _current_amount + amount <= capacity
 

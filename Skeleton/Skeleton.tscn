@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Skeleton/Skel_walk_v2.png" type="Texture" id=1]
 [ext_resource path="res://Characters/Character.gd" type="Script" id=2]
 [ext_resource path="res://Logic/AliveCreature.gd" type="Script" id=3]
+[ext_resource path="res://Logic/DeathRattleChargeGenerate.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -159,6 +160,7 @@ parameters/Run/blend_position = Vector2( -0.00196004, 1.1 )
 
 [node name="AliveCreature" type="Node2D" parent="."]
 script = ExtResource( 3 )
+health = 20
 
 [node name="ProgressBar" type="ProgressBar" parent="AliveCreature"]
 margin_left = -17.0
@@ -173,3 +175,9 @@ percent_visible = false
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="DeathRattleChargeGenerate" type="Node2D" parent="."]
+script = ExtResource( 4 )
+AliveCreature = NodePath("../AliveCreature")
+type = 1
+amount = 4

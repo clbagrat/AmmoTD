@@ -10,8 +10,17 @@ onready var AmmoCount = $AmmoCount;
 var targets = [];
 
 
+func _ready():
+	_updateAmmoCount(inventory.get_current_amount())
+
+
 func _on_Inventory_amount_change(amount: int):
+	_updateAmmoCount(amount)
+
+func _updateAmmoCount(amount: int):
+	AmmoCount.visible = amount > 0
 	AmmoCount.text = str(amount);
+	
 
 func _on_Area2D_body_entered(body:Node):
 	if (body.is_in_group("enemy")):

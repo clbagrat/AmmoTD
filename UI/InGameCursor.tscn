@@ -8,7 +8,7 @@
 [ext_resource path="res://UI/InGameCursor/InGameCursor_PickupAmmo.gd" type="Script" id=6]
 [ext_resource path="res://Logic/StateMachine/StateMachine.gd" type="Script" id=7]
 [ext_resource path="res://UI/InGameCursor.gd" type="Script" id=8]
-[ext_resource path="res://Ammo/Inventory.gd" type="Script" id=9]
+[ext_resource path="res://Ammo/CursorInventory.gd" type="Script" id=9]
 
 [node name="InGameCursor" type="Node2D"]
 script = ExtResource( 8 )
@@ -25,8 +25,7 @@ align = 1
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource( 9 )
-capacity = 5
-startAtFullCapacity = true
+capacity = 10
 
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource( 3 )]
 activeByDefault = false
