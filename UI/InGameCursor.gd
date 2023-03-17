@@ -18,3 +18,12 @@ func _updateAmmoCount(amount: int):
 func _set_active(mode):
 	self.visible = mode == GameModeService.GAME_MODES.Play;
 
+onready var lastCursorPosition: Vector2 = Vector2(-100, -100);
+
+func _process(_delta) -> void:
+	var cursorPosition = CursorMovementService.get_current_position();
+	if (cursorPosition != lastCursorPosition):
+		lastCursorPosition = cursorPosition
+		var tween = create_tween();
+		tween.tween_property(self, "position", cursorPosition, .05);
+		tween.play()

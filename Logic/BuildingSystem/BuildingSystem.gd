@@ -31,7 +31,7 @@ func _unhandled_input(event):
 func _set_active(mode):
 	isActive = mode == GameModeService.GAME_MODES.Build;
 	get_tree().paused = isActive;
-	buildingUI.visible = isActive
+	buildingUI.visible = isActive;
 	if (activeBuildingInstance):
 		activeBuildingInstance.queue_free();
 		activeBuildingInstance = null

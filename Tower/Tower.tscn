@@ -1,9 +1,74 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Tower/Tower.png" type="Texture" id=1]
-[ext_resource path="res://Tower/Tower.gd" type="Script" id=2]
 [ext_resource path="res://Ammo/AmmoHolder.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ammo/Inventory.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+export var cooldown = 0.5;
+export var damage = 10;
+
+onready var inventory = $Inventory;
+onready var AmmoCount = $AmmoCount;
+
+
+var targets = [];
+
+
+func _ready():
+	_updateAmmoCount(inventory.get_current_amount())
+
+
+func _on_Inventory_amount_change(amount: int):
+	_updateAmmoCount(amount)
+
+func _updateAmmoCount(amount: int):
+	AmmoCount.visible = amount > 0
+	AmmoCount.text = str(amount);
+	
+
+func _on_Area2D_body_entered(body:Node):
+	if (body.is_in_group(\"enemy\")):
+		var target_alive_creature = body.get_parent().get_node(\"AliveCreature\");
+		targets.push_back(target_alive_creature)
+		target_alive_creature.connect(\"died\", self, \"_on_target_died\");
+
+func _on_Area2D_body_exited(body:Node):
+	if(is_instance_valid(body) && body.is_in_group(\"enemy\")):
+		var target_alive_creature = body.get_parent().get_node(\"AliveCreature\");
+		target_alive_creature.disconnect(\"died\", self, \"_on_target_died\");
+		var index = targets.find(target_alive_creature);
+		if (index >= 0):
+			targets.remove(index)
+
+func _on_target_reached(body:Node):
+	var aliveCreature: AliveCreature = body.get_parent().get_node(\"AliveCreature\")
+
+	aliveCreature.apply_damage(damage)
+
+func _on_target_died(target_alive_creature):
+		targets.remove(targets.find(target_alive_creature))
+
+var time_passed = 0;
+var last_hit_time = 0;
+func _process(delta):
+	time_passed += delta;
+	
+	if (targets.size() > 0 && (time_passed - last_hit_time) > cooldown):
+		if (!inventory.can_spend(1)):
+			return
+		var spentAmmoType = inventory.spend(1)
+		last_hit_time = time_passed
+		var bullet = AmmoService.create_projectile(spentAmmoType);
+		bullet.position = self.position;
+		bullet.set_target(targets.front());
+		bullet.connect(\"target_reached\", self, \"_on_target_reached\");
+		get_parent().add_child(bullet);
+"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/Tower.png-75279499c09de602bd8ce3aee583a4d7.stex"
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.0128
@@ -12,10 +77,10 @@ radius = 39.0128
 extents = Vector2( 8, 8 )
 
 [node name="Tower" type="Node2D"]
-script = ExtResource( 2 )
+script = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = SubResource( 4 )
 
 [node name="AmmoCount" type="Label" parent="."]
 margin_left = -19.0
@@ -35,6 +100,7 @@ capacity = 10
 
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource( 3 )]
 showShape = true
+pickupTime = 0.7
 
 [node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
 position = Vector2( 0, -16 )

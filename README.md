@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 20.03.2023
+- Refactor Towers
+- Change mechanics of holding ammo
+
 #### 16.03.2023
 - Economy
 - Building Prices

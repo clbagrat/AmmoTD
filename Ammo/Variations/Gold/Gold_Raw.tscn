@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Ammo/Variations/Gold/GoldRaw.png" type="Texture" id=1]
 [ext_resource path="res://Logic/Draggable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ammo/BaseAmmo.gd" type="Script" id=3]
+[ext_resource path="res://Ammo/Pullable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ammo/BaseAmmo.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -18,8 +18,10 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 type = 1
 
 [node name="Draggable" parent="." instance=ExtResource( 2 )]
 body_to_drag = NodePath("..")
+
+[node name="Pullable" parent="." instance=ExtResource( 3 )]
