@@ -57,7 +57,7 @@ script = ExtResource( 8 )
 wait_time = 0.5
 
 [node name="FIFOCreatureTower" parent="." instance=ExtResource( 9 )]
-position = Vector2( 176, 96 )
+position = Vector2( 176, 64 )
 
 [connection signal="timeout" from="UI/AlertUI/Timer" to="UI/AlertUI" method="_on_Timer_timeout"]
 

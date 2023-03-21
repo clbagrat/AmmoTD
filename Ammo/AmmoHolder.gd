@@ -64,6 +64,8 @@ func _draw():
 func turn_on():
 	isActive = true;
 	for body in activeAmmo:
+		if !is_instance_valid(body):
+			continue
 		var pullable: Pullable = body.get_node("Pullable");
 		pullable.startPull(self)
 		

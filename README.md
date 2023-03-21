@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 21.03.2023
+- Add bombs and explosions
+
 #### 20.03.2023
 - Refactor Towers
 - Change mechanics of holding ammo

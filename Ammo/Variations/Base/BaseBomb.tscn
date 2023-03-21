@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tower/bullet.png" type="Texture" id=1]
+[ext_resource path="res://Tower/AmmoShadow.png" type="Texture" id=2]
+[ext_resource path="res://Ammo/Variations/Base/BaseBomb.gd" type="Script" id=3]
+
+[node name="BaseBomb" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+
+[node name="Projectile" type="Sprite" parent="."]
+texture = ExtResource( 1 )

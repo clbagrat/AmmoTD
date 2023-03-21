@@ -8,6 +8,7 @@ func handle_input(event: InputEvent) -> void:
 		state_machine.transition_to("Idle")
 
 func enter():
+	print(ammoHolder)
 	ammoHolder.turn_on();
 
 func exit():
