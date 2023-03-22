@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Ammo/Variations/AmmoMeta.gd" type="Script" id=1]
 [ext_resource path="res://Ammo/Variations/Gold/Gold_Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Ammo/Variations/Gold/Gold_Raw.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ammo/Variations/Base/BaseBomb.tscn" type="PackedScene" id=4]
 
 [node name="GoldAmmoMeta" type="Node"]
 script = ExtResource( 1 )
 type = 1
 projectile = ExtResource( 2 )
 raw = ExtResource( 3 )
+bomb = ExtResource( 4 )

@@ -1,5 +1,7 @@
 extends BaseAmmo
 
+class_name BaseBomb
+
 export var speed = 15;
 
 export var maxHeight = 10;

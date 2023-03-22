@@ -13,3 +13,7 @@ func create_raw(type: int) -> Node2D:
 	assert(dict[type], "There is no config set");
 	return dict[type].get_raw_representation().instance();
 	
+func create_bomb(type: int) -> Node2D:
+	assert(dict[type], "There is no config set");
+	return dict[type].get_bomb_representation().instance();
+	

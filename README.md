@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 22.03.2023
+- Bomb tower
+
 #### 21.03.2023
 - Add bombs and explosions
 
