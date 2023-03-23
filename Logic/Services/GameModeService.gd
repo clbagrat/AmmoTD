@@ -7,7 +7,7 @@ signal gameModeChanged(GAME_MODES);
 var _currentMode = GAME_MODES.Play
 
 func _ready() -> void:
-	self.set_pause_mode(PAUSE_MODE_PROCESS);
+	self.set_process_mode(PROCESS_MODE_ALWAYS);
 
 func _unhandled_input(event):
 	if (event.is_action_pressed("building_mode")):

@@ -12,7 +12,7 @@ func get_current_position() -> Vector2:
 	return cursorPosition
 
 func _ready() -> void:
-	self.set_pause_mode(PAUSE_MODE_PROCESS);
+	self.set_process_mode(PROCESS_MODE_ALWAYS);
 
 func _process(delta) -> void:
 	currentTime += delta;

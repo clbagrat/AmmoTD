@@ -9,9 +9,9 @@ extends Node2D
 	# active dragger
 
 
-export var speed = 20;
+@export var speed = 20;
 
-onready var destination: Node2D = $Destination;
+@onready var destination: Node2D = $Destination;
 
 var bodies_to_move: Array = []
 
@@ -27,12 +27,13 @@ func _physics_process(delta):
 	for i in range(bodies_to_move.size() - 1, -1, -1):
 		var draggable = bodies_to_move[i]
 		if !is_instance_valid(draggable):
-			bodies_to_move.remove(i)
+			bodies_to_move.erase(i)
 			continue
 		if draggable.current_handler != self:
-			bodies_to_move.remove(i)
+			bodies_to_move.erase(i)
 			continue
 		var draggablePos = draggable.body.global_position;
+				print((destination.global_position - draggablePos).normalized(), delta, speed, draggablePos)
 		var newPos = (destination.global_position - draggablePos).normalized() * delta * speed + draggablePos;
 		draggable.move_body(self, newPos)
 

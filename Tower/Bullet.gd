@@ -1,6 +1,6 @@
 extends BaseAmmo
 
-export var speed = 10;
+@export var speed = 10;
 
 signal target_reached(body)
 

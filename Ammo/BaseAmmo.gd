@@ -2,7 +2,7 @@ extends Node2D
 
 class_name BaseAmmo
 
-export(GlobalConfig.AmmoTypes) var type;
+@export var type: GlobalConfig.AmmoTypes
 
 
 func get_ammo_type() -> int:

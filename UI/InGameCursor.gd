@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var AmmoCount = $AmmoCount;
-onready var inventory = $Inventory;
+@onready var AmmoCount = $AmmoCount;
+@onready var inventory = $Inventory;
 
 func _ready():
-	var _subscription = GameModeService.connect("gameModeChanged", self, "_set_active");
+	var _subscription = GameModeService.connect("gameModeChanged",Callable(self,"_set_active"));
 	_updateAmmoCount(inventory.get_current_amount())
 
 
@@ -18,7 +18,7 @@ func _updateAmmoCount(amount: int):
 func _set_active(mode):
 	self.visible = mode == GameModeService.GAME_MODES.Play;
 
-onready var lastCursorPosition: Vector2 = Vector2(-100, -100);
+@onready var lastCursorPosition: Vector2 = Vector2(-100, -100);
 
 func _process(_delta) -> void:
 	var cursorPosition = CursorMovementService.get_current_position();

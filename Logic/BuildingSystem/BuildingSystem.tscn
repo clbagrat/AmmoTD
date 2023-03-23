@@ -11,13 +11,13 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="Hints" type="Panel" parent="BuildingUI"]
-margin_top = 160.0
-margin_right = 112.0
-margin_bottom = 176.0
+offset_top = 160.0
+offset_right = 112.0
+offset_bottom = 176.0
 
 [node name="E to rotate" type="RichTextLabel" parent="BuildingUI/Hints"]
-margin_right = 112.0
-margin_bottom = 16.0
+offset_right = 112.0
+offset_bottom = 16.0
 text = "[E] to rotate"
 
 [node name="Buildings" type="Node" parent="."]

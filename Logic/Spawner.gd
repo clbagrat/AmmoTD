@@ -1,7 +1,7 @@
 extends Node
 
 
-export var cooldown = 1.5;
+@export var cooldown = 1.5;
 
 const Skeleton = preload("res://Skeleton/Skeleton.tscn")
 const PathFollower = preload("res://Logic/PathFollower.tscn")
@@ -13,10 +13,10 @@ var time_passed = cooldown;
 func _process(delta):
 	time_passed += delta;
 	if (time_passed > cooldown):
-		var newSkeleton = Skeleton.instance();
-		var newPathFollower = PathFollower.instance();
+		var newSkeleton = Skeleton.instantiate();
+		var newPathFollower = PathFollower.instantiate();
 		newPathFollower.add_child(newSkeleton);
-		get_node("Path/Path2D").add_child(newPathFollower);
+		get_node("Path3D/Path2D").add_child(newPathFollower);
 		time_passed = 0
 	
 

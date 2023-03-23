@@ -1,12 +1,12 @@
 extends Label
 
-export var InventoryPath := NodePath();
+@export var InventoryPath := NodePath();
 
-onready var inventory: Inventory = get_node(InventoryPath);
+@onready var inventory: Inventory = get_node(InventoryPath);
 
 func _ready():
 	_updateAmmoCount(inventory.get_current_amount())
-	var _connection = inventory.connect("amount_change", self, "_updateAmmoCount");
+	var _connection = inventory.connect("amount_change",Callable(self,"_updateAmmoCount"));
 
 
 func _updateAmmoCount(amount: int):

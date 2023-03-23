@@ -4,9 +4,9 @@ class_name Inventory
 
 signal amount_change(amount);
 
-export(GlobalConfig.AmmoTypes) var ammoType;
-export var capacity: int;
-export var startAtFullCapacity: bool;
+@export var ammoType: GlobalConfig.AmmoTypes;
+@export var capacity: int;
+@export var startAtFullCapacity: bool;
 var _charges: Array = [];
 
 func _ready():
@@ -20,15 +20,15 @@ func get_current_amount() -> int:
 	return  _current_amount;
 
 func receive(amount: int, type: int) -> void:
-	assert(amount > 0, "Amount should be positive")
-	assert(_current_amount + amount <= capacity, "Can't fit")
+	assert(amount > 0) #,"Amount should be positive")
+	assert(_current_amount + amount <= capacity) #,"Can't fit")
 	_charges.push_back(type);
 	_current_amount += amount;
 	_emit();
 
 func spend(amount: int) -> int:
-	assert(amount > 0, "Amount should be positive");
-	assert(_current_amount - amount >= 0, "Not enough");
+	assert(amount > 0) ;#,"Amount should be positive")
+	assert(_current_amount - amount >= 0) ;#,"Not enough")
 	_current_amount -= amount;
 	_emit();
 	if (_charges.size() > 0):
@@ -36,11 +36,11 @@ func spend(amount: int) -> int:
 	return ammoType
 
 func can_receive(amount: int, _type: int) -> bool:
-	assert(amount > 0, "Amount should be positive");
+	assert(amount > 0) ;#,"Amount should be positive")
 	return _current_amount + amount <= capacity
 
 func can_spend(amount: int) -> bool:
-	assert(amount > 0, "Amount should be positive");
+	assert(amount > 0) ;#,"Amount should be positive")
 	return _current_amount - amount >= 0 
 	
 func _emit() -> void:

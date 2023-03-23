@@ -6,7 +6,7 @@
 _data = [ Vector2( 0.00179211, 0.953988 ), 0.0, 0.0, 0, 0, Vector2( 0.489247, 0.518405 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 0.865234, 0.622121, 0.622121, 1, 0.937255, 0.564706, 0.564706, 0 )
+colors = PackedColorArray( 0.865234, 0.622121, 0.622121, 1, 0.937255, 0.564706, 0.564706, 0 )
 
 [node name="Pullable" type="Node2D"]
 script = ExtResource( 1 )

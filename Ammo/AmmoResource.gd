@@ -1,3 +1,3 @@
 extends Resource
 
-export(AmmoConfig) var ammoType;
+@export var ammoType: AmmoConfig;

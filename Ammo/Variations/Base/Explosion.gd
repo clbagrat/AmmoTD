@@ -1,7 +1,7 @@
 extends Node2D
 
-export var damage = 10;
-export var time_to_explode = 0.1
+@export var damage = 10;
+@export var time_to_explode = 0.1
 
 var _time_passed = 0
 
