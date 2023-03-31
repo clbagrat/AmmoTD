@@ -36,9 +36,8 @@ gdscript/warnings/unused_class_variable=true
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=1280
-window/size/window_height_override=720
-window/stretch/mode="2d"
+window/size/window_width_override=320
+window/size/window_height_override=180
 window/stretch/aspect="expand"
 
 [gui]
