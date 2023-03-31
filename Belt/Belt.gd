@@ -33,7 +33,6 @@ func _physics_process(delta):
 			bodies_to_move.erase(i)
 			continue
 		var draggablePos = draggable.body.global_position;
-				print((destination.global_position - draggablePos).normalized(), delta, speed, draggablePos)
 		var newPos = (destination.global_position - draggablePos).normalized() * delta * speed + draggablePos;
 		draggable.move_body(self, newPos)
 

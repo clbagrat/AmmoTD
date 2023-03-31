@@ -26,7 +26,7 @@ func _on_LetGoArea_body_exited(body:Node):
 	if (body.is_in_group("ammo")):
 		var index = activeAmmo.find(body);
 		if (index >= 0):
-			activeAmmo.remove(index);
+			activeAmmo.erase(index);
 			var pullable: Pullable = body.get_node("Pullable");
 			pullable.stopPull(self);
 

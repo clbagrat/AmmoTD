@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var AmmoCount = $AmmoCount;
-@onready var inventory = $Inventory;
+@onready var inventory:Inventory = $Inventory;
 
 func _ready():
 	var _subscription = GameModeService.connect("gameModeChanged",Callable(self,"_set_active"));
@@ -22,6 +22,7 @@ func _set_active(mode):
 
 func _process(_delta) -> void:
 	var cursorPosition = CursorMovementService.get_current_position();
+	print("cursorPosition", cursorPosition)
 	if (cursorPosition != lastCursorPosition):
 		lastCursorPosition = cursorPosition
 		var tween = create_tween();

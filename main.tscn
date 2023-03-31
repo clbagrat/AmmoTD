@@ -23,7 +23,7 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0
 format = 2
 
 [node name="Mine" parent="." instance=ExtResource("2")]
-position = Vector2(272, 48)
+position = Vector2(272, 51)
 
 [node name="Mine2" parent="." instance=ExtResource("2")]
 position = Vector2(64, 112)
@@ -32,15 +32,13 @@ position = Vector2(64, 112)
 ammoType = 0
 
 [node name="Belt" parent="." instance=ExtResource("3")]
-position = Vector2(272, 64)
-speed = null
+position = Vector2(272, 67)
 
 [node name="Belt2" parent="." instance=ExtResource("3")]
-position = Vector2(256, 64)
-speed = null
+position = Vector2(256, 67)
 
 [node name="UI" type="Node2D" parent="."]
-process_mode = 2
+process_mode = 3
 
 [node name="Cursor" parent="UI" instance=ExtResource("4")]
 position = Vector2(192, 48)

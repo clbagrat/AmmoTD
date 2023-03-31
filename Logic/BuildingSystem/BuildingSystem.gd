@@ -3,12 +3,12 @@ extends Node2D
 var isActive = false
 var availableBuilding = []
 var activeBuilding = null;
-var activeBuildingInstance = null;
+var activeBuildingInstance: Node2D = null;
 
 @onready var buildingUI = $BuildingUI;
 @onready var buildings = $Buildings;
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if !isActive:
 		return
 
