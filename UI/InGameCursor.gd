@@ -22,7 +22,6 @@ func _set_active(mode):
 
 func _process(_delta) -> void:
 	var cursorPosition = CursorMovementService.get_current_position();
-	print("cursorPosition", cursorPosition)
 	if (cursorPosition != lastCursorPosition):
 		lastCursorPosition = cursorPosition
 		var tween = create_tween();

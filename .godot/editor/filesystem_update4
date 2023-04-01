@@ -1,5 +1,9 @@
-res://Belt/Belt.gd
-res://Ammo/AmmoResource.gd
 res://default_env.tres
+res://World/Maps/map_1.tscn
+res://World/Maps/GroundTileset1.tres
+res://Logic/Spawner.gd
 res://main.tscn
 res://Skeleton/Skeleton.tscn
+res://Logic/PathFollower.tscn
+res://Logic/Services/CursorMovementService.gd
+res://UI/InGameCursor.gd
