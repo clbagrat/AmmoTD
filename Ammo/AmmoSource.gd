@@ -4,7 +4,7 @@ class_name AmmoSource
 
 @export var activeByDefault = true;
 
-@onready var timer = $Cooldown;
+@onready var timer: Timer = $Cooldown;
 
 var inventory: Inventory;
 
