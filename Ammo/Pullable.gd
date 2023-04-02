@@ -3,7 +3,7 @@ extends Node2D;
 
 class_name Pullable
 
-onready var particles = $Particles;
+@onready var particles = $Particles;
 
 var _currentPuller = null;
 var _time_in_progress = 0;

@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cfvejolo5p38a"]
 
-[ext_resource path="res://Ammo/AmmoSource.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://Ammo/AmmoSource.gd" id="2"]
 
 [node name="AmmoSource" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Cooldown" type="Timer" parent="."]
+
+[node name="DropAreaRect" type="ReferenceRect" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_Timer_timeout"]

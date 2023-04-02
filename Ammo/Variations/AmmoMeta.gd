@@ -2,10 +2,10 @@ extends Node
 
 class_name AmmoMeta
 
-export(GlobalConfig.AmmoTypes) var type;
-export(PackedScene) var projectile;
-export(PackedScene) var raw;
-export(PackedScene) var bomb;
+@export var type: GlobalConfig.AmmoTypes;
+@export var projectile: PackedScene;
+@export var raw: PackedScene;
+@export var bomb: PackedScene;
 
 func get_type() -> int:
 	return type;

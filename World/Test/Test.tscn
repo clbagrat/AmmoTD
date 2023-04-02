@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Ammo/Ammo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/InGameCursor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Skeleton/Skeleton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Skeleton3D/Skeleton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tower/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Ammo/AmmoSource.tscn" type="PackedScene" id=5]
 
@@ -13,7 +13,7 @@ position = Vector2( 4, 4 )
 position = Vector2( 129, 64 )
 collision_layer = 1
 
-[node name="Skeleton" parent="." instance=ExtResource( 3 )]
+[node name="Skeleton3D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 64, 90 )
 
 [node name="Tower" parent="." instance=ExtResource( 4 )]

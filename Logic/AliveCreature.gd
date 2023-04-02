@@ -2,12 +2,12 @@ extends Node
 
 class_name AliveCreature
 
-export var health = 100;
+@export var health = 100;
 
 signal died(aliveCreature);
 
-onready var health_bar = $ProgressBar;
-onready var current_health = health;
+@onready var health_bar = $ProgressBar;
+@onready var current_health = health;
 
 func _ready():
 	health_bar.value = 100;

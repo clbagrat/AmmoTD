@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var prev_pos = global_position;
-onready var animation_tree = $AnimationTree;
+@onready var prev_pos = global_position;
+@onready var animation_tree = $AnimationTree;
 
 func play_run_animation ():
 	var animation_direction =  global_position - prev_pos;

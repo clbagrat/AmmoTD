@@ -1,6 +1,6 @@
 extends BaseCooldown
 
-export var cooldown = 0.5;
+@export var cooldown = 0.5;
 
 var time_passed = 0;
 var last_hit_time = 0;

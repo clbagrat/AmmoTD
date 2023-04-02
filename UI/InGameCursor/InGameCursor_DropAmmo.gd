@@ -1,6 +1,6 @@
 extends State
 
-onready var ammoSource: AmmoSource = owner.get_node("Inventory/AmmoSource")
+@onready var ammoSource: AmmoSource = owner.get_node("Inventory/AmmoSource")
 
 
 func handle_input(event: InputEvent) -> void:

@@ -3,12 +3,12 @@ extends Node2D
 var isActive = false
 var availableBuilding = []
 var activeBuilding = null;
-var activeBuildingInstance = null;
+var activeBuildingInstance: Node2D = null;
 
-onready var buildingUI = $BuildingUI;
-onready var buildings = $Buildings;
+@onready var buildingUI = $BuildingUI;
+@onready var buildings = $Buildings;
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if !isActive:
 		return
 
@@ -37,7 +37,7 @@ func _set_active(mode):
 		activeBuildingInstance = null
 
 func _ready():
-	var _subscription = GameModeService.connect("gameModeChanged", self, "_set_active");
+	var _subscription = GameModeService.connect("gameModeChanged",Callable(self,"_set_active"));
 	for node in buildings.get_children():
 		if node is Building:
 			availableBuilding.push_back(node)
@@ -48,7 +48,7 @@ func _process(_delta):
 		return;
 	if !activeBuildingInstance:
 		activeBuilding = availableBuilding.front()
-		activeBuildingInstance = activeBuilding.buildingScene.instance()
+		activeBuildingInstance = activeBuilding.buildingScene.instantiate()
 		get_parent().get_parent().add_child(activeBuildingInstance);
 	
 	activeBuildingInstance.global_position = CursorMovementService.get_current_position();

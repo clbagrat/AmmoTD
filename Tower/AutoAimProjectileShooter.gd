@@ -10,7 +10,7 @@ func shoot_creature(ammoType: int, creatureToFollow: AliveCreature):
 	var bullet = AmmoService.create_projectile(ammoType);
 	bullet.position = self.position;
 	bullet.set_target(creatureToFollow);
-	bullet.connect("target_reached", self, "_on_target_reached");
+	bullet.connect("target_reached",Callable(self,"_on_target_reached"));
 	get_parent().add_child(bullet);
 	
 func shoot_in_direction(_ammoType, _direction):

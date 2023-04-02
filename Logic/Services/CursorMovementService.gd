@@ -7,18 +7,21 @@ var isMouseControl = true;
 var lastTimeControlFired = 0;
 var currentTime = 0;
 
+var lastMouseCoordinates = Vector2(0, 0)
+
 
 func get_current_position() -> Vector2:
 	return cursorPosition
 
 func _ready() -> void:
-	self.set_pause_mode(PAUSE_MODE_PROCESS);
+	self.set_process_mode(PROCESS_MODE_ALWAYS);
 
 func _process(delta) -> void:
 	currentTime += delta;
 	var newCursorPosition = cursorPosition;
+	var currentMouseCoordinates = get_viewport().get_mouse_position();
 	if isMouseControl:
-		newCursorPosition = (get_viewport().get_mouse_position() / GlobalConfig.GRID_SIZE).round() * GlobalConfig.GRID_SIZE
+		newCursorPosition = (currentMouseCoordinates / GlobalConfig.GRID_SIZE).round() * GlobalConfig.GRID_SIZE
 	
 	if not isMouseControl and currentTime - lastTimeControlFired > 0.15:
 		newCursorPosition = cursorPosition + direction * GlobalConfig.GRID_SIZE;
@@ -27,8 +30,13 @@ func _process(delta) -> void:
 
 	if (newCursorPosition != cursorPosition):
 		cursorPosition = newCursorPosition
+	
+	if (currentMouseCoordinates != lastMouseCoordinates):
+		isMouseControl = true;
+	
+	lastMouseCoordinates = currentMouseCoordinates;
 
-func _unhandled_input(event) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed("move_left")):
 		direction.x += -1;
 		lastTimeControlFired = 0

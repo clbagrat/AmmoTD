@@ -2,10 +2,10 @@ extends Node
 
 class_name Draggable
 
-export var body_to_drag := NodePath()
+@export var body_to_drag := NodePath()
 
-onready var body: Node2D = get_node(body_to_drag);
-onready var timer: Timer = $Timer;
+@onready var body: Node2D = get_node(body_to_drag);
+@onready var timer: Timer = $Timer;
 
 var current_handler: Node = null;
 
