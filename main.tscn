@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cymdn02chgy2m"]
 
 [ext_resource type="PackedScene" uid="uid://c30jejckrt3io" path="res://World/Maps/map_1.tscn" id="1_7u1yf"]
-[ext_resource type="PackedScene" path="res://Ammo/Mine.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://Belt/Belt.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://UI/InGameCursor.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://Tower/FIFOPositionBombTower.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bjmq5626jva8q" path="res://Ammo/Mine.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://d0o3dnh3c8vqw" path="res://Belt/Belt.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c03fvapcpx2aa" path="res://UI/InGameCursor.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://daqd22nioycr2" path="res://Tower/FIFOPositionBombTower.tscn" id="5"]
 [ext_resource type="Script" path="res://UI/EconomyUI.gd" id="6"]
 [ext_resource type="PackedScene" path="res://Logic/BuildingSystem/BuildingSystem.tscn" id="7"]
 [ext_resource type="Script" path="res://UI/AlertUI.gd" id="8"]
-[ext_resource type="PackedScene" path="res://Tower/FIFOCreatureTower.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://befi8sqr3f26k" path="res://Tower/FIFOCreatureTower.tscn" id="9"]
 
 [node name="World" type="Node2D"]
 
@@ -21,7 +21,7 @@ position = Vector2(304, 207)
 position = Vector2(336, 160)
 
 [node name="Mine" parent="." instance=ExtResource("2")]
-position = Vector2(432, 144)
+position = Vector2(432, 160)
 
 [node name="Mine2" parent="." instance=ExtResource("2")]
 position = Vector2(224, 208)
@@ -30,10 +30,10 @@ position = Vector2(224, 208)
 ammoType = 0
 
 [node name="Belt" parent="." instance=ExtResource("3")]
-position = Vector2(432, 160)
+position = Vector2(432, 176)
 
 [node name="Belt2" parent="." instance=ExtResource("3")]
-position = Vector2(416, 160)
+position = Vector2(416, 176)
 
 [node name="UI" type="Node2D" parent="."]
 process_mode = 3
@@ -53,6 +53,7 @@ script = ExtResource("8")
 wait_time = 0.5
 
 [node name="Cursor" parent="UI" instance=ExtResource("4")]
+visible = false
 position = Vector2(192, 48)
 
 [node name="BuildingSystem" parent="UI" instance=ExtResource("7")]
@@ -84,6 +85,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 script = ExtResource("6")
+
+[node name="InGameCursor" parent="." instance=ExtResource("4")]
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 

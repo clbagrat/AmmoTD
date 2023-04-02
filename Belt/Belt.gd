@@ -27,10 +27,10 @@ func _physics_process(delta):
 	for i in range(bodies_to_move.size() - 1, -1, -1):
 		var draggable = bodies_to_move[i]
 		if !is_instance_valid(draggable):
-			bodies_to_move.erase(i)
+			bodies_to_move.remove_at(i)
 			continue
 		if draggable.current_handler != self:
-			bodies_to_move.erase(i)
+			bodies_to_move.remove_at(i)
 			continue
 		var draggablePos = draggable.body.global_position;
 		var newPos = (destination.global_position - draggablePos).normalized() * delta * speed + draggablePos;

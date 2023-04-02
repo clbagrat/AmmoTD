@@ -1,9 +1,9 @@
+ReferenceRect
 TileMap
 ColorRect
 RichTextLabel
 MarginContainer
 HFlowContainer
-ReferenceRect
 SubViewport
 SubViewportContainer
 PanelContainer

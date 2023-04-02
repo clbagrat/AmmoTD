@@ -4,14 +4,14 @@ extends BaseAmmo
 
 signal target_reached(body)
 
-var current_target;
+var current_target: Node2D;
 
 func set_target(target):
 	current_target = target;
 
 func _physics_process(delta):
 	if (is_instance_valid(current_target)):
-		global_position = (current_target.global_position - global_position).normalized() * speed * delta + global_position
+		global_position = global_position.direction_to(current_target.global_position) * speed * delta + global_position
 	
 	if (current_target && !is_instance_valid(current_target)):
 		queue_free()

@@ -5,6 +5,7 @@ class_name AmmoSource
 @export var activeByDefault = true;
 
 @onready var timer: Timer = $Cooldown;
+@onready var dropArea: ReferenceRect = $DropAreaRect;
 
 var inventory: Inventory;
 
@@ -21,9 +22,13 @@ func _on_Timer_timeout():
 
 	var ammo = AmmoService.create_raw(ammoType);
 	get_tree().get_root().get_node("World").add_child(ammo);
-	var ammoPos = Vector2(randf_range(1, 3), randf_range(1, 5));
-	ammoPos += ammoPos.normalized() * 8 + ammoPos
-	ammo.global_position = self.global_position + ammoPos;
+
+	var ammoPos = _get_random_drop_position();
+	ammo.global_position = ammoPos;
+
+func _get_random_drop_position() -> Vector2:
+	var gp = dropArea.global_position;
+	return Vector2(randf_range(gp.x, gp.x+dropArea.size.x), randf_range(gp.y, gp.y + dropArea.size.y))
 
 
 func turn_on():
