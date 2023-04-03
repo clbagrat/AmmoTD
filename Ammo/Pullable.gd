@@ -11,6 +11,9 @@ var _time_in_progress = 0;
 func isPullInProgress() -> bool:
 	return !!_currentPuller;
 
+func isBeingPulledBy(puller: Node2D) -> bool:
+	return isPullInProgress() && _currentPuller == puller
+
 func startPull(puller: Node2D):
 	_currentPuller = puller;	
 	_time_in_progress = 0;

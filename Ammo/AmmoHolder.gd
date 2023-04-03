@@ -38,20 +38,22 @@ func _physics_process(delta):
 		return;
 
 	for index in range(activeAmmo.size()):
-		var ammo = activeAmmo[index]
-		if (!is_instance_valid(ammo)):
+		var ammo: Node2D = activeAmmo[index]
+		if (!is_instance_valid(ammo) && ammo):
 			continue;
 		var type = ammo.get_ammo_type();
+		var pullable: Pullable = ammo.get_node("Pullable");
+
 		if (!inventory.can_receive(1, type)):
+			pullable.stopPull(self);
 			continue;
 
-		var pullable: Pullable = ammo.get_node("Pullable");
 
 		if (pullable.isPullInProgress()):
 			if (pullable.getTimeBeingPulled() > pickupTime):
 				if inventory.can_receive(1, type):
 					inventory.receive(1, type);
-				activeAmmo[index].queue_free();
+					ammo.queue_free();
 			continue;
 		else:
 			pullable.startPull(self);
@@ -60,7 +62,7 @@ func _physics_process(delta):
 func _draw():
 	if !showShape:
 		return
-	# draw_rect(Rect2(collisionShape.position - collisionShape.shape.size, collisionShape.shape.size * 2), Color(255, 255, 255, 0.5), true)
+	draw_rect(Rect2(collisionShape.position - collisionShape.shape.size, collisionShape.shape.size * 2), Color(255, 255, 255, 0.5), true)
 
 func turn_on():
 	isActive = true;

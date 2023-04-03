@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6wuvjjdhawva"]
+[gd_scene load_steps=6 format=3 uid="uid://dxsk2e6nmk5jh"]
 
-[ext_resource type="Texture2D" uid="uid://bagl8k1gx4hd3" path="res://Ammo/Ammo.png" id="1"]
 [ext_resource type="PackedScene" path="res://Logic/Draggable.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bagl8k1gx4hd3" path="res://Ammo/Variations/Common/CommonRaw.png" id="2_3sjlc"]
 [ext_resource type="Script" path="res://Ammo/BaseAmmo.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://uyuqjtdso4l7" path="res://Ammo/Pullable.tscn" id="4"]
 
@@ -16,7 +16,7 @@ script = ExtResource("3")
 shape = SubResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1")
+texture = ExtResource("2_3sjlc")
 
 [node name="Draggable" parent="." instance=ExtResource("2")]
 body_to_drag = NodePath("..")

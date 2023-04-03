@@ -53,7 +53,6 @@ script = ExtResource("8")
 wait_time = 0.5
 
 [node name="Cursor" parent="UI" instance=ExtResource("4")]
-visible = false
 position = Vector2(192, 48)
 
 [node name="BuildingSystem" parent="UI" instance=ExtResource("7")]
@@ -85,8 +84,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 script = ExtResource("6")
-
-[node name="InGameCursor" parent="." instance=ExtResource("4")]
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 

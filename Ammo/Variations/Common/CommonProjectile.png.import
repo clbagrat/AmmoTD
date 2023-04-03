@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bagl8k1gx4hd3"
-path="res://.godot/imported/Ammo.png-af8454543ab00e105525fb9a4a8abdfc.ctex"
+uid="uid://c0wdiq047fgfn"
+path="res://.godot/imported/CommonProjectile.png-e3afe9912b8ff2bc20780b6c2fba77dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ammo/Ammo.png"
-dest_files=["res://.godot/imported/Ammo.png-af8454543ab00e105525fb9a4a8abdfc.ctex"]
+source_file="res://Ammo/Variations/Common/CommonProjectile.png"
+dest_files=["res://.godot/imported/CommonProjectile.png-e3afe9912b8ff2bc20780b6c2fba77dd.ctex"]
 
 [params]
 
