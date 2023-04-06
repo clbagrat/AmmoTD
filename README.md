@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 06.04.2023
+- z-indexes fixed
+
 #### 22.03.2023
 - Bomb tower
 

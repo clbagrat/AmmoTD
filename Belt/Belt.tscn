@@ -45,9 +45,11 @@ _data = {
 size = Vector2(16, 16)
 
 [node name="Belt" type="Node2D" groups=["building"]]
+y_sort_enabled = true
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1")
 hframes = 4
 frame = 1

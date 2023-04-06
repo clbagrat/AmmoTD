@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 	projectile.position = Vector2(0, -newHeight)
 
-	if (global_position.distance_to(target_position) < 0.3):
+	if (global_position.distance_to(target_position) < 0.5):
 		var inst = explosionPrefab.instantiate();
 		get_parent().add_child(inst);
 		inst.global_position = global_position

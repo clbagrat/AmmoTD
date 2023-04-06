@@ -1,27 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://b2dwbdhvp18m1"]
 
-[ext_resource path="res://Ammo/Variations/Gold/GoldRaw.png" type="Texture2D" id=1]
-[ext_resource path="res://Logic/Draggable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ammo/Pullable.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ammo/BaseAmmo.gd" type="Script" id=4]
+[ext_resource type="Texture2D" uid="uid://besihm2pvsy7q" path="res://Ammo/Variations/Gold/GoldRaw.png" id="1"]
+[ext_resource type="PackedScene" path="res://Logic/Draggable.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://uyuqjtdso4l7" path="res://Ammo/Pullable.tscn" id="3"]
+[ext_resource type="Script" path="res://Ammo/BaseAmmo.gd" id="4"]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 2.23607
 
 [node name="GoldRaw" type="CharacterBody2D" groups=["ammo"]]
+z_index = 1
 collision_layer = 5
-script = ExtResource( 4 )
+script = ExtResource("4")
 type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( 1 )
-script = ExtResource( 4 )
+texture = ExtResource("1")
+script = ExtResource("4")
 type = 1
 
-[node name="Draggable" parent="." instance=ExtResource( 2 )]
+[node name="Draggable" parent="." instance=ExtResource("2")]
 body_to_drag = NodePath("..")
 
-[node name="Pullable" parent="." instance=ExtResource( 3 )]
+[node name="Pullable" parent="." instance=ExtResource("3")]

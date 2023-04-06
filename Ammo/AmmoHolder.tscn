@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Ammo/AmmoHolder.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="2"]
-radius = 25.2982
+radius = 16.0
 
 [node name="AmmoHolder" type="Node2D"]
 script = ExtResource("1")

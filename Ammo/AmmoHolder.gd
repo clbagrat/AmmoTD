@@ -38,9 +38,9 @@ func _physics_process(delta):
 		return;
 
 	for index in range(activeAmmo.size()):
-		var ammo: Node2D = activeAmmo[index]
-		if (!is_instance_valid(ammo) && ammo):
+		if !is_instance_valid(activeAmmo[index]):
 			continue;
+		var ammo: Node2D = activeAmmo[index]
 		var type = ammo.get_ammo_type();
 		var pullable: Pullable = ammo.get_node("Pullable");
 
@@ -62,7 +62,8 @@ func _physics_process(delta):
 func _draw():
 	if !showShape:
 		return
-	draw_rect(Rect2(collisionShape.position - collisionShape.shape.size, collisionShape.shape.size * 2), Color(255, 255, 255, 0.5), true)
+	print(collisionShape.shape.size);
+	draw_rect(Rect2(collisionShape.position - collisionShape.shape.size/2, collisionShape.shape.size), Color(255, 255, 255, 0.5), true)
 
 func turn_on():
 	isActive = true;

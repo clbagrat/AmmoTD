@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://befi8sqr3f26k" path="res://Tower/FIFOCreatureTower.tscn" id="9"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Map1" parent="." instance=ExtResource("1_7u1yf")]
 

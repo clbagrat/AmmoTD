@@ -9,6 +9,7 @@
 radius = 2.23607
 
 [node name="CommonRaw" type="CharacterBody2D" groups=["ammo"]]
+z_index = 1
 collision_layer = 5
 script = ExtResource("3")
 

@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Ammo/CursorInventory.gd" id="9"]
 
 [node name="InGameCursor" type="Node2D"]
+z_index = 2
 script = ExtResource("8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,4 +57,5 @@ script = ExtResource("2")
 
 [connection signal="amount_change" from="Inventory" to="." method="_on_Inventory_amount_change"]
 
+[editable path="Inventory/AmmoHolder"]
 [editable path="Inventory/AmmoSource"]

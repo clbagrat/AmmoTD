@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://24wwt8lkuvq3"]
 
-[ext_resource path="res://Ammo/Variations/AmmoMeta.gd" type="Script" id=1]
-[ext_resource path="res://Ammo/Variations/Common/Common_Raw.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ammo/Variations/Common/Common_Projectile.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ammo/Variations/Base/BaseBomb.tscn" type="PackedScene" id=4]
+[ext_resource type="Script" path="res://Ammo/Variations/AmmoMeta.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxsk2e6nmk5jh" path="res://Ammo/Variations/Common/Common_Raw.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dr7qhmyef5hlk" path="res://Ammo/Variations/Common/Common_Projectile.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Ammo/Variations/Base/BaseBomb.tscn" id="4"]
 
 [node name="CommonAmmoMeta" type="Node"]
-script = ExtResource( 1 )
-projectile = ExtResource( 3 )
-raw = ExtResource( 2 )
-bomb = ExtResource( 4 )
+script = ExtResource("1")
+projectile = ExtResource("3")
+raw = ExtResource("2")
+bomb = ExtResource("4")
