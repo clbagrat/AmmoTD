@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbo2gbrpy1nbm"]
+
+[ext_resource type="Script" path="res://Scripts/Ammo/Effects/Explosion.gd" id="1_pt11c"]
+[ext_resource type="Texture2D" uid="uid://chm2lnaeuagi3" path="res://Resources/Sprites/Single/Ammo/Common/CommonExplosion.png" id="2_nact6"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 15.0
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_pt11c")
+
+[node name="ExplosionSprite" type="Sprite2D" parent="." groups=["AmmoSprite"]]
+texture = ExtResource("2_nact6")
+
+[node name="ExplosionSprite2" type="Sprite2D" parent="." groups=["AmmoSprite"]]
+rotation = 0.738211
+texture = ExtResource("2_nact6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

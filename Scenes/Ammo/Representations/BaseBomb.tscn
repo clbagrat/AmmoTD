@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmf34lwgcuubv"]
+
+[ext_resource type="Script" path="res://Scripts/Ammo/Representations/BaseBomb.gd" id="1_g38vu"]
+[ext_resource type="PackedScene" uid="uid://bbo2gbrpy1nbm" path="res://Scenes/Ammo/Effects/Explosion.tscn" id="2_k1b2m"]
+[ext_resource type="Texture2D" uid="uid://dlwjmwgwwjxpm" path="res://Resources/Sprites/Single/Ammo/AmmoShadow.png" id="3_bxah7"]
+[ext_resource type="Texture2D" uid="uid://c0wdiq047fgfn" path="res://Resources/Sprites/Single/Ammo/Common/CommonProjectile.png" id="4_qssbd"]
+
+[node name="BaseBomb" type="Node2D"]
+script = ExtResource("1_g38vu")
+speed = 40
+maxHeight = 20
+explosionPrefab = ExtResource("2_k1b2m")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("3_bxah7")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+texture = ExtResource("4_qssbd")

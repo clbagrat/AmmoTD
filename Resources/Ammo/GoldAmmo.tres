@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AmmoResource" load_steps=6 format=3 uid="uid://djirpghbn0ppk"]
+
+[ext_resource type="Texture2D" uid="uid://cvxxdjfdal886" path="res://Resources/Sprites/Single/Ammo/Gold/GoldBomb.png" id="1_0p404"]
+[ext_resource type="Texture2D" uid="uid://ruupobid0pct" path="res://Resources/Sprites/Single/Ammo/Gold/GoldProjectile.png" id="2_p7w02"]
+[ext_resource type="Texture2D" uid="uid://7ikigba285xp" path="res://Resources/Sprites/Single/Ammo/Gold/GoldExplosion.png" id="3_pmmwr"]
+[ext_resource type="Texture2D" uid="uid://besihm2pvsy7q" path="res://Resources/Sprites/Single/Ammo/Gold/GoldRaw.png" id="4_c3fp1"]
+[ext_resource type="Script" path="res://Scripts/Ammo/AmmoResource.gd" id="5_o06si"]
+
+[resource]
+script = ExtResource("5_o06si")
+type = 1
+damage = 10
+rawTexture = ExtResource("4_c3fp1")
+rawSprite = ExtResource("4_c3fp1")
+bulletSprite = ExtResource("2_p7w02")
+bombSprite = ExtResource("1_0p404")
+explosionSprite = ExtResource("3_pmmwr")

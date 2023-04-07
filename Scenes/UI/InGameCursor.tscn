@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor.gd" id="1_nj437"]
+[ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="2_hqko0"]
+[ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoSource.tscn" id="4"]
+[ext_resource type="Script" path="res://Scripts/Misc/StateMachine/StateMachine.gd" id="7"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_Idle.gd" id="7_xfjxn"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_PickupAmmo.gd" id="8_gs2rm"]
+[ext_resource type="Script" path="res://Scripts/Inventory/CursorInventory.gd" id="9"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_DropAmmo.gd" id="9_3f5ot"]
+
+[node name="InGameCursor" type="Node2D"]
+z_index = 2
+script = ExtResource("1_nj437")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hqko0")
+
+[node name="AmmoCount" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 9.0
+offset_right = 20.0
+offset_bottom = 23.0
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("9")
+capacity = 10
+
+[node name="AmmoHolder" parent="Inventory" instance=ExtResource("3")]
+activeByDefault = false
+
+[node name="AmmoSource" parent="Inventory" instance=ExtResource("4")]
+activeByDefault = false
+
+[node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
+wait_time = 0.2
+
+[node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("7")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("7_xfjxn")
+
+[node name="PickupAmmo" type="Node" parent="StateMachine"]
+script = ExtResource("8_gs2rm")
+
+[node name="DropAmmo" type="Node" parent="StateMachine"]
+script = ExtResource("9_3f5ot")
+
+[connection signal="amount_change" from="Inventory" to="." method="_on_Inventory_amount_change"]
+
+[editable path="Inventory/AmmoHolder"]
+[editable path="Inventory/AmmoSource"]

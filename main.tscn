@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cymdn02chgy2m"]
+[gd_scene load_steps=10 format=3 uid="uid://rl6qsyweplnu"]
 
-[ext_resource type="PackedScene" uid="uid://c30jejckrt3io" path="res://World/Maps/map_1.tscn" id="1_7u1yf"]
-[ext_resource type="PackedScene" uid="uid://bjmq5626jva8q" path="res://Ammo/Mine.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://d0o3dnh3c8vqw" path="res://Belt/Belt.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://c03fvapcpx2aa" path="res://UI/InGameCursor.tscn" id="4"]
-[ext_resource type="PackedScene" uid="uid://daqd22nioycr2" path="res://Tower/FIFOPositionBombTower.tscn" id="5"]
-[ext_resource type="Script" path="res://UI/EconomyUI.gd" id="6"]
-[ext_resource type="PackedScene" path="res://Logic/BuildingSystem/BuildingSystem.tscn" id="7"]
-[ext_resource type="Script" path="res://UI/AlertUI.gd" id="8"]
-[ext_resource type="PackedScene" uid="uid://befi8sqr3f26k" path="res://Tower/FIFOCreatureTower.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://dc1jfno7uk80p" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
+[ext_resource type="PackedScene" uid="uid://cl55ben41wmvy" path="res://Scenes/Buildings/Mine.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dtaoq16fx5yhw" path="res://Scenes/Buildings/Belt.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="5"]
+[ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
+[ext_resource type="PackedScene" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
+[ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -25,6 +25,7 @@ position = Vector2(336, 160)
 position = Vector2(432, 160)
 
 [node name="Mine2" parent="." instance=ExtResource("2")]
+process_mode = 4
 position = Vector2(224, 208)
 
 [node name="Inventory" parent="Mine2" index="1"]
@@ -48,7 +49,7 @@ metadata/_edit_lock_ = true
 [node name="AlertUI" type="Label" parent="UI/Center"]
 process_mode = 2
 layout_mode = 2
-script = ExtResource("8")
+script = ExtResource("6_pnow0")
 
 [node name="Timer" type="Timer" parent="UI/Center/AlertUI"]
 wait_time = 0.5
@@ -84,9 +85,11 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
-script = ExtResource("6")
+script = ExtResource("9_88bmk")
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 
+[editable path="Mine"]
+[editable path="Mine/Inventory/AmmoSource"]
 [editable path="Mine2"]
 [editable path="Mine2/Inventory/AmmoSource"]

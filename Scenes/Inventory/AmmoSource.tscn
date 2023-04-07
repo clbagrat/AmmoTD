@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/AmmoSource.gd" id="2"]
+
+[node name="AmmoSource" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="DropAreaRect" type="ReferenceRect" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,192 @@
+[gd_scene load_steps=22 format=3]
+
+[ext_resource type="Texture2D" uid="uid://d0pea3xm5nd0t" path="res://Resources/Sprites/Animations/Creatures/Skeleton/Skel_walk_v2.png" id="1_7odor"]
+[ext_resource type="Script" path="res://Scripts/Creatures/Character.gd" id="2_o0aix"]
+[ext_resource type="Script" path="res://Scripts/Creatures/AliveCreature.gd" id="3_5rsn3"]
+[ext_resource type="Script" path="res://Scripts/Creatures/DeathRattleChargeGenerate.gd" id="4_wcy5o"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="Animation" id="2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "runDown"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "runLeft"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "runRight"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "runUp"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p0gc"]
+_data = {
+"RESET": SubResource("2"),
+"runDown": SubResource("6"),
+"runLeft": SubResource("3"),
+"runRight": SubResource("4"),
+"runUp": SubResource("5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="7"]
+animation = &"runDown"
+
+[sub_resource type="AnimationNodeAnimation" id="8"]
+animation = &"runRight"
+
+[sub_resource type="AnimationNodeAnimation" id="9"]
+animation = &"runUp"
+
+[sub_resource type="AnimationNodeAnimation" id="10"]
+animation = &"runLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="11"]
+blend_point_0/node = SubResource("7")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("8")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("9")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_3/node = SubResource("10")
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yjjm8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="12"]
+states/Run/node = SubResource("11")
+states/Run/position = Vector2(398.5, 91.6667)
+transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_yjjm8")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bsgr"]
+bg_color = Color(0, 0, 0, 0.12549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6yg4"]
+bg_color = Color(0, 0.713726, 0.45098, 1)
+
+[node name="Skeleton3D" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -4)
+texture = ExtResource("1_7odor")
+hframes = 4
+vframes = 4
+script = ExtResource("2_o0aix")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["enemy"]]
+position = Vector2(0, 4)
+rotation = -1.5708
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4p0gc")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("12")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("13")
+parameters/Run/blend_position = Vector2(0.999132, -0.0147321)
+
+[node name="AliveCreature" type="Node2D" parent="."]
+script = ExtResource("3_5rsn3")
+health = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="AliveCreature"]
+offset_left = -14.0
+offset_top = -13.0
+offset_right = 14.0
+offset_bottom = -10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2bsgr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f6yg4")
+step = 1.0
+value = 60.0
+show_percentage = false
+
+[node name="DeathRattleChargeGenerate" type="Node2D" parent="."]
+script = ExtResource("4_wcy5o")
+type = 1
+amount = 4
+AliveCreature = NodePath("../AliveCreature")
