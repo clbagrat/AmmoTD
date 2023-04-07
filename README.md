@@ -1,10 +1,13 @@
 ## Changelog
 
 #### 07.04.2023
-- massive refactor
+- Massive refactor
 
 #### 06.04.2023
 - z-indexes fixed
+
+#### 03.04.2023
+- Migration to godot 4
 
 #### 22.03.2023
 - Bomb tower

@@ -25,7 +25,6 @@ position = Vector2(336, 160)
 position = Vector2(432, 160)
 
 [node name="Mine2" parent="." instance=ExtResource("2")]
-process_mode = 4
 position = Vector2(224, 208)
 
 [node name="Inventory" parent="Mine2" index="1"]
@@ -89,7 +88,5 @@ script = ExtResource("9_88bmk")
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 
-[editable path="Mine"]
-[editable path="Mine/Inventory/AmmoSource"]
 [editable path="Mine2"]
 [editable path="Mine2/Inventory/AmmoSource"]

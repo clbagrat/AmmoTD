@@ -19,6 +19,7 @@ func _on_Timer_timeout():
 	if (!inventory.can_spend(1)):
 		return;
 	var ammoType = inventory.spend(1)
+	print(ammoType)
 
 	var ammo = AmmoService.create_raw(ammoType);
 	get_tree().get_root().get_node("World").add_child(ammo);

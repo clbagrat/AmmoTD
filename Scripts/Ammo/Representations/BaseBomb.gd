@@ -30,8 +30,10 @@ func _physics_process(delta):
 
 	if (global_position.distance_to(target_position) < 0.5):
 		var inst: Node2D = explosionPrefab.instantiate();
-		for sp in inst.get_tree().get_nodes_in_group("AmmoSprite"):
-			(sp as Sprite2D).texture = _res.explosionSprite;
+		var sp: Sprite2D = inst.get_node("ExplosionSprite")
+		var sp2: Sprite2D = inst.get_node("ExplosionSprite2")
+		sp.set_texture(_res.explosionSprite);
+		sp2.set_texture(_res.explosionSprite);
 		get_parent().add_child(inst);
 		inst.global_position = global_position
 		queue_free();
