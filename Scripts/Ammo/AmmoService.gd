@@ -3,7 +3,8 @@ extends Node;
 
 var ammoDict = {
 	GlobalConfig.AmmoTypes.Common: preload("res://Resources/Ammo/CommonAmmo.tres"),
-	GlobalConfig.AmmoTypes.Gold: preload("res://Resources/Ammo/GoldAmmo.tres")
+	GlobalConfig.AmmoTypes.Gold: preload("res://Resources/Ammo/GoldAmmo.tres"),
+	GlobalConfig.AmmoTypes.Poison: preload("res://Resources/Ammo/PoisonAmmo.tres")
 }
 
 var representationsDict = {

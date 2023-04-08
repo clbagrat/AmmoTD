@@ -7,6 +7,7 @@ signal amount_change(amount);
 @export var ammoType: GlobalConfig.AmmoTypes;
 @export var capacity: int;
 @export var startAtFullCapacity: bool;
+
 var _charges: Array = [];
 
 func _ready():

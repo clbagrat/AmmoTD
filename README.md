@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 08.04.2023
+- Poison ammo (visual only)
+- Ammo is responsible for damage now
+
 #### 07.04.2023
 - Massive refactor
 

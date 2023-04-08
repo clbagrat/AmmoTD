@@ -11,7 +11,7 @@ var inventory: Inventory;
 @onready var collisionShape = $Area2D/CollisionShape2D
 @onready var isActive = activeByDefault;
 
-var activeAmmo = [];
+var activeAmmo:Array[BaseAmmo] = [];
 var currentTime = 0;
 
 func _ready():
@@ -40,7 +40,7 @@ func _physics_process(delta):
 	for index in range(activeAmmo.size()):
 		if !is_instance_valid(activeAmmo[index]):
 			continue;
-		var ammo: Node2D = activeAmmo[index]
+		var ammo = activeAmmo[index]
 		var type = ammo.get_ammo_type();
 		var pullable: Pullable = ammo.get_node("Pullable");
 

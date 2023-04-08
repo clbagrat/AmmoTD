@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://b7eeei7hfkh7f"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Tower/FIFOCreatureTowerBehavior.gd" id="1_50vfa"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://rbqemnci3n06"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor.gd" id="1_nj437"]
 [ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="2_hqko0"]

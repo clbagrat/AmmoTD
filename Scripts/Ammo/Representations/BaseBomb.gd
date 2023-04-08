@@ -29,11 +29,8 @@ func _physics_process(delta):
 	projectile.position = Vector2(0, -newHeight)
 
 	if (global_position.distance_to(target_position) < 0.5):
-		var inst: Node2D = explosionPrefab.instantiate();
-		var sp: Sprite2D = inst.get_node("ExplosionSprite")
-		var sp2: Sprite2D = inst.get_node("ExplosionSprite2")
-		sp.set_texture(_res.explosionSprite);
-		sp2.set_texture(_res.explosionSprite);
+		var inst: Explosion = explosionPrefab.instantiate();
+		inst.configure_explosion(_res);
 		get_parent().add_child(inst);
 		inst.global_position = global_position
 		queue_free();
