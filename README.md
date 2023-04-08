@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 09.04.2023
+- Buff system
+- Poison buff
+
 #### 08.04.2023
 - Poison ammo (visual only)
 - Ammo is responsible for damage now

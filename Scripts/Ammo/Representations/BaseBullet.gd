@@ -27,6 +27,6 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body:Node):
 	if (body.is_in_group("enemy") && current_target == body.get_parent().get_node("AliveCreature")):
 		var aliveCreature: AliveCreature = current_target;
-		aliveCreature.apply_damage(bulletDamage)
+		aliveCreature.apply_damage(_res.damage, _res.buff.instantiate())
 		emit_signal("target_reached", body);
 		queue_free()

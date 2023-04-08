@@ -6,6 +6,7 @@ class_name Explosion;
 
 var _time_passed = 0
 var _damage = 0;
+var _buffScene: PackedScene;
 
 func _physics_process(delta):
 	_time_passed += delta;
@@ -22,12 +23,13 @@ func configure_explosion(res: AmmoResource) -> void:
 	sp.set_texture(res.explosionSprite);
 	sp2.set_texture(res.explosionSprite);
 	_damage = res.explosionDamage;
+	_buffScene = res.buff;
 
 func deal_damage():
 	for creature in aliveCreatures:
 		if (!is_instance_valid(creature)):
 			continue;
-		creature.apply_damage(_damage)
+		creature.apply_damage(_damage, _buffScene.instantiate());
 
 
 func _on_Area2D_body_entered(body:Node2D):

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjrytvdfxcnml"]
+
+[ext_resource type="Script" path="res://Scripts/Buffs/PoisonBuff.gd" id="1_1gptv"]
+
+[node name="PoisonBuff" type="Node2D"]
+script = ExtResource("1_1gptv")
+interval = 1.0
+duration = 3

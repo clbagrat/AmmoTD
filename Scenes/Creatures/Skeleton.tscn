@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=23 format=3 uid="uid://b4hqb41bl62ge"]
 
 [ext_resource type="Texture2D" uid="uid://d0pea3xm5nd0t" path="res://Resources/Sprites/Animations/Creatures/Skeleton/Skel_walk_v2.png" id="1_7odor"]
 [ext_resource type="Script" path="res://Scripts/Creatures/Character.gd" id="2_o0aix"]
 [ext_resource type="Script" path="res://Scripts/Creatures/AliveCreature.gd" id="3_5rsn3"]
+[ext_resource type="Script" path="res://Scripts/Buffs/BuffContainer.gd" id="4_is042"]
 [ext_resource type="Script" path="res://Scripts/Creatures/DeathRattleChargeGenerate.gd" id="4_wcy5o"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
@@ -184,6 +185,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_f6yg4")
 step = 1.0
 value = 60.0
 show_percentage = false
+
+[node name="BuffContainer" type="Node2D" parent="AliveCreature"]
+script = ExtResource("4_is042")
+AliveCreaturePath = NodePath("..")
 
 [node name="DeathRattleChargeGenerate" type="Node2D" parent="."]
 script = ExtResource("4_wcy5o")

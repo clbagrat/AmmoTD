@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AmmoResource" load_steps=6 format=3 uid="uid://bksuagoovtbs0"]
+[gd_resource type="Resource" script_class="AmmoResource" load_steps=7 format=3 uid="uid://bksuagoovtbs0"]
 
 [ext_resource type="Texture2D" uid="uid://c1n12et6v4ifv" path="res://Resources/Sprites/Single/Ammo/Poison/PoisonBomb.png" id="1_7336y"]
+[ext_resource type="PackedScene" uid="uid://cjrytvdfxcnml" path="res://Scenes/Buffs/PoisonBuff.tscn" id="2_2psdd"]
 [ext_resource type="Texture2D" uid="uid://dytej0ep505qm" path="res://Resources/Sprites/Single/Ammo/Poison/PoisonBullet.png" id="2_u23qb"]
 [ext_resource type="Texture2D" uid="uid://cpmjuxmu1i5e" path="res://Resources/Sprites/Single/Ammo/Poison/PoisonExplosion.png" id="3_m58v5"]
 [ext_resource type="Texture2D" uid="uid://bevqltnmf245h" path="res://Resources/Sprites/Single/Ammo/Poison/PoisonRaw.png" id="4_smral"]
@@ -9,9 +10,10 @@
 [resource]
 script = ExtResource("5_ha7tb")
 type = 2
-damage = 2
+damage = 1
 explosionDamage = 2
 rawSprite = ExtResource("4_smral")
 bulletSprite = ExtResource("2_u23qb")
 bombSprite = ExtResource("1_7336y")
 explosionSprite = ExtResource("3_m58v5")
+buff = ExtResource("2_2psdd")
