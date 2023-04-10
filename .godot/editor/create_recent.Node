@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+CursorMover
+Sprite2D
 BuffContainer
 ReferenceRect
 TileMap

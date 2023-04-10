@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuxa7he1b4d0x"]
+
+[ext_resource type="Script" path="res://Scripts/UI/CursorMover.gd" id="1_lhcyx"]
+
+[node name="CursorMover" type="Node2D"]
+script = ExtResource("1_lhcyx")

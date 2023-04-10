@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dpxa1ue35dm1t"]
 
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSystem.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://dtaoq16fx5yhw" path="res://Scenes/Buildings/Belt.tscn" id="2"]
-[ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/Building.gd" id="3"]
+[ext_resource type="Script" path="res://Scripts/UI/CursorMover.gd" id="4_r4pn5"]
+[ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="5_0xctr"]
+[ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="6_woete"]
 
-[node name="BuildingSystem" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov7ht"]
+size = Vector2(10, 10)
+
+[node name="BuildingSystem" type="Node2D" node_paths=PackedStringArray("CursorSprite", "ActiveBuildingSprite", "NoBuildAreaDetector")]
+script = ExtResource("1")
+CursorSprite = NodePath("BuildingUI/BuildingCursor/Cursor")
+ActiveBuildingSprite = NodePath("BuildingUI/BuildingCursor/ActiveBuilding")
+NoBuildAreaDetector = NodePath("BuildingUI/BuildingCursor/NoBuildAreaDetector")
 
 [node name="BuildingUI" type="Node2D" parent="."]
-visible = false
 
 [node name="Hints" type="Panel" parent="BuildingUI"]
 offset_top = 160.0
@@ -16,13 +22,25 @@ offset_right = 112.0
 offset_bottom = 176.0
 
 [node name="E to rotate" type="RichTextLabel" parent="BuildingUI/Hints"]
+layout_mode = 0
 offset_right = 112.0
 offset_bottom = 16.0
 text = "[E] to rotate"
 
-[node name="Buildings" type="Node" parent="."]
+[node name="BuildingCursor" type="Node2D" parent="BuildingUI"]
+z_index = 2
+script = ExtResource("4_r4pn5")
 
-[node name="Belt" type="Node" parent="Buildings"]
-script = ExtResource( 3 )
-buildingName = "Belt"
-buildingScene = ExtResource( 2 )
+[node name="ActiveBuilding" type="Sprite2D" parent="BuildingUI/BuildingCursor"]
+texture = ExtResource("5_0xctr")
+
+[node name="Cursor" type="Sprite2D" parent="BuildingUI/BuildingCursor"]
+texture = ExtResource("6_woete")
+
+[node name="NoBuildAreaDetector" type="Area2D" parent="BuildingUI/BuildingCursor"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingUI/BuildingCursor/NoBuildAreaDetector"]
+shape = SubResource("RectangleShape2D_ov7ht")
+debug_color = Color(0.956863, 0, 0.529412, 0.419608)

@@ -1,3 +1,4 @@
+BuildingResource
 Resource
 JSON
 Environment

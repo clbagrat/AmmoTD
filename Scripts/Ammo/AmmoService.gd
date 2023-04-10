@@ -29,7 +29,6 @@ func create_representation(ammoType: int, representationType: int) -> Node2D:
 	
 
 func create_raw(type: int) -> Node2D:
-	print(type);
 	return create_representation(type, GlobalConfig.AmmoRepresentations.Raw);
 
 func create_bullet(type: int) -> Node2D:

@@ -1,5 +1,10 @@
 ## Changelog
 
+#### 10.04.2023
+- Refactor of building system
+- Now there are some no-building areas
+- Preserve rotation when building multiple belts
+
 #### 09.04.2023
 - Buff system
 - Poison buff

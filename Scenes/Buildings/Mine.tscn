@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl55ben41wmvy"]
+[gd_scene load_steps=5 format=3 uid="uid://c6otyj7n8xh1e"]
 
 [ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="1"]
 [ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoSource.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="4_iisws"]
 
 [node name="Mine" type="Node2D"]
 
@@ -25,5 +26,7 @@ offset_left = -8.0
 offset_top = 8.0
 offset_right = 8.0
 offset_bottom = 24.0
+
+[node name="NoBuildingArea" parent="." instance=ExtResource("4_iisws")]
 
 [editable path="Inventory/AmmoSource"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://rbqemnci3n06"]
+[gd_scene load_steps=11 format=3 uid="uid://rbqemnci3n06"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor.gd" id="1_nj437"]
 [ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="2_hqko0"]
-[ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3"]
+[ext_resource type="Script" path="res://Scripts/UI/CursorMover.gd" id="2_xqgbh"]
+[ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoSource.tscn" id="4"]
 [ext_resource type="Script" path="res://Scripts/Misc/StateMachine/StateMachine.gd" id="7"]
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_Idle.gd" id="7_xfjxn"]
@@ -14,6 +15,10 @@
 z_index = 2
 script = ExtResource("1_nj437")
 
+[node name="CursorMover" type="Node2D" parent="." node_paths=PackedStringArray("NodeToMove")]
+script = ExtResource("2_xqgbh")
+NodeToMove = NodePath("..")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hqko0")
 
@@ -21,7 +26,7 @@ texture = ExtResource("2_hqko0")
 offset_left = -20.0
 offset_top = 9.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 32.0
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource("9")

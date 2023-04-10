@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7eeei7hfkh7f"]
+[gd_scene load_steps=13 format=3 uid="uid://b7eeei7hfkh7f"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Tower/FIFOCreatureTowerBehavior.gd" id="1_50vfa"]
-[ext_resource type="PackedScene" path="res://Scenes/Inventory/AmmoHolder.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://o00fl2lsuvwg" path="res://Resources/Sprites/Single/Tower/AoeTower.png" id="2_hrjae"]
 [ext_resource type="Script" path="res://Scripts/UI/InventorySize.gd" id="3_oqpwy"]
 [ext_resource type="Script" path="res://Scripts/Tower/AutoAimProjectileShooter.gd" id="4_hd6ig"]
 [ext_resource type="Script" path="res://Scripts/Tower/CooldownTrigger.gd" id="5_vrqdw"]
 [ext_resource type="Script" path="res://Scripts/Tower/AreaEnemyDetector.gd" id="6_mlt3b"]
+[ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="9_g1bny"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 22.0227
@@ -67,6 +68,8 @@ shape = SubResource("2")
 [node name="CollisionShape2D" parent="Inventory/AmmoHolder/LetGoArea" index="0"]
 position = Vector2(-0.25, -16)
 shape = SubResource("3")
+
+[node name="NoBuildingArea" parent="." instance=ExtResource("9_g1bny")]
 
 [connection signal="body_entered" from="EnemyDetector" to="EnemyDetector" method="_on_EnemyDetector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="EnemyDetector" method="_on_EnemyDetector_body_exited"]

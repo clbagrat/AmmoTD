@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=4 format=3 uid="uid://ist1gvjnbeq1"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingResource.gd" id="1_1oisv"]
+[ext_resource type="PackedScene" uid="uid://dtaoq16fx5yhw" path="res://Scenes/Buildings/Belt.tscn" id="1_63x24"]
+[ext_resource type="Texture2D" uid="uid://ca2women4hppt" path="res://Resources/Sprites/Single/Buildings/BeltHorizontal.png" id="3_8cdqh"]
+
+[resource]
+script = ExtResource("1_1oisv")
+name = "Belt"
+scene = ExtResource("1_63x24")
+sprite = ExtResource("3_8cdqh")
+price = 5
