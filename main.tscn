@@ -33,9 +33,6 @@ ammoType = 2
 [node name="Belt" parent="." instance=ExtResource("3")]
 position = Vector2(432, 176)
 
-[node name="Belt2" parent="." instance=ExtResource("3")]
-position = Vector2(416, 176)
-
 [node name="UI" type="Node2D" parent="."]
 process_mode = 3
 metadata/_edit_lock_ = true

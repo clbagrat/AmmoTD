@@ -15,6 +15,7 @@ ActiveBuildingSprite = NodePath("BuildingUI/BuildingCursor/ActiveBuilding")
 NoBuildAreaDetector = NodePath("BuildingUI/BuildingCursor/NoBuildAreaDetector")
 
 [node name="BuildingUI" type="Node2D" parent="."]
+visible = false
 
 [node name="Hints" type="Panel" parent="BuildingUI"]
 offset_top = 160.0

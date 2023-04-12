@@ -62,7 +62,6 @@ func _physics_process(delta):
 func _draw():
 	if !showShape:
 		return
-	print(collisionShape.shape.size);
 	draw_rect(Rect2(collisionShape.position - collisionShape.shape.size/2, collisionShape.shape.size), Color(255, 255, 255, 0.5), true)
 
 func turn_on():

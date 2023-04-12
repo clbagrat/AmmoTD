@@ -135,6 +135,7 @@ building_destroy={
 
 2d_physics/layer_1="Enemy"
 2d_physics/layer_2="no-buidings"
+2d_physics/layer_10="Belts"
 
 [mono]
 

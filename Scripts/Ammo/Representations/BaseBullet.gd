@@ -13,7 +13,6 @@ func set_target(target):
 	current_target = target;
 
 func on_res_applied(res: AmmoResource):
-	print(res);
 	sprite.texture = res.bulletSprite;
 
 func _physics_process(delta):
@@ -27,6 +26,10 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body:Node):
 	if (body.is_in_group("enemy") && current_target == body.get_parent().get_node("AliveCreature")):
 		var aliveCreature: AliveCreature = current_target;
-		aliveCreature.apply_damage(_res.damage, _res.buff.instantiate())
+		if _res.buff:
+			aliveCreature.apply_damage(_res.damage, _res.buff.instantiate())
+		else:
+			aliveCreature.apply_damage(_res.damage)
+
 		emit_signal("target_reached", body);
 		queue_free()

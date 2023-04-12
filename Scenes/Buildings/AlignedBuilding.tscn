@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://45m20fs72ri"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/AlignedBuilding.gd" id="1_etf6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m364t"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kfu7"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enm4t"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymnub"]
+size = Vector2(5, 5)
+
+[node name="AlignedBulding" type="Node2D" node_paths=PackedStringArray("LeftDetector", "RightDetector", "FrontDetector")]
+process_mode = 3
+script = ExtResource("1_etf6s")
+LeftDetector = NodePath("LeftDetector")
+RightDetector = NodePath("RightDetector")
+FrontDetector = NodePath("FrontDetector")
+
+[node name="DetectableArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectableArea"]
+shape = SubResource("RectangleShape2D_m364t")
+
+[node name="RightDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_0kfu7")
+
+[node name="LeftDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetector"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_enm4t")
+
+[node name="FrontDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontDetector"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_ymnub")
+
+[connection signal="area_entered" from="RightDetector" to="." method="align"]
+[connection signal="area_exited" from="RightDetector" to="." method="align"]
+[connection signal="area_entered" from="LeftDetector" to="." method="align"]
+[connection signal="area_exited" from="LeftDetector" to="." method="align"]

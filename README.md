@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 12.04.2023
+- Improved belt building system
+
 #### 10.04.2023
 - Refactor of building system
 - Now there are some no-building areas

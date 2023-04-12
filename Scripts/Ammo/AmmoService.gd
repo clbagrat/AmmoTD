@@ -16,7 +16,6 @@ var representationsDict = {
 func _get_representation_instance(type: int) -> BaseAmmo:
 	assert(representationsDict[type]) ;#,"There is no config set")
 	var representation: PackedScene = representationsDict[type];
-	print(representation)
 	var instance: BaseAmmo = representation.instantiate();
 	return instance
 

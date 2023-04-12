@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtaoq16fx5yhw"]
+[gd_scene load_steps=10 format=3 uid="uid://dtaoq16fx5yhw"]
 
 [ext_resource type="Script" path="res://Scripts/Buildings/Belt.gd" id="1_13w3h"]
 [ext_resource type="Texture2D" uid="uid://c8qcmihtenukc" path="res://Resources/Sprites/Animations/Buildings/Belt/Belt.png" id="2_cd7xa"]
+[ext_resource type="PackedScene" uid="uid://45m20fs72ri" path="res://Scenes/Buildings/AlignedBuilding.tscn" id="3_ug2y3"]
+[ext_resource type="Texture2D" uid="uid://c0swikrwst16o" path="res://Resources/Sprites/Animations/Buildings/Belt/BeltBend.png" id="4_qigat"]
+[ext_resource type="Texture2D" uid="uid://b1ugaj8g6gip2" path="res://Resources/Sprites/Animations/Buildings/Belt/BeltRightBend.png" id="5_p26v1"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -69,5 +73,12 @@ shape = SubResource("3")
 
 [node name="Destination" type="Node2D" parent="."]
 position = Vector2(-13, 0)
+
+[node name="AlignedBulding" parent="." node_paths=PackedStringArray("BuildingToAlign", "AnimatedSpriteToAdjust") instance=ExtResource("3_ug2y3")]
+BuildingToAlign = NodePath("..")
+AnimatedSpriteToAdjust = NodePath("../Sprite2D")
+HorizontalSpriteSheet = ExtResource("2_cd7xa")
+BendLeftSpriteSheet = ExtResource("4_qigat")
+BendRightSpriteSheet = ExtResource("5_p26v1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

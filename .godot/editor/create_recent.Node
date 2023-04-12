@@ -1,7 +1,8 @@
 CollisionShape2D
 Area2D
-CursorMover
 Sprite2D
+CollisionPolygon2D
+CursorMover
 BuffContainer
 ReferenceRect
 TileMap

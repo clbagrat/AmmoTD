@@ -15,6 +15,7 @@ extends Node2D
 
 var bodies_to_move: Array = []
 
+
 func _on_Area2D_body_entered(body:Node):
 	if not body.is_in_group("ammo"):
 		return;
