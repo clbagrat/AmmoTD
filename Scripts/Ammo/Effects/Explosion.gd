@@ -29,7 +29,11 @@ func deal_damage():
 	for creature in aliveCreatures:
 		if (!is_instance_valid(creature)):
 			continue;
-		creature.apply_damage(_damage, _buffScene.instantiate());
+
+		if (_buffScene):
+			creature.apply_damage(_damage, _buffScene.instantiate());
+		else:
+			creature.apply_damage(_damage);
 
 
 func _on_Area2D_body_entered(body:Node2D):

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2ypeotu6gfvb"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/AmmoPuller.gd" id="1_yi8il"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="2_epu4n"]
+[ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3_gf68o"]
+[ext_resource type="PackedScene" uid="uid://cepuwufijvlgd" path="res://Scenes/Inventory/AmmoSource.tscn" id="4_s06p0"]
+[ext_resource type="Texture2D" uid="uid://di8xijflhmygq" path="res://Resources/Sprites/Single/Buildings/AmmoPuller.png" id="5_ydg2o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxoe4"]
+radius = 61.43
+
+[node name="AmmoPuller" type="Node2D"]
+script = ExtResource("1_yi8il")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("2_epu4n")
+ammoType = 1
+capacity = 10000
+canHoldAnyType = false
+
+[node name="AmmoHolder" parent="Inventory" node_paths=PackedStringArray("ignoreAmmoProducedBy") instance=ExtResource("3_gf68o")]
+canPickOnlyStaleAmmo = true
+ignoreAmmoProducedBy = NodePath("../AmmoSource")
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
+shape = SubResource("CircleShape2D_vxoe4")
+
+[node name="AmmoSource" parent="Inventory" instance=ExtResource("4_s06p0")]
+
+[node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
+wait_time = 0.204
+
+[node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 24.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_ydg2o")
+
+[editable path="Inventory/AmmoHolder"]
+[editable path="Inventory/AmmoSource"]

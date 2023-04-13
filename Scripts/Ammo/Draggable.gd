@@ -9,8 +9,16 @@ class_name Draggable
 
 var current_handler: Node = null;
 
+func is_being_dragged() -> bool:
+	return current_handler != null
+
 func set_handler(handler) -> void:
 	current_handler = handler
+
+func unset_handler(handler) -> void:
+	if (handler != current_handler):
+		return;
+	current_handler = null
 
 func move_body(handler, newPos: Vector2) -> void:
 	if handler != current_handler:

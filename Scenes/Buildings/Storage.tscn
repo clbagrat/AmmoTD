@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm4sy0snangvo"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/AmmoPuller.gd" id="1_2exjj"]
+[ext_resource type="Script" path="res://Scripts/Inventory/EconomyInventory.gd" id="2_7oiy7"]
+[ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3_qs1tk"]
+[ext_resource type="Texture2D" uid="uid://bk3inp4auhq6l" path="res://Resources/Sprites/Single/Buildings/Storage.png" id="4_la26c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw2bx"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15f6x"]
+
+[node name="Storage" type="Node2D"]
+script = ExtResource("1_2exjj")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("2_7oiy7")
+ammoType = 1
+capacity = 9999999
+canHoldAnyType = false
+
+[node name="AmmoHolder" parent="Inventory" node_paths=PackedStringArray("ignoreAmmoProducedBy") instance=ExtResource("3_qs1tk")]
+showShape = true
+ignoreAmmoProducedBy = NodePath("")
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_fw2bx")
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/LetGoArea" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_15f6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_la26c")
+hframes = 6
+
+[editable path="Inventory/AmmoHolder"]

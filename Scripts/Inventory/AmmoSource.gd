@@ -20,7 +20,7 @@ func _on_Timer_timeout():
 		return;
 	var ammoType = inventory.spend(1)
 
-	var ammo = AmmoService.create_raw(ammoType);
+	var ammo = AmmoService.create_raw(ammoType, self);
 	get_tree().get_root().get_node("World").add_child(ammo);
 
 	var ammoPos = _get_random_drop_position();

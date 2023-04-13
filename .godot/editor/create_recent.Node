@@ -1,6 +1,9 @@
+Sprite2D
+Node2D
+Inventory
+AmmoHolder
 CollisionShape2D
 Area2D
-Sprite2D
 CollisionPolygon2D
 CursorMover
 BuffContainer

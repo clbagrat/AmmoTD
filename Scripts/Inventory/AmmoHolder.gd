@@ -5,6 +5,8 @@ class_name AmmoHolder
 @export var activeByDefault = true;
 @export var showShape = false
 @export var pickupTime = 0.3
+@export var canPickOnlyStaleAmmo = false;
+@export var ignoreAmmoProducedBy: AmmoSource;
 
 var inventory: Inventory;
 
@@ -47,6 +49,14 @@ func _physics_process(delta):
 		if (!inventory.can_receive(1, type)):
 			pullable.stopPull(self);
 			continue;
+
+		if (canPickOnlyStaleAmmo && !ammo.is_stale()):
+			pullable.stopPull(self);
+			continue
+		
+		if (ignoreAmmoProducedBy && ignoreAmmoProducedBy == ammo.producedBy):
+			pullable.stopPull(self);
+			continue
 
 
 		if (pullable.isPullInProgress()):

@@ -4,5 +4,5 @@
 
 [node name="PoisonBuff" type="Node2D"]
 script = ExtResource("1_1gptv")
-interval = 1.0
+interval = 0.5
 duration = 3

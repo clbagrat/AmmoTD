@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://rl6qsyweplnu"]
+[gd_scene load_steps=11 format=3 uid="uid://rl6qsyweplnu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1jfno7uk80p" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mine.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://dtaoq16fx5yhw" path="res://Scenes/Buildings/Belt.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="5"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
 [ext_resource type="PackedScene" uid="uid://dpxa1ue35dm1t" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
+[ext_resource type="PackedScene" uid="uid://c2ypeotu6gfvb" path="res://Scenes/Buildings/AmmoPuller.tscn" id="10_ka7do"]
+[ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="10_m8nfc"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -29,9 +30,6 @@ position = Vector2(224, 208)
 
 [node name="Inventory" parent="Mine2" index="1"]
 ammoType = 2
-
-[node name="Belt" parent="." instance=ExtResource("3")]
-position = Vector2(432, 176)
 
 [node name="UI" type="Node2D" parent="."]
 process_mode = 3
@@ -82,6 +80,12 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 script = ExtResource("9_88bmk")
+
+[node name="AmmoPuller" parent="." instance=ExtResource("10_ka7do")]
+position = Vector2(336, 208)
+
+[node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
+position = Vector2(480, 304)
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 

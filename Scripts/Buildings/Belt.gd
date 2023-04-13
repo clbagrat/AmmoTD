@@ -13,7 +13,7 @@ extends Node2D
 
 @onready var destination: Node2D = $Destination;
 
-var bodies_to_move: Array = []
+var bodies_to_move: Array[Draggable] = []
 
 
 func _on_Area2D_body_entered(body:Node):
@@ -35,5 +35,8 @@ func _physics_process(delta):
 			continue
 		var draggablePos = draggable.body.global_position;
 		var newPos = (destination.global_position - draggablePos).normalized() * delta * speed + draggablePos;
-		draggable.move_body(self, newPos)
+		if (newPos.distance_to(destination.global_position) > 0.2):
+			draggable.move_body(self, newPos)
+		else:
+			draggable.unset_handler(self)
 

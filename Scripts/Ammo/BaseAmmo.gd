@@ -21,3 +21,20 @@ func on_res_applied(_ammoRes: AmmoResource) -> void:
 	printerr("Method on_res_applied is not implemented")
 	get_tree().quit();
 
+var producedBy: Node2D;
+
+var staleTime = 0.5;
+var lastPosition: Vector2;
+var lastMoveTime: float;
+var currentTime: float;
+
+func is_stale() -> bool:
+	return currentTime - lastMoveTime > staleTime
+
+func _process(delta) -> void:
+	var pos = global_position;
+	currentTime += delta;
+
+	if pos != lastPosition:
+		lastPosition = pos
+		lastMoveTime = currentTime;

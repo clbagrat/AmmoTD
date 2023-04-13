@@ -7,6 +7,7 @@ signal amount_change(amount);
 @export var ammoType: GlobalConfig.AmmoTypes;
 @export var capacity: int;
 @export var startAtFullCapacity: bool;
+@export var canHoldAnyType: bool = true;
 
 var _charges: Array = [];
 
@@ -38,7 +39,9 @@ func spend(amount: int) -> int:
 
 func can_receive(amount: int, _type: int) -> bool:
 	assert(amount > 0) ;#,"Amount should be positive")
-	return _current_amount + amount <= capacity
+	var hasCapacity  = _current_amount + amount <= capacity
+	var isProperType = canHoldAnyType || _type == ammoType;
+	return hasCapacity && isProperType;
 
 func can_spend(amount: int) -> bool:
 	assert(amount > 0) ;#,"Amount should be positive")
