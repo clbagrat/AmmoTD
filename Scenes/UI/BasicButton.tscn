@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://kq4e8nckab65"]
+
+[ext_resource type="Texture2D" uid="uid://dkgfw34pvx8xr" path="res://Resources/Sprites/Single/UI/ButtonFrame.png" id="1_3km1w"]
+[ext_resource type="Texture2D" uid="uid://d2q4s0l8jnry3" path="res://Resources/Sprites/Single/UI/ButtonFrame_pressed.png" id="2_ncucc"]
+[ext_resource type="Texture2D" uid="uid://b0uebf8k86byk" path="res://Resources/Sprites/Single/UI/ButtonFrame_hover.png" id="3_0lryk"]
+[ext_resource type="Texture2D" uid="uid://bvvdoetxkruyj" path="res://Resources/Sprites/Single/UI/StartBuilding.png" id="4_20qik"]
+[ext_resource type="Script" path="res://Scripts/UI/BasicButton.gd" id="4_84hjm"]
+
+[node name="BasicButton" type="TextureButton"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_3km1w")
+texture_pressed = ExtResource("2_ncucc")
+texture_hover = ExtResource("3_0lryk")
+texture_focused = ExtResource("3_0lryk")
+script = ExtResource("4_84hjm")
+
+[node name="Texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_20qik")
+
+[node name="Text" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 48.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center]Build"
+scroll_active = false

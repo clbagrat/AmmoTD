@@ -1,9 +1,12 @@
+BuildingPlacer
+HFlowContainer
+MarginContainer
+BuildingButton
+RichTextLabel
+TextureRect
 TextureButton
 VFlowContainer
 CenterContainer
-TextureRect
-HFlowContainer
-MarginContainer
 PanelContainer
 Control
 Node2D
@@ -18,7 +21,6 @@ BuffContainer
 ReferenceRect
 TileMap
 ColorRect
-RichTextLabel
 SubViewport
 SubViewportContainer
 Container

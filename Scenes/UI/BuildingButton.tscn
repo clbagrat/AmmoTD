@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://ohqs677qctmp"]
+
+[ext_resource type="Texture2D" uid="uid://dkgfw34pvx8xr" path="res://Resources/Sprites/Single/UI/ButtonFrame.png" id="1_rm2gw"]
+[ext_resource type="Texture2D" uid="uid://d2q4s0l8jnry3" path="res://Resources/Sprites/Single/UI/ButtonFrame_pressed.png" id="2_bdfpu"]
+[ext_resource type="Texture2D" uid="uid://b0uebf8k86byk" path="res://Resources/Sprites/Single/UI/ButtonFrame_hover.png" id="3_xxhmo"]
+[ext_resource type="Script" path="res://Scripts/UI/Buildings/BuildingButton.gd" id="4_fewgj"]
+[ext_resource type="Texture2D" uid="uid://ca2women4hppt" path="res://Resources/Sprites/Single/Buildings/BeltHorizontal.png" id="4_otqbh"]
+
+[node name="BuildingButton" type="TextureButton" node_paths=PackedStringArray("priceTag", "buildingTexture")]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_rm2gw")
+texture_pressed = ExtResource("2_bdfpu")
+texture_hover = ExtResource("3_xxhmo")
+texture_focused = ExtResource("3_xxhmo")
+script = ExtResource("4_fewgj")
+priceTag = NodePath("RichTextLabel")
+buildingTexture = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_otqbh")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 48.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center]Free"
+scroll_active = false

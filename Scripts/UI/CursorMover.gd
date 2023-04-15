@@ -16,3 +16,5 @@ func _process(_delta) -> void:
 		else:
 			tween.tween_property(self, "position", cursorPosition, .05);
 		tween.play()
+
+

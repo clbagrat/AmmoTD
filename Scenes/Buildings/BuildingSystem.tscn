@@ -1,142 +1,118 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtapucnd8ckuy"]
+[gd_scene load_steps=15 format=3 uid="uid://dvtp0j54mpg5b"]
 
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSystem.gd" id="1_q1knx"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingPlacer.gd" id="1_uyv0f"]
 [ext_resource type="Script" path="res://Scripts/UI/CursorMover.gd" id="4_r4pn5"]
 [ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="5_0xctr"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSelection.gd" id="5_1hrya"]
+[ext_resource type="PackedScene" uid="uid://ohqs677qctmp" path="res://Scenes/UI/BuildingButton.tscn" id="6_s2650"]
 [ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="6_woete"]
-[ext_resource type="Texture2D" uid="uid://di8xijflhmygq" path="res://Resources/Sprites/Single/Buildings/AmmoPuller.png" id="6_ykmp5"]
+[ext_resource type="PackedScene" uid="uid://kq4e8nckab65" path="res://Scenes/UI/BasicButton.tscn" id="6_xq85e"]
+[ext_resource type="Texture2D" uid="uid://bog62r6mj5s34" path="res://Resources/Sprites/Single/UI/Rotate.png" id="7_guxqg"]
+[ext_resource type="Texture2D" uid="uid://bvvdoetxkruyj" path="res://Resources/Sprites/Single/UI/StartBuilding.png" id="8_0105e"]
+[ext_resource type="Texture2D" uid="uid://brk0aatkuxmtq" path="res://Resources/Sprites/Single/UI/Cancel.png" id="9_ngebt"]
+[ext_resource type="Resource" uid="uid://ist1gvjnbeq1" path="res://Resources/Buildings/Belt.tres" id="12_siyie"]
+[ext_resource type="Resource" uid="uid://daihfa3q65tm0" path="res://Resources/Buildings/AmmoCollector.tres" id="13_per58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov7ht"]
 size = Vector2(10, 10)
 
-[sub_resource type="Gradient" id="Gradient_xl38i"]
-offsets = PackedFloat32Array(0, 0.997616, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+[node name="BuildingSystem" type="Node2D" node_paths=PackedStringArray("BuildingSelection", "BuildingPlacer", "StartButton", "StopButton")]
+script = ExtResource("1_q1knx")
+BuildingSelection = NodePath("BuildingSelection")
+BuildingPlacer = NodePath("BuildingPlacer")
+StartButton = NodePath("BuildingSystemUI/StartBuildingBlock/StartButton")
+StopButton = NodePath("BuildingSystemUI/StartBuildingBlock/StopButton")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4puq"]
-gradient = SubResource("Gradient_xl38i")
-
-[sub_resource type="Gradient" id="Gradient_ev8t8"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ek0bj"]
-gradient = SubResource("Gradient_ev8t8")
-
-[node name="BuilingPlacer" type="Node2D" node_paths=PackedStringArray("CursorSprite", "ActiveBuildingSprite", "NoBuildAreaDetector")]
+[node name="BuildingPlacer" type="Node2D" parent="." node_paths=PackedStringArray("CursorSprite", "ActiveBuildingSprite", "NoBuildAreaDetector")]
 script = ExtResource("1_uyv0f")
-CursorSprite = NodePath("BuildingUI/BuildingCursor/Cursor")
-ActiveBuildingSprite = NodePath("BuildingUI/BuildingCursor/ActiveBuilding")
-NoBuildAreaDetector = NodePath("BuildingUI/BuildingCursor/NoBuildAreaDetector")
+CursorSprite = NodePath("BuildingCursor/Cursor")
+ActiveBuildingSprite = NodePath("BuildingCursor/ActiveBuilding")
+NoBuildAreaDetector = NodePath("BuildingCursor/NoBuildAreaDetector")
 
-[node name="BuildingUI" type="Node2D" parent="."]
-visible = false
-
-[node name="Hints" type="Panel" parent="BuildingUI"]
-offset_top = 160.0
-offset_right = 112.0
-offset_bottom = 176.0
-
-[node name="E to rotate" type="RichTextLabel" parent="BuildingUI/Hints"]
-layout_mode = 0
-offset_right = 112.0
-offset_bottom = 16.0
-text = "[E] to rotate"
-
-[node name="BuildingCursor" type="Node2D" parent="BuildingUI"]
+[node name="BuildingCursor" type="Node2D" parent="BuildingPlacer"]
 z_index = 2
 script = ExtResource("4_r4pn5")
 
-[node name="ActiveBuilding" type="Sprite2D" parent="BuildingUI/BuildingCursor"]
+[node name="ActiveBuilding" type="Sprite2D" parent="BuildingPlacer/BuildingCursor"]
 texture = ExtResource("5_0xctr")
 
-[node name="Cursor" type="Sprite2D" parent="BuildingUI/BuildingCursor"]
+[node name="Cursor" type="Sprite2D" parent="BuildingPlacer/BuildingCursor"]
 texture = ExtResource("6_woete")
 
-[node name="NoBuildAreaDetector" type="Area2D" parent="BuildingUI/BuildingCursor"]
+[node name="NoBuildAreaDetector" type="Area2D" parent="BuildingPlacer/BuildingCursor"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingUI/BuildingCursor/NoBuildAreaDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingPlacer/BuildingCursor/NoBuildAreaDetector"]
 shape = SubResource("RectangleShape2D_ov7ht")
 debug_color = Color(0.956863, 0, 0.529412, 0.419608)
 
-[node name="BuildingSelection" type="Node2D" parent="."]
-script = ExtResource("5_1hrya")
-
-[node name="Control" type="Control" parent="BuildingSelection"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="BuildingPlacer"]
 offset_right = 640.0
 offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="MarginContainer" type="MarginContainer" parent="BuildingSelection/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
-
-[node name="PanelContainer" type="PanelContainer" parent="BuildingSelection/Control/MarginContainer"]
+[node name="AvailableOptions" type="HFlowContainer" parent="BuildingPlacer/MarginContainer"]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BuildingSelection/Control/MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 64
-
-[node name="HFlowContainer" type="HFlowContainer" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
 theme_override_constants/h_separation = 16
-alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Rotate" parent="BuildingPlacer/MarginContainer/AvailableOptions" instance=ExtResource("6_xq85e")]
 layout_mode = 2
-size_flags_horizontal = 4
-keep_pressed_outside = true
-texture_normal = SubResource("GradientTexture2D_m4puq")
-texture_focused = SubResource("GradientTexture2D_ek0bj")
+text = "Turn"
+texture = ExtResource("7_guxqg")
 
-[node name="CenterContainer" type="CenterContainer" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BuildingSelection" type="Node2D" parent="." node_paths=PackedStringArray("AvailableBuildingsBlock")]
+visible = false
+script = ExtResource("5_1hrya")
+BuildingButtonPrefab = ExtResource("6_s2650")
+AvailableBuildingsBlock = NodePath("MarginContainer/AvailabeBuildingsBlock")
+AvailableBuildings = Array[Resource("res://Scripts/Buildings/BuildingResource.gd")]([ExtResource("12_siyie"), ExtResource("13_per58")])
 
-[node name="TextureRect" type="TextureRect" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer/TextureButton/CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BuildingSelection"]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="AvailabeBuildingsBlock" type="HFlowContainer" parent="BuildingSelection/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-texture = ExtResource("6_ykmp5")
+size_flags_vertical = 8
 
-[node name="TextureButton3" type="TextureButton" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="BuildingSystemUI" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+mouse_default_cursor_shape = 7
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="StartBuildingBlock" type="HFlowContainer" parent="BuildingSystemUI"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = SubResource("GradientTexture2D_m4puq")
-texture_focused = SubResource("GradientTexture2D_ek0bj")
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/h_separation = 16
 
-[node name="CenterContainer" type="CenterContainer" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer/TextureButton3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="BuildingSelection/Control/MarginContainer/PanelContainer/MarginContainer/HFlowContainer/TextureButton3/CenterContainer"]
+[node name="StartButton" parent="BuildingSystemUI/StartBuildingBlock" instance=ExtResource("6_xq85e")]
 layout_mode = 2
-texture = ExtResource("6_ykmp5")
+text = "Build"
+texture = ExtResource("8_0105e")
+
+[node name="StopButton" parent="BuildingSystemUI/StartBuildingBlock" instance=ExtResource("6_xq85e")]
+visible = false
+layout_mode = 2
+text = "Stop"
+texture = ExtResource("9_ngebt")
+
+[connection signal="pressed" from="BuildingSystemUI/StartBuildingBlock/StartButton" to="." method="_on_start_building_pressed"]
+[connection signal="pressed" from="BuildingSystemUI/StartBuildingBlock/StopButton" to="." method="_on_cancel_building_pressed"]
