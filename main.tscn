@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="5"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
-[ext_resource type="PackedScene" uid="uid://dpxa1ue35dm1t" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://dtapucnd8ckuy" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 [ext_resource type="PackedScene" uid="uid://c2ypeotu6gfvb" path="res://Scenes/Buildings/AmmoPuller.tscn" id="10_ka7do"]
@@ -33,6 +33,7 @@ ammoType = 2
 
 [node name="UI" type="Node2D" parent="."]
 process_mode = 3
+z_index = 6
 metadata/_edit_lock_ = true
 
 [node name="Center" type="CenterContainer" parent="UI"]
@@ -52,6 +53,7 @@ wait_time = 0.5
 position = Vector2(192, 48)
 
 [node name="BuildingSystem" parent="UI" instance=ExtResource("7")]
+z_index = 6
 
 [node name="ReferenceRect" type="ReferenceRect" parent="UI"]
 offset_right = 640.0

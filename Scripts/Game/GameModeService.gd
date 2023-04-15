@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 enum GAME_MODES {Play, Build}
 
@@ -18,6 +18,10 @@ func _toggle_building_mode():
 		_currentMode = GAME_MODES.Build
 	else:
 		_currentMode = GAME_MODES.Play
+
+	get_tree().paused = _currentMode == GAME_MODES.Build;
+	PhysicsServer2D.set_active(true)
+
 	emit_signal("gameModeChanged", _currentMode)
 
 func get_mode():

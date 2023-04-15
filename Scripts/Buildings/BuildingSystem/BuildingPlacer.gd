@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BuildingPlacer;
+
 @export var CursorSprite: Sprite2D;
 @export var ActiveBuildingSprite: Sprite2D;
 @export var NoBuildAreaDetector: Area2D;
