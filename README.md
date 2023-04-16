@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 16.04.2023
+- Building UI
+- End Portal
+
 #### 13.04.2023
 - Storage building
 - AmmoPuller building

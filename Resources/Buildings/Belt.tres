@@ -9,4 +9,4 @@ script = ExtResource("1_1oisv")
 name = "Belt"
 scene = ExtResource("1_63x24")
 sprite = ExtResource("3_8cdqh")
-price = 5
+price = 0

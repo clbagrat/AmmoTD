@@ -1,7 +1,6 @@
 extends Label
 
-
-@onready var timer = $Timer;
+@export var timer: Timer;
 
 func _ready():
 	self.visible = false

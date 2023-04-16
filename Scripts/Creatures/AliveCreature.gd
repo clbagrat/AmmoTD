@@ -27,3 +27,5 @@ func die():
 	emit_signal("died", self)
 	get_parent().queue_free()
 
+func destroy():
+	get_parent().queue_free()

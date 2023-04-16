@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="5"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
-[ext_resource type="PackedScene" uid="uid://dpxa1ue35dm1t" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
-[ext_resource type="PackedScene" uid="uid://c2ypeotu6gfvb" path="res://Scenes/Buildings/AmmoPuller.tscn" id="10_ka7do"]
+[ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
 [ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="10_m8nfc"]
 
 [node name="World" type="Node2D"]
@@ -33,17 +33,19 @@ ammoType = 2
 
 [node name="UI" type="Node2D" parent="."]
 process_mode = 3
+z_index = 6
 metadata/_edit_lock_ = true
 
 [node name="Center" type="CenterContainer" parent="UI"]
 offset_right = 640.0
 offset_bottom = 360.0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="AlertUI" type="Label" parent="UI/Center"]
-process_mode = 2
+[node name="AlertUI" type="Label" parent="UI/Center" node_paths=PackedStringArray("timer")]
 layout_mode = 2
 script = ExtResource("6_pnow0")
+timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="UI/Center/AlertUI"]
 wait_time = 0.5
@@ -52,6 +54,7 @@ wait_time = 0.5
 position = Vector2(192, 48)
 
 [node name="BuildingSystem" parent="UI" instance=ExtResource("7")]
+z_index = 6
 
 [node name="ReferenceRect" type="ReferenceRect" parent="UI"]
 offset_right = 640.0
@@ -81,11 +84,11 @@ size_flags_horizontal = 8
 text = "100"
 script = ExtResource("9_88bmk")
 
-[node name="AmmoPuller" parent="." instance=ExtResource("10_ka7do")]
-position = Vector2(336, 208)
-
 [node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
 position = Vector2(480, 304)
+
+[node name="Portal" parent="." instance=ExtResource("10_gp60q")]
+position = Vector2(424, 216)
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
 
