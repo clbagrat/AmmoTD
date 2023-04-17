@@ -10,5 +10,3 @@ func _onDied(_creature: AliveCreature):
 		get_tree().get_root().get_node("World").call_deferred("add_child", charge);
 		charge.global_position = global_position + Vector2(randf_range(-4, 4), randf_range(-4, 4));
 
-
-

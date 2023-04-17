@@ -3,6 +3,7 @@ extends Node2D
 class_name AliveCreature
 
 @export var health = 100;
+@export var mapId = 1;
 
 signal died(aliveCreature);
 
@@ -25,7 +26,8 @@ func apply_damage(amount, buff: BuffObject = null):
 
 func die():
 	emit_signal("died", self)
-	get_parent().queue_free()
+	destroy()
 
 func destroy():
+	MonsterDeathService.register_death(self);
 	get_parent().queue_free()

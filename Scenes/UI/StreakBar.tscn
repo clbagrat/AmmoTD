@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://xix6t67lt62m"]
+
+[ext_resource type="Script" path="res://Scripts/UI/StreakBar.gd" id="1_da3a6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkrko"]
+bg_color = Color(0.6, 0.6, 0.6, 0.305882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur3mi"]
+bg_color = Color(0.898039, 0.364706, 0.756863, 1)
+
+[node name="StreakBar" type="Control" node_paths=PackedStringArray("progressBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_da3a6")
+progressBar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 96.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fkrko")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ur3mi")
+value = 50.0
+fill_mode = 3
+show_percentage = false

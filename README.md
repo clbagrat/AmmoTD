@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 17.04.2023
+- Fix for belts
+- Victory condition
+
 #### 16.04.2023
 - Building UI
 - End Portal

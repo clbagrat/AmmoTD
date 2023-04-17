@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rl6qsyweplnu"]
+[gd_scene load_steps=12 format=3 uid="uid://rl6qsyweplnu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1jfno7uk80p" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mine.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
 [ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="9_8xugp"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 [ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
 [ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="10_m8nfc"]
@@ -32,7 +33,6 @@ position = Vector2(224, 208)
 ammoType = 2
 
 [node name="UI" type="Node2D" parent="."]
-process_mode = 3
 z_index = 6
 metadata/_edit_lock_ = true
 
@@ -83,6 +83,25 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 script = ExtResource("9_88bmk")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="StreakBar" parent="UI/MarginContainer" instance=ExtResource("9_8xugp")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
 position = Vector2(480, 304)

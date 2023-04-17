@@ -5,6 +5,7 @@ var startGold = 100
 @onready var currentGold = startGold;
 
 
+
 func get_current_gold() -> int:
 	return  currentGold;
 
@@ -25,3 +26,4 @@ func can_spend(amount: int) -> bool:
 	
 func _emit() -> void:
 	emit_signal("amount_change", currentGold);
+

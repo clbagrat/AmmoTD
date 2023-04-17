@@ -95,6 +95,7 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="BuildingSystemUI" type="MarginContainer" parent="Control"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2

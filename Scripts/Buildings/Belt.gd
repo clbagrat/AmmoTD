@@ -21,7 +21,6 @@ func _on_Area2D_body_entered(body:Node):
 		return;
 
 	var draggable: Draggable = body.get_node("Draggable")
-	draggable.set_handler(self);
 	bodies_to_move.push_back(draggable);
 
 func _physics_process(delta):
@@ -30,8 +29,9 @@ func _physics_process(delta):
 		if !is_instance_valid(draggable):
 			bodies_to_move.remove_at(i)
 			continue
+		if draggable.current_handler == null:
+			draggable.set_handler(self)
 		if draggable.current_handler != self:
-			bodies_to_move.remove_at(i)
 			continue
 		var draggablePos = draggable.body.global_position;
 		var newPos = (destination.global_position - draggablePos).normalized() * delta * speed + draggablePos;
@@ -39,4 +39,5 @@ func _physics_process(delta):
 			draggable.move_body(self, newPos)
 		else:
 			draggable.unset_handler(self)
+			bodies_to_move.remove_at(i);
 
