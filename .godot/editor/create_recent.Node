@@ -1,8 +1,11 @@
+Sprite2D
+CollisionShape2D
+CursorHover
+Node
+BuildingLock
 MarginContainer
 ProgressBar
-CollisionShape2D
 Area2D
-Sprite2D
 Control
 BuildingPlacer
 HFlowContainer
@@ -26,4 +29,3 @@ SubViewport
 SubViewportContainer
 Container
 HBoxContainer
-GridContainer

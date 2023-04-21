@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rbqemnci3n06"]
+[gd_scene load_steps=17 format=3 uid="uid://rbqemnci3n06"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor.gd" id="1_nj437"]
 [ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="2_hqko0"]
@@ -10,10 +10,30 @@
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_Idle.gd" id="7_xfjxn"]
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_PickupAmmo.gd" id="8_gs2rm"]
 [ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_DropAmmo.gd" id="9_3f5ot"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InGameCursor_Interactive.gd" id="11_r16qh"]
+[ext_resource type="Texture2D" uid="uid://bt4f2d31xvpeh" path="res://Resources/Sprites/Single/UI/InGameCursor_interactive.png" id="12_rkhnh"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/CursorHover.gd" id="13_m08qw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo1vl"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm5vk"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10bm2"]
+radius = 16.0
 
 [node name="InGameCursor" type="Node2D"]
 z_index = 2
 script = ExtResource("1_nj437")
+
+[node name="CursorHover" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("13_m08qw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorHover"]
+shape = SubResource("RectangleShape2D_wo1vl")
 
 [node name="CursorMover" type="Node2D" parent="." node_paths=PackedStringArray("NodeToMove")]
 script = ExtResource("2_xqgbh")
@@ -35,6 +55,19 @@ capacity = 10
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource("3")]
 activeByDefault = false
 
+[node name="Area2D" parent="Inventory/AmmoHolder" index="1"]
+collision_layer = 0
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_pm5vk")
+
+[node name="LetGoArea" parent="Inventory/AmmoHolder" index="2"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/LetGoArea" index="0"]
+shape = SubResource("CircleShape2D_10bm2")
+
 [node name="AmmoSource" parent="Inventory" instance=ExtResource("4")]
 activeByDefault = false
 
@@ -54,12 +87,20 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("7_xfjxn")
 
-[node name="PickupAmmo" type="Node" parent="StateMachine"]
+[node name="PickupAmmo" type="Node" parent="StateMachine" node_paths=PackedStringArray("ammoHolder")]
 script = ExtResource("8_gs2rm")
+ammoHolder = NodePath("../../Inventory/AmmoHolder")
 
 [node name="DropAmmo" type="Node" parent="StateMachine"]
 script = ExtResource("9_3f5ot")
 
+[node name="Interactive" type="Node" parent="StateMachine" node_paths=PackedStringArray("CursorSprite")]
+script = ExtResource("11_r16qh")
+CursorSprite = NodePath("../../Sprite2D")
+HoverTexture = ExtResource("12_rkhnh")
+
+[connection signal="area_entered" from="CursorHover" to="CursorHover" method="_on_area_entered"]
+[connection signal="area_exited" from="CursorHover" to="CursorHover" method="_on_area_exited"]
 [connection signal="amount_change" from="Inventory" to="." method="_on_Inventory_amount_change"]
 
 [editable path="Inventory/AmmoHolder"]

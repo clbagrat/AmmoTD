@@ -75,6 +75,7 @@ func _draw():
 	draw_rect(Rect2(collisionShape.position - collisionShape.shape.size/2, collisionShape.shape.size), Color(255, 255, 255, 0.5), true)
 
 func turn_on():
+	print('here')
 	isActive = true;
 	for body in activeAmmo:
 		if !is_instance_valid(body):
@@ -84,6 +85,7 @@ func turn_on():
 		
 
 func turn_off():
+	print('off')
 	isActive = false;
 
 

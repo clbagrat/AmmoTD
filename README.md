@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 21.04.2023
+- Cursor Interactive system
+- Unlockable mining spots
+
 #### 17.04.2023
 - Fix for belts
 - Victory condition

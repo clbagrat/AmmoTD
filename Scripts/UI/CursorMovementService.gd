@@ -6,12 +6,30 @@ var isMouseControl = true;
 
 var lastTimeControlFired = 0;
 var currentTime = 0;
+var isInHover = false;
 
 var lastMouseCoordinates = Vector2(0, 0)
 
 
 func get_current_position() -> Vector2:
 	return cursorPosition
+
+func set_hover(value: bool) -> void:
+	isInHover = value
+
+func is_in_hover() -> bool:
+	return isInHover
+
+func is_cursor_over_me(coord: Vector2) -> bool:
+	if (coord.x < cursorPosition.x):
+		return false
+	if (coord.y < cursorPosition.y):
+		return false
+	if (coord.x > cursorPosition.x + GlobalConfig.GRID_SIZE):
+		return false
+	if (coord.y > cursorPosition.y + GlobalConfig.GRID_SIZE):
+		return false
+	return true
 
 func _ready() -> void:
 	self.set_process_mode(PROCESS_MODE_ALWAYS);

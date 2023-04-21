@@ -2,12 +2,11 @@ extends Node
 
 class_name State
 
-var state_machine = null;
+var state_machine: StateMachine;
 
 func _ready():
 	print("state machine", state_machine)
 	pass;
-
 
 func enter():
 	pass;

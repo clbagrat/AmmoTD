@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6otyj7n8xh1e"]
+[gd_scene load_steps=10 format=3 uid="uid://c6otyj7n8xh1e"]
 
 [ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/Buildings/Mine.gd" id="1_8d2ie"]
 [ext_resource type="PackedScene" uid="uid://cepuwufijvlgd" path="res://Scenes/Inventory/AmmoSource.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="4_iisws"]
+[ext_resource type="Texture2D" uid="uid://1ohed87hmq7j" path="res://Resources/Sprites/Single/UI/locked.png" id="6_2shkd"]
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingLock/BuildingLock.gd" id="6_tmvm1"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InteractiveByCursor.gd" id="7_f5eob"]
 
-[node name="Mine" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om0bl"]
+size = Vector2(16, 16)
+
+[node name="Mine" type="Node2D" node_paths=PackedStringArray("ammoSource", "LockVisual")]
+script = ExtResource("1_8d2ie")
+ammoSource = NodePath("Inventory/AmmoSource")
+LockVisual = NodePath("LockedSprite")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1")
@@ -27,5 +37,22 @@ offset_right = 8.0
 offset_bottom = 24.0
 
 [node name="NoBuildingArea" parent="." instance=ExtResource("4_iisws")]
+
+[node name="LockedSprite" type="Sprite2D" parent="."]
+texture = ExtResource("6_2shkd")
+
+[node name="BuildingLock" type="Node2D" parent="." node_paths=PackedStringArray("building", "interractiveByCursor")]
+script = ExtResource("6_tmvm1")
+price = 710
+building = NodePath("..")
+interractiveByCursor = NodePath("InteractiveByCursor")
+
+[node name="InteractiveByCursor" type="Area2D" parent="BuildingLock"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("7_f5eob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingLock/InteractiveByCursor"]
+shape = SubResource("RectangleShape2D_om0bl")
 
 [editable path="Inventory/AmmoSource"]
