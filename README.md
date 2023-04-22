@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 22.04.2023
+- First pixel art by hand :D
+
+
 #### 21.04.2023
 - Cursor Interactive system
 - Unlockable mining spots

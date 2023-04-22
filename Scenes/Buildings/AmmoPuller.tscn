@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="2_epu4n"]
 [ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3_gf68o"]
 [ext_resource type="PackedScene" uid="uid://cepuwufijvlgd" path="res://Scenes/Inventory/AmmoSource.tscn" id="4_s06p0"]
-[ext_resource type="Texture2D" uid="uid://di8xijflhmygq" path="res://Resources/Sprites/Single/Buildings/AmmoPuller.png" id="5_ydg2o"]
+[ext_resource type="Texture2D" uid="uid://d0mvujc8e6u48" path="res://Resources/Sprites/Single/Buildings/Crystal.png" id="5_0q5tg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxoe4"]
 radius = 61.43
@@ -37,7 +37,7 @@ offset_right = 8.0
 offset_bottom = 24.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("5_ydg2o")
+texture = ExtResource("5_0q5tg")
 
 [editable path="Inventory/AmmoHolder"]
 [editable path="Inventory/AmmoSource"]
