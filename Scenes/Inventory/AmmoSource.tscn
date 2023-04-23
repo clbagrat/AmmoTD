@@ -7,9 +7,7 @@ script = ExtResource("2")
 
 [node name="Cooldown" type="Timer" parent="."]
 
-[node name="DropAreaRect" type="ReferenceRect" parent="."]
-offset_right = 16.0
-offset_bottom = 16.0
-mouse_filter = 2
+[node name="DropAreaRect" type="Node2D" parent="."]
+position = Vector2(88, 8)
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_Timer_timeout"]

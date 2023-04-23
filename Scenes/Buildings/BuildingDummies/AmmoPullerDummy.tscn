@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf3xayl1pojuw"]
+
+[ext_resource type="Texture2D" uid="uid://d0mvujc8e6u48" path="res://Resources/Sprites/Single/Buildings/Crystal.png" id="1_mqpkh"]
+[ext_resource type="Script" path="res://Scripts/Buildings/AmmoPullerDummy.gd" id="1_slst1"]
+[ext_resource type="Texture2D" uid="uid://cchcrp317q67y" path="res://Resources/Sprites/Single/Buildings/Arrow.png" id="2_k26ia"]
+
+[node name="AmmoPullerDummy" type="Node2D" node_paths=PackedStringArray("nodeToRotate")]
+script = ExtResource("1_slst1")
+nodeToRotate = NodePath("Arrow")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_mqpkh")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_k26ia")
+offset = Vector2(12, 0)

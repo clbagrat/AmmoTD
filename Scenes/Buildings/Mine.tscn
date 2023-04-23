@@ -31,10 +31,7 @@ startAtFullCapacity = true
 wait_time = 0.499
 
 [node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
-offset_left = -8.0
-offset_top = 8.0
-offset_right = 8.0
-offset_bottom = 24.0
+position = Vector2(0, 16)
 
 [node name="NoBuildingArea" parent="." instance=ExtResource("4_iisws")]
 
@@ -43,7 +40,7 @@ texture = ExtResource("6_2shkd")
 
 [node name="BuildingLock" type="Node2D" parent="." node_paths=PackedStringArray("building", "interractiveByCursor")]
 script = ExtResource("6_tmvm1")
-price = 710
+price = 100
 building = NodePath("..")
 interractiveByCursor = NodePath("InteractiveByCursor")
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://vtmohpmstw0w"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingDummy.gd" id="1_vevnf"]
+[ext_resource type="Texture2D" uid="uid://ca2women4hppt" path="res://Resources/Sprites/Single/Buildings/BeltHorizontal.png" id="2_kshi1"]
+
+[node name="BeltDummy" type="Node2D"]
+script = ExtResource("1_vevnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kshi1")

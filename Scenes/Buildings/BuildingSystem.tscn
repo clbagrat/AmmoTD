@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvtp0j54mpg5b"]
+[gd_scene load_steps=14 format=3 uid="uid://dvtp0j54mpg5b"]
 
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSystem.gd" id="1_q1knx"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingPlacer.gd" id="1_uyv0f"]
 [ext_resource type="Script" path="res://Scripts/UI/CursorMover.gd" id="4_r4pn5"]
-[ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="5_0xctr"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSelection.gd" id="5_1hrya"]
 [ext_resource type="PackedScene" uid="uid://ohqs677qctmp" path="res://Scenes/UI/BuildingButton.tscn" id="6_s2650"]
 [ext_resource type="Texture2D" uid="uid://xnusnyyps13a" path="res://Resources/Sprites/Single/UI/InGameCursor.png" id="6_woete"]
@@ -31,18 +30,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="BuildingPlacer" type="Node2D" parent="Control" node_paths=PackedStringArray("CursorSprite", "ActiveBuildingSprite", "NoBuildAreaDetector")]
+[node name="BuildingPlacer" type="Node2D" parent="Control" node_paths=PackedStringArray("CursorSprite", "DummyPlace", "NoBuildAreaDetector")]
 script = ExtResource("1_uyv0f")
 CursorSprite = NodePath("BuildingCursor/Cursor")
-ActiveBuildingSprite = NodePath("BuildingCursor/ActiveBuilding")
+DummyPlace = NodePath("BuildingCursor/ActiveBuilding")
 NoBuildAreaDetector = NodePath("BuildingCursor/NoBuildAreaDetector")
 
 [node name="BuildingCursor" type="Node2D" parent="Control/BuildingPlacer"]
 z_index = 2
 script = ExtResource("4_r4pn5")
 
-[node name="ActiveBuilding" type="Sprite2D" parent="Control/BuildingPlacer/BuildingCursor"]
-texture = ExtResource("5_0xctr")
+[node name="ActiveBuilding" type="Node2D" parent="Control/BuildingPlacer/BuildingCursor"]
 
 [node name="Cursor" type="Sprite2D" parent="Control/BuildingPlacer/BuildingCursor"]
 texture = ExtResource("6_woete")

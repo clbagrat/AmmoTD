@@ -75,10 +75,7 @@ activeByDefault = false
 wait_time = 0.2
 
 [node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+position = Vector2(0, 0)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("7")

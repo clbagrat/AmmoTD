@@ -6,4 +6,3 @@ enum AmmoTypes {Common, Gold, Poison}
 
 enum AmmoRepresentations {Raw, Bullet, Bomb}
 
-enum BuildingTypes {Belt}

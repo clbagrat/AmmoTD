@@ -5,7 +5,7 @@ class_name AmmoSource
 @export var activeByDefault = true;
 
 @onready var timer: Timer = $Cooldown;
-@onready var dropArea: ReferenceRect = $DropAreaRect;
+@onready var dropArea: Node2D = $DropAreaRect;
 
 var inventory: Inventory;
 
@@ -27,8 +27,8 @@ func _on_Timer_timeout():
 	ammo.global_position = ammoPos;
 
 func _get_random_drop_position() -> Vector2:
-	var gp = dropArea.global_position;
-	return Vector2(randf_range(gp.x, gp.x+dropArea.size.x), randf_range(gp.y, gp.y + dropArea.size.y))
+	var gridCoord = GridUtils.get_grid_coords(dropArea.global_position);
+	return GridUtils.get_random_point(gridCoord)
 
 
 func turn_on():

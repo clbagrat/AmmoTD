@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 23.04.2023
+- Improve rotations
+
 #### 22.04.2023
 - First pixel art by hand :D
 

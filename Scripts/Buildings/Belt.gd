@@ -1,5 +1,4 @@
-extends Node2D
-
+extends BaseBuilding
 
 # on area entry
 	# check if ammo

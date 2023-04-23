@@ -3,24 +3,30 @@ extends Node2D
 class_name BuildingPlacer;
 
 @export var CursorSprite: Sprite2D;
-@export var ActiveBuildingSprite: Sprite2D;
+@export var DummyPlace: Node2D;
 @export var NoBuildAreaDetector: Area2D;
 
 var isActive = false;
 var canBuild = false;
 var activeBuilding: BuildingResource;
+var activeDummy: BuildingDummy;
+var currentRotation = 0;
 
 
 func start_placing(res: BuildingResource):
 	isActive = true;
 	self.visible = true;
 	activeBuilding = res;
-	ActiveBuildingSprite.texture = res.sprite
+	activeDummy = res.buildingDummyScene.instantiate();
+	activeDummy.set_building_rotation(currentRotation)
+	DummyPlace.add_child(activeDummy)
 	pass;
 
 func stop_placing():
 	isActive = false;
 	self.visible = false;
+	if is_instance_valid(activeDummy): 
+		activeDummy.queue_free()
 
 
 func _unhandled_input(event: InputEvent):
@@ -35,7 +41,8 @@ func _unhandled_input(event: InputEvent):
 
 
 	if (event.is_action_pressed("building_rotate")):
-		ActiveBuildingSprite.rotate(PI/2);
+		currentRotation += PI/2
+		activeDummy.set_building_rotation(currentRotation)
 
 
 	if (event.is_action_pressed("building_accept")):
@@ -50,9 +57,9 @@ func _unhandled_input(event: InputEvent):
 			AlertService.alert("No money")
 		
 func _actually_build():
-	var buildingInstance: Node2D = activeBuilding.scene.instantiate();
+	var buildingInstance: BaseBuilding = activeBuilding.scene.instantiate();
 	buildingInstance.global_position = CursorMovementService.get_current_position();
-	buildingInstance.set_rotation(ActiveBuildingSprite.get_rotation())
+	buildingInstance.set_initial_rotation(currentRotation)
 	get_tree().get_root().get_node("World").add_child(buildingInstance);
 
 func _adjust_can_build_visual():
