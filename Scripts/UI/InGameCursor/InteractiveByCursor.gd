@@ -4,8 +4,7 @@ class_name InteractiveByCursor
 
 signal on_interract;
 
-func set_hover_state(value: bool):
-	print(123123123, value)
+func set_hover_state(_value: bool):
 	pass
 
 		

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqd1su0th8drn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8pwb"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwrip"]
+size = Vector2(48, 16)
+
+[node name="BuildingAutoPlacerDummy" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m8pwb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dwrip")

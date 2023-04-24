@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 24.04.2023
+- Autoplace buildings (first iteration)
+
 #### 23.04.2023
 - Improve rotations
 
