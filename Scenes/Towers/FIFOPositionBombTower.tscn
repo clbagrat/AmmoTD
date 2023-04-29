@@ -45,6 +45,7 @@ script = ExtResource("7")
 
 [node name="CooldownTrigger" type="Node2D" parent="."]
 script = ExtResource("6")
+cooldown = 2.0
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 script = ExtResource("8")

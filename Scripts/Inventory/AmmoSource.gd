@@ -28,7 +28,7 @@ func _on_Timer_timeout():
 
 func _get_random_drop_position() -> Vector2:
 	var gridCoord = GridUtils.get_grid_coords(dropArea.global_position);
-	return GridUtils.get_random_point(gridCoord)
+	return GridUtils.get_random_point(gridCoord, 2)
 
 
 func turn_on():

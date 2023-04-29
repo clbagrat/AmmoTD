@@ -7,7 +7,10 @@ static func get_grid_coords(pos: Vector2) -> Vector2:
 static func snap_to_grid(pos: Vector2) -> Vector2:
 	return get_grid_coords(pos) * GlobalConfig.GRID_SIZE;
 
-static func get_random_point(gridCoord: Vector2) -> Vector2:
-	var randX = randf_range(-GlobalConfig.GRID_SIZE / 2, GlobalConfig.GRID_SIZE / 2)
-	var randY = randf_range(-GlobalConfig.GRID_SIZE / 2, GlobalConfig.GRID_SIZE / 2)
+static func get_random_point(gridCoord: Vector2, offset: int) -> Vector2:
+	var size = GlobalConfig.GRID_SIZE  - offset;
+
+	var randX = randf_range(-size  / 2, size / 2)
+
+	var randY = randf_range(-size / 2, size / 2)
 	return Vector2(randX, randY) + gridCoord * GlobalConfig.GRID_SIZE;

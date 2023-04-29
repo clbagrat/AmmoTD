@@ -1,6 +1,6 @@
 extends Node2D;
 
-var maxStreak: int = 5;
+var maxStreak: int = 20;
 
 var currentStreak: int = 0;
 

@@ -2,6 +2,8 @@
 
 #### 29.04.2023
 - Add rocks
+- First balance changes
+- Monsters spawning in batches
 
 #### 24.04.2023
 - Autoplace buildings (first iteration)

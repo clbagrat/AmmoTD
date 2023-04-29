@@ -2,7 +2,6 @@ extends Node2D
 
 class_name BuildingLock;
 
-@export var unlockedByDefault: bool;
 @export var price: int;
 @export var building: LockableBuilding;
 @export var interractiveByCursor: InteractiveByCursor;
@@ -10,12 +9,13 @@ class_name BuildingLock;
 func _ready():
 	interractiveByCursor.connect("on_interract", func (): try_to_unlock());
 
-	if (unlockedByDefault):
+	if (building.UnlockedByDefault):
 		building.unlock()
 	else:
 		building.lock()
 
 func try_to_unlock():
+	if (!building.isLocked): return;
 	if (EconomyService.can_spend(price)):
 		EconomyService.spend(price)
 		building.unlock()

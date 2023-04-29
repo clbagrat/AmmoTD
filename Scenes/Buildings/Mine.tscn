@@ -28,7 +28,7 @@ startAtFullCapacity = true
 [node name="AmmoSource" parent="Inventory" instance=ExtResource("2")]
 
 [node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
-wait_time = 0.499
+wait_time = 1.5
 
 [node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
 position = Vector2(0, 16)

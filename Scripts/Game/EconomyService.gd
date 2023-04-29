@@ -1,7 +1,7 @@
 extends Node
 
 signal amount_change(amount)
-var startGold = 100
+var startGold = 150 
 @onready var currentGold = startGold;
 
 
