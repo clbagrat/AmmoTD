@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 29.04.2023
+- Add rocks
+
 #### 24.04.2023
 - Autoplace buildings (first iteration)
 

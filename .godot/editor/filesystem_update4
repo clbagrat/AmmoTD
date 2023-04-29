@@ -1,3 +1,4 @@
+res://Scripts/Buildings/BuildingAutoPlacer.gd
 res://default_env.tres
 res://main.tscn
 res://Resources/TileMaps/World/GrassDirtWater.tres
@@ -11,8 +12,6 @@ res://Scenes/Inventory/AmmoSource.tscn
 res://Scenes/Buildings/BuildingDummies/AmmoPullerDummy.tscn
 res://Scenes/Buildings/BuildingDummies/BeltDummy.tscn
 res://Scenes/Buildings/Belt.tscn
-res://Scripts/Buildings/BuildingAutoPlacer.gd
 res://Scenes/World/Maps/map_1.tscn
-res://Scripts/UI/InGameCursor/InteractiveByCursor.gd
-res://Scripts/Misc/GridUtils.gd
 res://Scenes/Buildings/BuildingAutoPlacerDummy.tscn
+res://Scenes/Buildings/Rock.tscn

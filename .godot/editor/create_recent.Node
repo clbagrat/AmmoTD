@@ -1,9 +1,9 @@
+Sprite2D
 RayCast2D
 CollisionShape2D
 Area2D
 Node2D
 BuildingAutoPlacer
-Sprite2D
 CursorHover
 Node
 BuildingLock
@@ -30,4 +30,3 @@ ColorRect
 SubViewport
 SubViewportContainer
 Container
-HBoxContainer

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Creatures/Spawner.gd" id="1_aelwn"]
 [ext_resource type="TileSet" uid="uid://bkbiyr4trqoe7" path="res://Resources/TileMaps/World/GrassDirtWater.tres" id="2_dv6qn"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingAutoPlacer.gd" id="3_2y7j5"]
-[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mine.tscn" id="4_b5d5r"]
+[ext_resource type="PackedScene" uid="uid://cuklc1yo4n145" path="res://Scenes/Buildings/Rock.tscn" id="4_7t0p8"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -46,8 +46,8 @@ curve = SubResource("1")
 position = Vector2(144, 64)
 script = ExtResource("3_2y7j5")
 Limiter = NodePath("Limiter")
-Amount = 10
-BuildingToPlace = ExtResource("4_b5d5r")
+Amount = 8
+BuildingToPlace = ExtResource("4_7t0p8")
 raycast = NodePath("RayCast2D")
 
 [node name="Limiter" type="Node2D" parent="BuildingAutoPlacer"]

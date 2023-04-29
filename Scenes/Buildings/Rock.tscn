@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuklc1yo4n145"]
+
+[ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="1_2p6i1"]
+[ext_resource type="Texture2D" uid="uid://cnsnpaw50jmlg" path="res://Resources/Sprites/Single/Buildings/Rock.png" id="2_pi48u"]
+
+[node name="Rock" instance=ExtResource("1_2p6i1")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_pi48u")
