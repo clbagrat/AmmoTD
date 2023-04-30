@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://4fsk3u4udhas"]
+
+[ext_resource type="Script" path="res://Scripts/UI/InventoryUI.gd" id="1_tjb08"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fas6a"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="InventoryUI" type="PanelContainer" node_paths=PackedStringArray("placeForAmmo")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_top = 8.0
+offset_right = 6.0
+offset_bottom = 10.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fas6a")
+script = ExtResource("1_tjb08")
+placeForAmmo = NodePath("HFlowContainer")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 1

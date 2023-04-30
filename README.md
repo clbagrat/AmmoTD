@@ -4,6 +4,8 @@
 - Incrementing price of buildings
 - Speading up mines while holding cursor over them
 - Balance changes
+- Autoplacing towers (slight random)
+- Inventory UI
 
 #### 29.04.2023
 - Add rocks

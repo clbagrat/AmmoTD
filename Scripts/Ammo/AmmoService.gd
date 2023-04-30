@@ -38,3 +38,15 @@ func create_bullet(type: int) -> Node2D:
 func create_bomb(type: int) -> Node2D:
 	return create_representation(type, GlobalConfig.AmmoRepresentations.Bomb);
 	
+
+func get_color(type: int) -> Color:
+	assert(ammoDict[type]);
+	return ammoDict[type].color;
+
+
+
+
+
+
+
+

@@ -55,8 +55,8 @@ func _unhandled_input(event: InputEvent):
 			return
 
 		if (EconomyService.can_spend(get_price(activeBuilding))):
-			_actually_build();
 			EconomyService.spend(get_price(activeBuilding));
+			_actually_build();
 		else:
 			AlertService.alert("No money")
 		

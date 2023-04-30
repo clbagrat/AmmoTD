@@ -1,20 +1,12 @@
-extends Node2D
+extends BaseBuilding;
 
 class_name BaseTowerBehaviour
 
-@export var ShooterPath := NodePath()
-@export var InventoryPath := NodePath();
-@export var DetectorPath := NodePath();
-@export var CooldownPath := NodePath();
+@export var shooter: BaseShooter
+@export var inventory: Inventory
+@export var detector: BaseEnemyDetector
+@export var cooldown: BaseCooldown
 
-@onready var shooter: BaseShooter = get_node(ShooterPath);
-@onready var inventory: Inventory = get_node(InventoryPath);
-@onready var detector: BaseEnemyDetector = get_node(DetectorPath);
-@onready var cooldown: BaseCooldown = get_node(CooldownPath);
 
-func _ready():
-	assert(shooter is BaseShooter) #,"provide proper shooter")
-	assert(inventory is Inventory) #,"provide proper inventory")
-	assert(detector is BaseEnemyDetector) #,"provide proper detector")
-	assert(cooldown is BaseCooldown) #,"provide proper cooldown")
-
+func set_initial_rotation(degree: float):
+	inventory.set_rotation(degree)

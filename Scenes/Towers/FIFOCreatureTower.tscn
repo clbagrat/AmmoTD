@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://Scripts/Tower/FIFOCreatureTowerBehavior.gd" id="1_50vfa"]
 [ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://o00fl2lsuvwg" path="res://Resources/Sprites/Single/Tower/AoeTower.png" id="2_hrjae"]
-[ext_resource type="Script" path="res://Scripts/UI/InventorySize.gd" id="3_oqpwy"]
 [ext_resource type="Script" path="res://Scripts/Tower/AutoAimProjectileShooter.gd" id="4_hd6ig"]
 [ext_resource type="Script" path="res://Scripts/Tower/CooldownTrigger.gd" id="5_vrqdw"]
 [ext_resource type="Script" path="res://Scripts/Tower/AreaEnemyDetector.gd" id="6_mlt3b"]
 [ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="9_g1bny"]
+[ext_resource type="PackedScene" uid="uid://4fsk3u4udhas" path="res://Scenes/UI/inventoryUI.tscn" id="9_hnmvc"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 22.0227
@@ -19,27 +19,17 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(20.5, 16)
 
-[node name="FIFOCreatureTower" type="Node2D"]
+[node name="FIFOCreatureTower" type="Node2D" node_paths=PackedStringArray("shooter", "inventory", "detector", "cooldown")]
 script = ExtResource("1_50vfa")
-ShooterPath = NodePath("AutoAimProjectileShooter")
-InventoryPath = NodePath("Inventory")
-DetectorPath = NodePath("EnemyDetector")
-CooldownPath = NodePath("CooldownTrigger")
+shooter = NodePath("AutoAimProjectileShooter")
+inventory = NodePath("Inventory")
+detector = NodePath("EnemyDetector")
+cooldown = NodePath("CooldownTrigger")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.5332e-07, -2.38419e-07)
 scale = Vector2(1.06667, 1.06667)
 texture = ExtResource("2_hrjae")
-
-[node name="InventorySize" type="Label" parent="."]
-offset_left = -51.0
-offset_top = -8.0
-offset_right = -8.0
-offset_bottom = 21.0
-text = "1"
-horizontal_alignment = 2
-script = ExtResource("3_oqpwy")
-InventoryPath = NodePath("../Inventory")
 
 [node name="AutoAimProjectileShooter" type="Node2D" parent="."]
 script = ExtResource("4_hd6ig")
@@ -56,7 +46,7 @@ shape = SubResource("1")
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource("1")
-capacity = 10
+capacity = 5
 
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource("2")]
 showShape = true
@@ -71,6 +61,9 @@ position = Vector2(-0.25, -16)
 shape = SubResource("3")
 
 [node name="NoBuildingArea" parent="." instance=ExtResource("9_g1bny")]
+
+[node name="InventoryUI" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("9_hnmvc")]
+inventory = NodePath("../Inventory")
 
 [connection signal="body_entered" from="EnemyDetector" to="EnemyDetector" method="_on_EnemyDetector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="EnemyDetector" method="_on_EnemyDetector_body_exited"]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc1jfno7uk80p"]
+[gd_scene load_steps=10 format=3 uid="uid://dc1jfno7uk80p"]
 
 [ext_resource type="Script" path="res://Scripts/Creatures/Spawner.gd" id="1_aelwn"]
 [ext_resource type="TileSet" uid="uid://bkbiyr4trqoe7" path="res://Resources/TileMaps/World/GrassDirtWater.tres" id="2_dv6qn"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingAutoPlacer.gd" id="3_2y7j5"]
 [ext_resource type="PackedScene" uid="uid://cuklc1yo4n145" path="res://Scenes/Buildings/Rock.tscn" id="4_7t0p8"]
+[ext_resource type="Script" path="res://Scripts/Editor/VisualMark.gd" id="5_f80hm"]
+[ext_resource type="Script" path="res://Scripts/Buildings/TowerAutoPlacer.gd" id="5_qgag1"]
+[ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="6_f3vfb"]
+[ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="7_hmitu"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -57,3 +61,30 @@ position = Vector2(352, 256)
 position = Vector2(96, 80)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="TowerAutoPlacer" type="Node2D" parent="."]
+script = ExtResource("5_qgag1")
+TowersToPlace = Array[PackedScene]([ExtResource("6_f3vfb"), ExtResource("7_hmitu")])
+TowerAmount = 2
+
+[node name="Spot" type="Node2D" parent="TowerAutoPlacer"]
+position = Vector2(336, 160)
+script = ExtResource("5_f80hm")
+
+[node name="Spot3" type="Node2D" parent="TowerAutoPlacer"]
+position = Vector2(272, 144)
+rotation = -1.5708
+script = ExtResource("5_f80hm")
+
+[node name="Spot4" type="Node2D" parent="TowerAutoPlacer"]
+position = Vector2(256, 176)
+rotation = 1.5708
+script = ExtResource("5_f80hm")
+
+[node name="Spot2" type="Node2D" parent="TowerAutoPlacer"]
+position = Vector2(304, 192)
+script = ExtResource("5_f80hm")
+
+[node name="Spot5" type="Node2D" parent="TowerAutoPlacer"]
+position = Vector2(336, 192)
+script = ExtResource("5_f80hm")

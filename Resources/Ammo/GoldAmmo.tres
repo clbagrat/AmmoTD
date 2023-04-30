@@ -10,8 +10,9 @@
 script = ExtResource("5_o06si")
 type = 1
 damage = 10
-rawTexture = ExtResource("4_c3fp1")
+explosionDamage = 20
 rawSprite = ExtResource("4_c3fp1")
 bulletSprite = ExtResource("2_p7w02")
 bombSprite = ExtResource("1_0p404")
 explosionSprite = ExtResource("3_pmmwr")
+color = Color(0.984314, 0.94902, 0.211765, 1)

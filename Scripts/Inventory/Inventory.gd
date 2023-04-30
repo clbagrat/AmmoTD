@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 class_name Inventory
 
@@ -9,7 +9,7 @@ signal amount_change(amount);
 @export var startAtFullCapacity: bool;
 @export var canHoldAnyType: bool = true;
 
-var _charges: Array = [];
+var _charges: Array[int] = [];
 
 func _ready():
 	if startAtFullCapacity:
@@ -17,6 +17,9 @@ func _ready():
 
 var _current_amount = 0;
 
+
+func get_current_charges() -> Array[int]:
+	return _charges;
 
 func get_current_amount() -> int:
 	return  _current_amount;

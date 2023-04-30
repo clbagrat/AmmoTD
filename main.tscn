@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://rl6qsyweplnu"]
+[gd_scene load_steps=10 format=3 uid="uid://rl6qsyweplnu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1jfno7uk80p" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mine.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
-[ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="5"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
 [ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="9_8xugp"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 [ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
@@ -18,12 +16,6 @@ y_sort_enabled = true
 [node name="Map1" parent="." instance=ExtResource("1_7u1yf")]
 cooldown = 6.0
 batchSize = 1
-
-[node name="FIFOPositionBombTower" parent="." instance=ExtResource("5")]
-position = Vector2(304, 207)
-
-[node name="FIFOCreatureTower" parent="." instance=ExtResource("9")]
-position = Vector2(336, 160)
 
 [node name="Mine" parent="." instance=ExtResource("2")]
 position = Vector2(432, 160)

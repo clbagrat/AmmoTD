@@ -10,3 +10,4 @@ class_name AmmoResource;
 @export var bombSprite: Texture2D;
 @export var explosionSprite: Texture2D;
 @export var buff: PackedScene;
+@export var color: Color;
