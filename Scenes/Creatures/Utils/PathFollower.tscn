@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://qifs6qvy80ex"]
 
 [ext_resource type="Script" path="res://Scripts/Creatures/PathFollower.gd" id="1"]
 
@@ -6,4 +6,4 @@
 rotates = false
 loop = false
 script = ExtResource("1")
-speed = 25
+speed = 15

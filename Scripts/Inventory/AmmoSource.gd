@@ -6,6 +6,7 @@ class_name AmmoSource
 
 @onready var timer: Timer = $Cooldown;
 @onready var dropArea: Node2D = $DropAreaRect;
+@onready var _old_wait_time = timer.wait_time;
 
 var inventory: Inventory;
 
@@ -36,3 +37,9 @@ func turn_on():
 
 func turn_off():
 	timer.stop();
+
+func increase_speed(delimeter: int):
+	timer.set_wait_time(_old_wait_time / delimeter)
+
+func reset_speed():
+	timer.set_wait_time(_old_wait_time)

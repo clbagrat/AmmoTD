@@ -29,9 +29,7 @@ func _physics_process(_delta):
 		raycast.force_raycast_update();
 
 		if raycast.is_colliding():
-			print("123123")
 			continue
-		print(dot)
 		left-=1;
 
 		var instance: Node2D = BuildingToPlace.instantiate();

@@ -12,3 +12,4 @@ scene = ExtResource("1_63x24")
 buildingDummyScene = ExtResource("1_k7pgw")
 sprite = ExtResource("3_8cdqh")
 price = 0
+priceIncrement = 1

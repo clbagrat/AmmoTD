@@ -1,5 +1,10 @@
 ## Changelog
 
+#### 30.04.2023
+- Incrementing price of buildings
+- Speading up mines while holding cursor over them
+- Balance changes
+
 #### 29.04.2023
 - Add rocks
 - First balance changes

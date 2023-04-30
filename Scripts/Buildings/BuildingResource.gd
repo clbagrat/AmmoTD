@@ -7,3 +7,4 @@ class_name BuildingResource;
 @export var buildingDummyScene: PackedScene;
 @export var sprite: Texture2D;
 @export var price: int;
+@export var priceIncrement: int;

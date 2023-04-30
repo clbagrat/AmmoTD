@@ -11,4 +11,5 @@ name = "Ammo Collector"
 scene = ExtResource("1_dveik")
 buildingDummyScene = ExtResource("1_klwc5")
 sprite = ExtResource("3_sl107")
-price = 50
+price = 0
+priceIncrement = 50

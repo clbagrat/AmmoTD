@@ -13,6 +13,7 @@ var activeDummy: BuildingDummy;
 var currentRotation = 0;
 
 
+
 func start_placing(res: BuildingResource):
 	isActive = true;
 	self.visible = true;
@@ -27,6 +28,9 @@ func stop_placing():
 	self.visible = false;
 	if is_instance_valid(activeDummy): 
 		activeDummy.queue_free()
+
+func get_price(building: BuildingResource):
+	return EconomyService.get_building_price(building)
 
 
 func _unhandled_input(event: InputEvent):
@@ -50,9 +54,9 @@ func _unhandled_input(event: InputEvent):
 			AlertService.alert("Can't build here");
 			return
 
-		if (EconomyService.can_spend(activeBuilding.price)):
+		if (EconomyService.can_spend(get_price(activeBuilding))):
 			_actually_build();
-			EconomyService.spend(activeBuilding.price);
+			EconomyService.spend(get_price(activeBuilding));
 		else:
 			AlertService.alert("No money")
 		
@@ -61,6 +65,8 @@ func _actually_build():
 	buildingInstance.global_position = CursorMovementService.get_current_position();
 	buildingInstance.set_initial_rotation(currentRotation)
 	get_tree().get_root().get_node("World").add_child(buildingInstance);
+	EconomyService.increment_building_price(activeBuilding)
+
 
 func _adjust_can_build_visual():
 	if canBuild:

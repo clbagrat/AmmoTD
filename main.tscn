@@ -16,6 +16,8 @@
 y_sort_enabled = true
 
 [node name="Map1" parent="." instance=ExtResource("1_7u1yf")]
+cooldown = 6.0
+batchSize = 1
 
 [node name="FIFOPositionBombTower" parent="." instance=ExtResource("5")]
 position = Vector2(304, 207)

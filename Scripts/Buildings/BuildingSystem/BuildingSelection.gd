@@ -12,6 +12,8 @@ signal selected(bRes: BuildingResource);
 
 func start_selecting():
 	self.visible = true;
+	for child in AvailableBuildingsBlock.get_children():
+		(child as BuildingButton).refresh()
 	AvailableBuildingsBlock.get_children()[0].grab_focus();
 
 func stop_selecting():
