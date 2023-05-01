@@ -1,5 +1,13 @@
 ## Changelog
 
+#### 01.05.2023
+- Gameplay changes:
+	- Belts are free
+	- Upkeep bounty reduction
+	- Balance changes
+- Global config
+- Creatures have level
+
 #### 30.04.2023
 - Incrementing price of buildings
 - Speading up mines while holding cursor over them

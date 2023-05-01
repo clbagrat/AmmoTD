@@ -9,6 +9,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0.305882)
 bg_color = Color(0.898039, 0.364706, 0.756863, 1)
 
 [node name="StreakBar" type="Control" node_paths=PackedStringArray("progressBar")]
+custom_minimum_size = Vector2(4, 50)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +20,10 @@ script = ExtResource("1_da3a6")
 progressBar = NodePath("ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(4, 50)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 96.0
+offset_right = 4.0
+offset_bottom = 50.0
 theme_override_styles/background = SubResource("StyleBoxFlat_fkrko")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ur3mi")
 value = 50.0

@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://rl6qsyweplnu"]
+[gd_scene load_steps=10 format=3 uid="uid://cnbhubid7jaek"]
 
-[ext_resource type="PackedScene" uid="uid://dc1jfno7uk80p" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
-[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mine.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bddsitna5mq72" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
 [ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
+[ext_resource type="Script" path="res://Scripts/UI/UpkeepLabel.gd" id="7_l8s67"]
 [ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="9_8xugp"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 [ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
@@ -16,15 +16,6 @@ y_sort_enabled = true
 [node name="Map1" parent="." instance=ExtResource("1_7u1yf")]
 cooldown = 6.0
 batchSize = 1
-
-[node name="Mine" parent="." instance=ExtResource("2")]
-position = Vector2(432, 160)
-
-[node name="Mine2" parent="." instance=ExtResource("2")]
-position = Vector2(224, 208)
-
-[node name="Inventory" parent="Mine2" index="1"]
-ammoType = 2
 
 [node name="UI" type="Node2D" parent="."]
 z_index = 6
@@ -92,10 +83,20 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="StreakBar" parent="UI/MarginContainer" instance=ExtResource("9_8xugp")]
+[node name="VFlowContainer" type="VFlowContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+
+[node name="StreakBar" parent="UI/MarginContainer/VFlowContainer" instance=ExtResource("9_8xugp")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="Upkeep" type="RichTextLabel" parent="UI/MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+text = "upkeep: -30%"
+script = ExtResource("7_l8s67")
 
 [node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
 position = Vector2(480, 304)
@@ -104,6 +105,3 @@ position = Vector2(480, 304)
 position = Vector2(424, 216)
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
-
-[editable path="Mine2"]
-[editable path="Mine2/Inventory/AmmoSource"]

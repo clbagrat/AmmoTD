@@ -18,11 +18,12 @@ var created_in_batch = 0;
 func _process(delta):
 	time_passed += delta;
 	in_batch_time_passed += delta
-	if (time_passed > cooldown):
-		if (created_in_batch < batchSize):
+	if (time_passed > cooldown/VictoryService.currentLvl):
+		if (created_in_batch < VictoryService.currentLvl):
 			if (in_batch_time_passed > inBatchCooldown):
 				var newSkeleton = Skeleton.instantiate();
 				var newPathFollower = PathFollower.instantiate();
+				newSkeleton.get_node("AliveCreature").level = VictoryService.currentLvl
 				newPathFollower.add_child(newSkeleton);
 				get_node("Path3D/Path2D").add_child(newPathFollower);
 				in_batch_time_passed = 0

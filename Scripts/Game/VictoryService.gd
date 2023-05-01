@@ -1,7 +1,7 @@
 extends Node2D;
 
-var maxStreak: int = 20;
-
+var currentLvl: int = 1;
+var maxStreak: int = 5;
 var currentStreak: int = 0;
 
 func _ready():
@@ -17,8 +17,9 @@ func _on_monster_died(creature: AliveCreature):
 func _increment():
 	currentStreak += 1;
 	if (currentStreak == maxStreak):
-		AlertService.alert("You won");
-		get_tree().paused = true
+		currentLvl += 1
+		maxStreak = currentLvl * 5 
+		currentStreak = 0;
 
 func _reset():
 	currentStreak = 0;

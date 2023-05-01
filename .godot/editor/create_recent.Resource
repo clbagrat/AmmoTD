@@ -1,3 +1,4 @@
+GameConstantsResource
 BuildingResource
 Resource
 JSON

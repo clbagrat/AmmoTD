@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+GameConstants="*res://Scripts/Game/GameConstants.gd"
 AlertService="*res://Scripts/UI/AlertService.gd"
 MonsterDeathService="*res://Scripts/Game/MonsterDeathService.gd"
 GameModeService="*res://Scripts/Game/GameModeService.gd"

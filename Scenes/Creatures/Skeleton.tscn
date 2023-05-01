@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Creatures/Character.gd" id="2_o0aix"]
 [ext_resource type="Script" path="res://Scripts/Creatures/AliveCreature.gd" id="3_5rsn3"]
 [ext_resource type="Script" path="res://Scripts/Buffs/BuffContainer.gd" id="4_is042"]
-[ext_resource type="Script" path="res://Scripts/Creatures/DeathRattleChargeGenerate.gd" id="4_wcy5o"]
+[ext_resource type="Script" path="res://Scripts/Creatures/DeathRattleGoldGenerate.gd" id="5_o3oee"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 3.0
@@ -173,7 +173,6 @@ parameters/Run/blend_position = Vector2(0.999132, -0.0147321)
 
 [node name="AliveCreature" type="Node2D" parent="."]
 script = ExtResource("3_5rsn3")
-health = 35
 
 [node name="ProgressBar" type="ProgressBar" parent="AliveCreature"]
 offset_left = -4.0
@@ -191,7 +190,5 @@ script = ExtResource("4_is042")
 AliveCreaturePath = NodePath("..")
 
 [node name="DeathRattleChargeGenerate" type="Node2D" parent="."]
-script = ExtResource("4_wcy5o")
-type = 1
-amount = 4
+script = ExtResource("5_o3oee")
 AliveCreature = NodePath("../AliveCreature")

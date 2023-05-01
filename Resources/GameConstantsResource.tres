@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameConstantsResource" load_steps=2 format=3 uid="uid://bj800f0gpnn8o"]
+
+[ext_resource type="Script" path="res://Scripts/Game/GameConstantsResource.gd" id="1_583u8"]
+
+[resource]
+script = ExtResource("1_583u8")
+baseBounty = 3
+perLvlBounty = 1

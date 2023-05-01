@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseBuilding
 
 class_name LockableBuilding
 

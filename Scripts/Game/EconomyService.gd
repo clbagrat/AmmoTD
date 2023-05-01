@@ -4,6 +4,7 @@ signal amount_change(amount)
 var startGold = 150 
 @onready var currentGold = startGold;
 
+var constants: GameConstantsResource = GameConstants.C;
 
 
 func get_current_gold() -> int:
@@ -27,6 +28,17 @@ func can_spend(amount: int) -> bool:
 func _emit() -> void:
 	emit_signal("amount_change", currentGold);
 
+func get_upkeep() -> int:
+	var sum = 0;
+	for key in buildingPricesDict:
+		sum += buildingPricesDict[key]
+	return sum / constants.upkeepThreshold;
+
+func get_bounty(creature: AliveCreature):
+	var base = constants.baseBounty;
+	var lvlApplied = base + constants.perLvlBounty * creature.level;
+	var upkeepApplied = lvlApplied - lvlApplied * (get_upkeep() * constants.perUpkeepDecresePercent);
+	return upkeepApplied
 
 var buildingPricesDict = {}
 func get_building_price(building: BuildingResource):

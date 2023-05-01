@@ -2,12 +2,14 @@ extends Node2D
 
 class_name AliveCreature
 
-@export var health = 100;
+@export var base_health = 100;
 @export var mapId = 1;
+@export var level = 1;
 
 signal died(aliveCreature);
 
 @onready var health_bar = $ProgressBar;
+@onready var health = base_health * (GameConstants.C.perLevelHealthPercent * level)
 @onready var current_health = health;
 @onready var buff_container: BuffContainer = $BuffContainer;
 

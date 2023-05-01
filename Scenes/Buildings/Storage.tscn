@@ -1,6 +1,5 @@
 [gd_scene load_steps=7 format=3 uid="uid://cm4sy0snangvo"]
 
-[ext_resource type="Script" path="res://Scripts/Buildings/AmmoPuller.gd" id="1_2exjj"]
 [ext_resource type="Script" path="res://Scripts/Inventory/EconomyInventory.gd" id="2_7oiy7"]
 [ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3_qs1tk"]
 [ext_resource type="Texture2D" uid="uid://bk3inp4auhq6l" path="res://Resources/Sprites/Single/Buildings/Storage.png" id="4_la26c"]
@@ -10,8 +9,10 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15f6x"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajw2k"]
+size = Vector2(16, 16)
+
 [node name="Storage" type="Node2D"]
-script = ExtResource("1_2exjj")
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource("2_7oiy7")
@@ -34,5 +35,12 @@ shape = SubResource("RectangleShape2D_15f6x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_la26c")
 hframes = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ajw2k")
 
 [editable path="Inventory/AmmoHolder"]

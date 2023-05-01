@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("5_ha7tb")
 type = 2
-damage = 2
-explosionDamage = 3
+damage = 5
+explosionDamage = 5
 rawSprite = ExtResource("4_smral")
 bulletSprite = ExtResource("2_u23qb")
 bombSprite = ExtResource("1_7336y")

@@ -10,7 +10,7 @@
 script = ExtResource("5_tj1oc")
 type = 0
 damage = 10
-explosionDamage = 20
+explosionDamage = 10
 rawSprite = ExtResource("4_a1shv")
 bulletSprite = ExtResource("2_ru38n")
 bombSprite = ExtResource("1_wcnd1")

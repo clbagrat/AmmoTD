@@ -21,10 +21,6 @@ size = Vector2(23.5, 16.3125)
 
 [node name="FIFOPositionBombTower" type="Node2D" node_paths=PackedStringArray("shooter", "inventory", "detector", "cooldown")]
 script = ExtResource("4")
-ShooterPath = NodePath("PositionBombShooter")
-InventoryPath = NodePath("Inventory")
-DetectorPath = NodePath("EnemyDetector")
-CooldownPath = NodePath("CooldownTrigger")
 shooter = NodePath("PositionBombShooter")
 inventory = NodePath("Inventory")
 detector = NodePath("EnemyDetector")

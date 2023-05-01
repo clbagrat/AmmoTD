@@ -1,3 +1,7 @@
+RichTextLabel
+VFlowContainer
+CollisionShape2D
+Area2D
 InventoryUI
 PanelContainer
 ColorRect
@@ -7,8 +11,6 @@ ReferenceRect
 Node2D
 Sprite2D
 RayCast2D
-CollisionShape2D
-Area2D
 BuildingAutoPlacer
 CursorHover
 Node
@@ -18,10 +20,8 @@ ProgressBar
 Control
 BuildingPlacer
 BuildingButton
-RichTextLabel
 TextureRect
 TextureButton
-VFlowContainer
 CenterContainer
 Inventory
 AmmoHolder

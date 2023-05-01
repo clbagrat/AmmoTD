@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc1jfno7uk80p"]
+[gd_scene load_steps=12 format=3 uid="uid://bddsitna5mq72"]
 
 [ext_resource type="Script" path="res://Scripts/Creatures/Spawner.gd" id="1_aelwn"]
 [ext_resource type="TileSet" uid="uid://bkbiyr4trqoe7" path="res://Resources/TileMaps/World/GrassDirtWater.tres" id="2_dv6qn"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingAutoPlacer.gd" id="3_2y7j5"]
 [ext_resource type="PackedScene" uid="uid://cuklc1yo4n145" path="res://Scenes/Buildings/Rock.tscn" id="4_7t0p8"]
 [ext_resource type="Script" path="res://Scripts/Editor/VisualMark.gd" id="5_f80hm"]
-[ext_resource type="Script" path="res://Scripts/Buildings/TowerAutoPlacer.gd" id="5_qgag1"]
 [ext_resource type="PackedScene" uid="uid://b7eeei7hfkh7f" path="res://Scenes/Towers/FIFOCreatureTower.tscn" id="6_f3vfb"]
 [ext_resource type="PackedScene" uid="uid://3r6ocsojl6k0" path="res://Scenes/Towers/FIFOPositionBombTower.tscn" id="7_hmitu"]
+[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mines/Mine.tscn" id="8_y1cg3"]
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingRandomPlacer.gd" id="9_2bey1"]
+[ext_resource type="PackedScene" uid="uid://cenu6vrdocxei" path="res://Scenes/Buildings/Mines/PoisonMine.tscn" id="9_f50tn"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -46,26 +48,10 @@ layer_0/tile_data = PackedInt32Array(262154, 131075, 2, 196618, 131075, 1, 26215
 [node name="Path2D" type="Path2D" parent="Path3D"]
 curve = SubResource("1")
 
-[node name="BuildingAutoPlacer" type="Node2D" parent="." node_paths=PackedStringArray("Limiter", "raycast")]
-position = Vector2(144, 64)
-script = ExtResource("3_2y7j5")
-Limiter = NodePath("Limiter")
-Amount = 8
-BuildingToPlace = ExtResource("4_7t0p8")
-raycast = NodePath("RayCast2D")
-
-[node name="Limiter" type="Node2D" parent="BuildingAutoPlacer"]
-position = Vector2(352, 256)
-
-[node name="RayCast2D" type="RayCast2D" parent="BuildingAutoPlacer"]
-position = Vector2(96, 80)
-collision_mask = 2
-collide_with_areas = true
-
 [node name="TowerAutoPlacer" type="Node2D" parent="."]
-script = ExtResource("5_qgag1")
-TowersToPlace = Array[PackedScene]([ExtResource("6_f3vfb"), ExtResource("7_hmitu")])
-TowerAmount = 2
+script = ExtResource("9_2bey1")
+BuildingsToPlace = Array[PackedScene]([ExtResource("6_f3vfb"), ExtResource("7_hmitu")])
+BuildingAmout = 3
 
 [node name="Spot" type="Node2D" parent="TowerAutoPlacer"]
 position = Vector2(336, 160)
@@ -88,3 +74,57 @@ script = ExtResource("5_f80hm")
 [node name="Spot5" type="Node2D" parent="TowerAutoPlacer"]
 position = Vector2(336, 192)
 script = ExtResource("5_f80hm")
+
+[node name="MineAutoPlacer" type="Node2D" parent="."]
+script = ExtResource("9_2bey1")
+BuildingsToPlace = Array[PackedScene]([ExtResource("8_y1cg3"), ExtResource("9_f50tn")])
+BuildingAmout = 3
+
+[node name="Spot" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(384, 176)
+rotation = 1.5708
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Spot2" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(224, 224)
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Spot3" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(400, 288)
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Spot4" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(448, 112)
+rotation = 3.14159
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Spot5" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(176, 112)
+rotation = -1.5708
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Spot6" type="Node2D" parent="MineAutoPlacer"]
+position = Vector2(304, 80)
+script = ExtResource("5_f80hm")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="BuildingAutoPlacer" type="Node2D" parent="." node_paths=PackedStringArray("Limiter", "raycast")]
+position = Vector2(144, 64)
+script = ExtResource("3_2y7j5")
+Limiter = NodePath("Limiter")
+Amount = 8
+BuildingToPlace = ExtResource("4_7t0p8")
+raycast = NodePath("RayCast2D")
+
+[node name="Limiter" type="Node2D" parent="BuildingAutoPlacer"]
+position = Vector2(352, 256)
+
+[node name="RayCast2D" type="RayCast2D" parent="BuildingAutoPlacer"]
+position = Vector2(96, 80)
+collision_mask = 2
+collide_with_areas = true
