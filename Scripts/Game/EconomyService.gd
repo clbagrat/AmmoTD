@@ -1,11 +1,10 @@
 extends Node
 
 signal amount_change(amount)
-var startGold = 150 
-@onready var currentGold = startGold;
 
 var constants: GameConstantsResource = GameConstants.C;
 
+@onready var currentGold = constants.startGold;
 
 func get_current_gold() -> int:
 	return  currentGold;

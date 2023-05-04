@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 04.05.2023
+- Debug UI (first iteration)
+
 #### 01.05.2023
 - Gameplay changes:
 	- Belts are free

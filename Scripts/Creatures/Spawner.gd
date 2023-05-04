@@ -24,6 +24,7 @@ func _process(delta):
 				var newSkeleton = Skeleton.instantiate();
 				var newPathFollower = PathFollower.instantiate();
 				newSkeleton.get_node("AliveCreature").level = VictoryService.currentLvl
+				newSkeleton.get_node("AliveCreature").base_health = GameConstants.C.skeletonBaseHealth
 				newPathFollower.add_child(newSkeleton);
 				get_node("Path3D/Path2D").add_child(newPathFollower);
 				in_batch_time_passed = 0

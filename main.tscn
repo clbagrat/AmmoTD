@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnbhubid7jaek"]
+[gd_scene load_steps=11 format=3 uid="uid://cnbhubid7jaek"]
 
 [ext_resource type="PackedScene" uid="uid://bddsitna5mq72" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
 [ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="6_pnow0"]
 [ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="7"]
 [ext_resource type="Script" path="res://Scripts/UI/UpkeepLabel.gd" id="7_l8s67"]
+[ext_resource type="PackedScene" uid="uid://b20m2g1lm54xi" path="res://Scenes/UI/ConstantsChanger.tscn" id="8_8tkn8"]
 [ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="9_8xugp"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
 [ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
@@ -97,6 +98,8 @@ custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
 text = "upkeep: -30%"
 script = ExtResource("7_l8s67")
+
+[node name="ConstantsChanger" parent="UI" instance=ExtResource("8_8tkn8")]
 
 [node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
 position = Vector2(480, 304)

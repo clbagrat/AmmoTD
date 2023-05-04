@@ -12,12 +12,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om0bl"]
 size = Vector2(16, 16)
 
-[node name="Mine" type="Node2D" node_paths=PackedStringArray("inventory", "ammoSource", "interactiveByCursor", "LockVisual")]
+[node name="Mine" type="Node2D" node_paths=PackedStringArray("inventory", "ammoSource", "interactiveByCursor", "buildingLock", "LockVisual")]
 script = ExtResource("1_24gwg")
 inventory = NodePath("Inventory")
 ammoSource = NodePath("Inventory/AmmoSource")
 ammoType = 2
 interactiveByCursor = NodePath("InteractiveByCursor")
+buildingLock = NodePath("BuildingLock")
 LockVisual = NodePath("LockedSprite")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

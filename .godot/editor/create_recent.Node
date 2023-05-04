@@ -1,11 +1,16 @@
-RichTextLabel
+VBoxContainer
+ScrollContainer
+TextEdit
+Label
+HFlowContainer
 VFlowContainer
+Button
+RichTextLabel
 CollisionShape2D
 Area2D
 InventoryUI
 PanelContainer
 ColorRect
-HFlowContainer
 NinePatchRect
 ReferenceRect
 Node2D
@@ -26,7 +31,3 @@ CenterContainer
 Inventory
 AmmoHolder
 CollisionPolygon2D
-CursorMover
-BuffContainer
-TileMap
-SubViewport

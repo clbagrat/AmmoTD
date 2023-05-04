@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://x72xfj2hfb4b"]
+
+[ext_resource type="Script" path="res://Scripts/UI/InputField.gd" id="1_6b2bq"]
+
+[node name="InputField" type="HFlowContainer" node_paths=PackedStringArray("textEdit", "labelUI")]
+custom_minimum_size = Vector2(150, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6b2bq")
+textEdit = NodePath("TextEdit")
+labelUI = NodePath("Label")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+scroll_fit_content_height = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "asdadasd"
