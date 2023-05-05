@@ -1,6 +1,7 @@
 ## Changelog
 
 #### 05.05.2023
+- Joystick controlls
 - Debug UI (constants change)
 
 #### 04.05.2023

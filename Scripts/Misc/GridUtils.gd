@@ -1,8 +1,7 @@
 class_name GridUtils
 
 static func get_grid_coords(pos: Vector2) -> Vector2:
-	var gridCoords = Vector2(int(pos.x / GlobalConfig.GRID_SIZE), int(pos.y / GlobalConfig.GRID_SIZE))
-	return gridCoords
+	return (pos / GlobalConfig.GRID_SIZE).round()
 
 static func snap_to_grid(pos: Vector2) -> Vector2:
 	return get_grid_coords(pos) * GlobalConfig.GRID_SIZE;

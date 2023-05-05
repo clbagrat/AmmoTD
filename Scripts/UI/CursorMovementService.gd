@@ -37,9 +37,10 @@ func _ready() -> void:
 func _process(delta) -> void:
 	currentTime += delta;
 	var newCursorPosition = cursorPosition;
-	var currentMouseCoordinates = get_viewport().get_mouse_position();
+	var currentMouseCoordinates = CursorCoordinates.get_coordinates();
+
 	if isMouseControl:
-		newCursorPosition = (currentMouseCoordinates / GlobalConfig.GRID_SIZE).round() * GlobalConfig.GRID_SIZE
+		newCursorPosition = GridUtils.snap_to_grid(currentMouseCoordinates)
 	
 	if not isMouseControl and currentTime - lastTimeControlFired > 0.15:
 		newCursorPosition = cursorPosition + direction * GlobalConfig.GRID_SIZE;
@@ -54,32 +55,36 @@ func _process(delta) -> void:
 	
 	lastMouseCoordinates = currentMouseCoordinates;
 
-func _unhandled_input(event: InputEvent) -> void:
-	if (event.is_action_pressed("move_left")):
-		direction.x += -1;
-		lastTimeControlFired = 0
-		isMouseControl = false
-	if (event.is_action_pressed("move_right")):
-		direction.x += 1;
-		lastTimeControlFired = 0
-		isMouseControl = false
-	if (event.is_action_pressed("move_up")):
-		direction.y += -1;
-		lastTimeControlFired = 0
-		isMouseControl = false
-	if (event.is_action_pressed("move_down")):
-		direction.y += 1;
-		lastTimeControlFired = 0
-		isMouseControl = false
+func _unhandled_input(baseEvent) -> void:
+	if (baseEvent is InputEvent):
+		var event: InputEvent = baseEvent;
+		if (event.is_action_pressed("move_left")):
+			direction.x += -1;
+			lastTimeControlFired = 0
+			isMouseControl = false
+		if (event.is_action_pressed("move_right")):
+			direction.x += 1;
+			lastTimeControlFired = 0
+			isMouseControl = false
+		if (event.is_action_pressed("move_up")):
+			direction.y += -1;
+			lastTimeControlFired = 0
+			isMouseControl = false
+		if (event.is_action_pressed("move_down")):
+			direction.y += 1;
+			lastTimeControlFired = 0
+			isMouseControl = false
+		
+		if (direction.length() == 0):
+			return
 	
-	if (direction.length() == 0):
-		return
+		if (event.is_action_released("move_left")):
+			direction.x -= -1;
+		if (event.is_action_released("move_right")):
+			direction.x -= 1;
+		if (event.is_action_released("move_up")):
+			direction.y -= -1;
+		if (event.is_action_released("move_down")):
+			direction.y -= 1;
 
-	if (event.is_action_released("move_left")):
-		direction.x -= -1;
-	if (event.is_action_released("move_right")):
-		direction.x -= 1;
-	if (event.is_action_released("move_up")):
-		direction.y -= -1;
-	if (event.is_action_released("move_down")):
-		direction.y -= 1;
+

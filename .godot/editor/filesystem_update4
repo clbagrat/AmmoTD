@@ -5,3 +5,12 @@ res://Scenes/UI/InputField.tscn
 res://Scripts/UI/DebugUI/InputField.gd
 res://Scripts/UI/DebugUI/ConstantsChanger.gd
 res://Scripts/Game/GameConstants.gd
+res://Scripts/UI/CursorMovementService.gd
+res://Scripts/Misc/GridUtils.gd
+res://Scripts/UI/CursorMover.gd
+res://Scripts/UI/GetCursorCoordinates.gd
+res://Scripts/UI/CursorCoordinates.gd
+res://Scripts/Buildings/BuildingLock/LockableBuilding.gd
+res://Scripts/Buildings/BuildingLock/BuildingLock.gd
+res://Scripts/UI/InGameCursor/InteractiveByCursor.gd
+res://Scripts/UI/InGameCursor/CursorHover.gd
