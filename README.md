@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 05.05.2023
+- Debug UI (constants change)
+
 #### 04.05.2023
 - Debug UI (first iteration)
 

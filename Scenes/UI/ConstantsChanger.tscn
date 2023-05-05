@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b20m2g1lm54xi"]
+[gd_scene load_steps=3 format=3 uid="uid://ddcwf1l2wp8nb"]
 
-[ext_resource type="Script" path="res://Scripts/UI/ConstantsChanger.gd" id="1_0smth"]
-[ext_resource type="PackedScene" uid="uid://x72xfj2hfb4b" path="res://Scenes/UI/InputField.tscn" id="1_osnxm"]
+[ext_resource type="Script" path="res://Scripts/UI/DebugUI/ConstantsChanger.gd" id="1_nr5dr"]
+[ext_resource type="PackedScene" uid="uid://bed8j0xcqbp4c" path="res://Scenes/UI/InputField.tscn" id="1_osnxm"]
 
 [node name="ConstantsChanger" type="Control" node_paths=PackedStringArray("placeForConstants")]
 visible = false
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0smth")
+script = ExtResource("1_nr5dr")
 placeForConstants = NodePath("ScrollContainer/PlaceForConstants")
 inputPrefab = ExtResource("1_osnxm")
 

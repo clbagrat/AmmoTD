@@ -19,3 +19,7 @@ func reset():
 	C = _defaultConstants;
 	save()
 
+func update_value(key: String, value: String):
+	if (value.is_valid_float()):
+		C[key] = value.to_float();
+		save()

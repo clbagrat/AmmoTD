@@ -22,7 +22,11 @@ func _render():
 		var instance: InputField = inputPrefab.instantiate()
 		instance.label = key;
 		instance.value = str(value);
+		instance.connect("text_updated", func(newText: String): _update_value(key, newText))
 		placeForConstants.add_child(instance)
 		if (!isFocused):
 			instance.get_children()[0].grab_focus()
 			isFocused = true
+
+func _update_value(key: String, value: String):
+	GameConstants.update_value(key, value)
