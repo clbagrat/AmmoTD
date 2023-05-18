@@ -26,6 +26,7 @@ CursorMovementService="*res://Scripts/UI/CursorMovementService.gd"
 EconomyService="*res://Scripts/Game/EconomyService.gd"
 AmmoService="*res://Scripts/Ammo/AmmoService.gd"
 VictoryService="*res://Scripts/Game/VictoryService.gd"
+SceneConfig="*res://Scripts/Config/SceneConfig.gd"
 
 [debug]
 

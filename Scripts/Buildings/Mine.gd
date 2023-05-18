@@ -12,6 +12,8 @@ func _ready():
 	buildingLock.price = GameConstants.C.mineUnlockPrice;
 	interactiveByCursor.connect("on_interract", func(): speed_up())
 	interactiveByCursor.connect("on_interract_stop", func(): slow_down())
+	if (SceneConfig.is_polygon):
+		speed_up()
 	
 
 func set_initial_rotation(degree: float):

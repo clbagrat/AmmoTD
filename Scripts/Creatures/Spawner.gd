@@ -4,6 +4,7 @@ extends Node
 @export var cooldown = 1.5;
 @export var batchSize = 3;
 @export var inBatchCooldown = 0.5;
+@export var path: Path2D;
 
 const Skeleton = preload("res://Scenes/Creatures/Skeleton.tscn")
 const PathFollower = preload("res://Scenes/Creatures/Utils/PathFollower.tscn")
@@ -26,7 +27,7 @@ func _process(delta):
 				newSkeleton.get_node("AliveCreature").level = VictoryService.currentLvl
 				newSkeleton.get_node("AliveCreature").base_health = GameConstants.C.skeletonBaseHealth
 				newPathFollower.add_child(newSkeleton);
-				get_node("Path3D/Path2D").add_child(newPathFollower);
+				path.add_child(newPathFollower);
 				in_batch_time_passed = 0
 				created_in_batch += 1
 		else:

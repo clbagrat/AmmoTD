@@ -6,3 +6,4 @@ enum AmmoTypes {Common, Gold, Poison}
 
 enum AmmoRepresentations {Raw, Bullet, Bomb}
 
+var IS_POLYGON: bool = false

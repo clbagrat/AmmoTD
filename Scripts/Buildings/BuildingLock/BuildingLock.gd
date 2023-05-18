@@ -9,7 +9,7 @@ class_name BuildingLock;
 func _ready():
 	interractiveByCursor.connect("on_interract", func (): try_to_unlock());
 
-	if (building.UnlockedByDefault):
+	if (building.UnlockedByDefault || SceneConfig.is_polygon):
 		building.unlock()
 	else:
 		building.lock()

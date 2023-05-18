@@ -15,6 +15,9 @@ func _on_monster_died(creature: AliveCreature):
 		_increment();
 
 func _increment():
+	if (SceneConfig.is_polygon):
+		return;
+
 	currentStreak += 1;
 	if (currentStreak == maxStreak):
 		currentLvl += 1
@@ -23,5 +26,4 @@ func _increment():
 
 func _reset():
 	currentStreak = 0;
-	AlertService.alert("Streak reset");
 

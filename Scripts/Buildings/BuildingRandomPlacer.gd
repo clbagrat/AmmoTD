@@ -17,5 +17,5 @@ func _place_towers():
 		var instance: BaseBuilding = packedScene.instantiate();
 
 		instance.set_initial_rotation(spots[i].rotation)
-		instance.global_position = spots[i].global_position
 		add_child(instance)
+		instance.global_position = spots[i].global_position

@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://vsy6h2piw7ot"]
+
+[ext_resource type="PackedScene" uid="uid://bcvflum7gkx1a" path="res://Scenes/World/Maps/polygon_map.tscn" id="1_6m5pk"]
+[ext_resource type="Script" path="res://Scripts/Config/ConfigSetter.gd" id="1_8s0j6"]
+[ext_resource type="Script" path="res://Scripts/UI/AlertUI.gd" id="2_dcmwi"]
+[ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="3_yvw28"]
+[ext_resource type="PackedScene" uid="uid://dvtp0j54mpg5b" path="res://Scenes/Buildings/BuildingSystem.tscn" id="4_bs8hc"]
+[ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="5_73a4k"]
+[ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="6_j0pet"]
+[ext_resource type="Script" path="res://Scripts/UI/UpkeepLabel.gd" id="7_vxcri"]
+[ext_resource type="PackedScene" uid="uid://ddcwf1l2wp8nb" path="res://Scenes/UI/ConstantsChanger.tscn" id="8_h2yuq"]
+[ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="9_un6ax"]
+[ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_cxfp4"]
+[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mines/Mine.tscn" id="11_2qek8"]
+
+[node name="Polygon" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_8s0j6")
+IS_POLYGON = true
+
+[node name="Map1" parent="." instance=ExtResource("1_6m5pk")]
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 6
+metadata/_edit_lock_ = true
+
+[node name="Center" type="CenterContainer" parent="UI"]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AlertUI" type="Label" parent="UI/Center" node_paths=PackedStringArray("timer")]
+layout_mode = 2
+script = ExtResource("2_dcmwi")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="UI/Center/AlertUI"]
+wait_time = 0.5
+
+[node name="Cursor" parent="UI" instance=ExtResource("3_yvw28")]
+position = Vector2(192, 48)
+
+[node name="BuildingSystem" parent="UI" instance=ExtResource("4_bs8hc")]
+z_index = 6
+
+[node name="ReferenceRect" type="ReferenceRect" parent="UI"]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+border_width = 2.5
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BottomPanel" type="HFlowContainer" parent="UI/ReferenceRect/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="EconomyUI" type="Label" parent="UI/ReferenceRect/MarginContainer/BottomPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "100"
+script = ExtResource("5_73a4k")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VFlowContainer" type="VFlowContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+
+[node name="StreakBar" parent="UI/MarginContainer/VFlowContainer" instance=ExtResource("6_j0pet")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Upkeep" type="RichTextLabel" parent="UI/MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+text = "upkeep: -30%"
+script = ExtResource("7_vxcri")
+
+[node name="ConstantsChanger" parent="UI" instance=ExtResource("8_h2yuq")]
+
+[node name="Storage" parent="." instance=ExtResource("9_un6ax")]
+position = Vector2(480, 304)
+
+[node name="Portal" parent="." instance=ExtResource("10_cxfp4")]
+position = Vector2(424, 216)
+
+[node name="Mine" parent="." instance=ExtResource("11_2qek8")]
+position = Vector2(288, 288)
+ammoType = 1
+
+[connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]
