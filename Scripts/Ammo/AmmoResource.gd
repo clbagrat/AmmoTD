@@ -2,6 +2,7 @@ extends Resource
 
 class_name AmmoResource;
 
+
 @export var type: GlobalConfig.AmmoTypes;
 @export var damage = 10;
 @export var explosionDamage = 20;

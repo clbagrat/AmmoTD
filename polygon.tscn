@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vsy6h2piw7ot"]
+[gd_scene load_steps=11 format=3 uid="uid://vsy6h2piw7ot"]
 
 [ext_resource type="PackedScene" uid="uid://bcvflum7gkx1a" path="res://Scenes/World/Maps/polygon_map.tscn" id="1_6m5pk"]
 [ext_resource type="Script" path="res://Scripts/Config/ConfigSetter.gd" id="1_8s0j6"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/UpkeepLabel.gd" id="7_vxcri"]
 [ext_resource type="PackedScene" uid="uid://ddcwf1l2wp8nb" path="res://Scenes/UI/ConstantsChanger.tscn" id="8_h2yuq"]
 [ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="9_un6ax"]
-[ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_cxfp4"]
-[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mines/Mine.tscn" id="11_2qek8"]
 
 [node name="Polygon" type="Node2D"]
 y_sort_enabled = true
@@ -105,12 +103,5 @@ script = ExtResource("7_vxcri")
 
 [node name="Storage" parent="." instance=ExtResource("9_un6ax")]
 position = Vector2(480, 304)
-
-[node name="Portal" parent="." instance=ExtResource("10_cxfp4")]
-position = Vector2(424, 216)
-
-[node name="Mine" parent="." instance=ExtResource("11_2qek8")]
-position = Vector2(288, 288)
-ammoType = 1
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]

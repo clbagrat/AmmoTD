@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcvflum7gkx1a"]
+[gd_scene load_steps=13 format=3 uid="uid://bcvflum7gkx1a"]
 
 [ext_resource type="Script" path="res://Scripts/Creatures/Spawner.gd" id="1_fbdlo"]
 [ext_resource type="TileSet" uid="uid://bkbiyr4trqoe7" path="res://Resources/TileMaps/World/GrassDirtWater.tres" id="2_4tj4x"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cenu6vrdocxei" path="res://Scenes/Buildings/Mines/PoisonMine.tscn" id="8_4uvyt"]
 [ext_resource type="PackedScene" uid="uid://dtaoq16fx5yhw" path="res://Scenes/Buildings/Belt.tscn" id="8_hurtv"]
 [ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="8_s3ky7"]
+[ext_resource type="PackedScene" uid="uid://cukne5l0bu3lk" path="res://Scenes/Buildings/Mines/FireMine.tscn" id="11_ficaa"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -39,6 +40,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(196624, 65537, 3, 131088, 196609, 3, 65552, 131073, 2, 16, 131073, 2, -65520, 131073, 2, -131056, 131073, 1, 196623, 1, 3, 131087, 1, 2, 65551, 1, 2, 15, 1, 2, -65521, 1, 2, -131057, 1, 1, 196628, 131073, 3, 131092, 131073, 1, 196627, 65537, 3, 131091, 65537, 1, 196626, 65537, 3, 131090, 65537, 1, 196625, 65537, 3, 131089, 65537, 1, 655379, 131073, 3, 589843, 131073, 1, 655378, 65537, 3, 589842, 65537, 1, 655377, 65537, 3, 589841, 65537, 1, 655376, 65537, 3, 589840, 65537, 1, 655375, 65537, 3, 589839, 65537, 1, 655374, 65537, 3, 589838, 65537, 1, 655373, 65537, 3, 589837, 65537, 1, 655372, 65537, 3, 589836, 65537, 1, 655371, 65537, 3, 589835, 65537, 1, 655370, 65537, 3, 589834, 65537, 1, 655369, 65537, 3, 589833, 65537, 1, 655368, 65537, 3, 589832, 65537, 1, 655367, 65537, 3, 589831, 65537, 1, 655366, 65537, 3, 589830, 65537, 1, 655365, 196609, 2, 589829, 65537, 1, 655364, 1, 2, 589828, 1, 1, 851973, 131073, 3, 786437, 131073, 2, 720901, 131073, 2, 851972, 1, 3, 786436, 1, 2, 720900, 1, 2)
 
 [node name="Common - Bullet" type="Node2D" parent="."]
+position = Vector2(-112, 0)
 
 [node name="Path3D" type="TileMap" parent="Common - Bullet" node_paths=PackedStringArray("path")]
 position = Vector2(160, 96)
@@ -88,10 +90,10 @@ rotation = -1.5708
 position = Vector2(192, 128)
 rotation = -1.5708
 
-[node name="Poison - Bullet" type="Node2D" parent="."]
-position = Vector2(96, 0)
+[node name="Common - Bomb" type="Node2D" parent="."]
+position = Vector2(-16, 0)
 
-[node name="Path3D" type="TileMap" parent="Poison - Bullet" node_paths=PackedStringArray("path")]
+[node name="Path3D" type="TileMap" parent="Common - Bomb" node_paths=PackedStringArray("path")]
 position = Vector2(160, 96)
 tile_set = ExtResource("2_4tj4x")
 format = 2
@@ -99,47 +101,47 @@ layer_0/tile_data = PackedInt32Array(0, 3, 1, 1, 131075, 1, 65537, 131075, 2, 13
 script = ExtResource("1_fbdlo")
 path = NodePath("Path2D")
 
-[node name="Path2D" type="Path2D" parent="Poison - Bullet/Path3D"]
+[node name="Path2D" type="Path2D" parent="Common - Bomb/Path3D"]
 curve = SubResource("1")
 
-[node name="TowerAutoPlacer" type="Node2D" parent="Poison - Bullet"]
+[node name="TowerAutoPlacer" type="Node2D" parent="Common - Bomb"]
 position = Vector2(0, -16)
 script = ExtResource("3_fd1i8")
-BuildingsToPlace = Array[PackedScene]([ExtResource("4_gdkyh")])
+BuildingsToPlace = Array[PackedScene]([ExtResource("5_51aso")])
 BuildingAmout = 1
 
-[node name="Spot" type="Node2D" parent="Poison - Bullet/TowerAutoPlacer"]
+[node name="Spot" type="Node2D" parent="Common - Bomb/TowerAutoPlacer"]
 position = Vector2(192, 176)
 script = ExtResource("6_sguqn")
 
-[node name="MineAutoPlacer" type="Node2D" parent="Poison - Bullet"]
+[node name="MineAutoPlacer" type="Node2D" parent="Common - Bomb"]
 script = ExtResource("3_fd1i8")
-BuildingsToPlace = Array[PackedScene]([ExtResource("8_4uvyt")])
+BuildingsToPlace = Array[PackedScene]([ExtResource("7_28sq2")])
 BuildingAmout = 1
 
-[node name="Spot" type="Node2D" parent="Poison - Bullet/MineAutoPlacer"]
+[node name="Spot" type="Node2D" parent="Common - Bomb/MineAutoPlacer"]
 position = Vector2(192, 80)
 rotation = 3.14159
 script = ExtResource("6_sguqn")
 color = Color(0.866667, 0, 0.105882, 1)
 
-[node name="Portal" parent="Poison - Bullet" instance=ExtResource("8_s3ky7")]
+[node name="Portal" parent="Common - Bomb" instance=ExtResource("8_s3ky7")]
 position = Vector2(176, 240)
 
-[node name="Belt" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
+[node name="Belt" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 96)
 rotation = -1.5708
 
-[node name="Belt2" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
+[node name="Belt2" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 112)
 rotation = -1.5708
 
-[node name="Belt3" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
+[node name="Belt3" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 128)
 rotation = -1.5708
 
 [node name="Poison - Bomb" type="Node2D" parent="."]
-position = Vector2(192, 0)
+position = Vector2(80, 0)
 
 [node name="Path3D" type="TileMap" parent="Poison - Bomb" node_paths=PackedStringArray("path")]
 position = Vector2(160, 96)
@@ -188,10 +190,10 @@ rotation = -1.5708
 position = Vector2(192, 128)
 rotation = -1.5708
 
-[node name="Common - Bomb" type="Node2D" parent="."]
-position = Vector2(272, 0)
+[node name="Poison - Bullet" type="Node2D" parent="."]
+position = Vector2(160, 0)
 
-[node name="Path3D" type="TileMap" parent="Common - Bomb" node_paths=PackedStringArray("path")]
+[node name="Path3D" type="TileMap" parent="Poison - Bullet" node_paths=PackedStringArray("path")]
 position = Vector2(160, 96)
 tile_set = ExtResource("2_4tj4x")
 format = 2
@@ -199,41 +201,141 @@ layer_0/tile_data = PackedInt32Array(0, 3, 1, 1, 131075, 1, 65537, 131075, 2, 13
 script = ExtResource("1_fbdlo")
 path = NodePath("Path2D")
 
-[node name="Path2D" type="Path2D" parent="Common - Bomb/Path3D"]
+[node name="Path2D" type="Path2D" parent="Poison - Bullet/Path3D"]
 curve = SubResource("1")
 
-[node name="TowerAutoPlacer" type="Node2D" parent="Common - Bomb"]
+[node name="TowerAutoPlacer" type="Node2D" parent="Poison - Bullet"]
 position = Vector2(0, -16)
 script = ExtResource("3_fd1i8")
-BuildingsToPlace = Array[PackedScene]([ExtResource("5_51aso")])
+BuildingsToPlace = Array[PackedScene]([ExtResource("4_gdkyh")])
 BuildingAmout = 1
 
-[node name="Spot" type="Node2D" parent="Common - Bomb/TowerAutoPlacer"]
+[node name="Spot" type="Node2D" parent="Poison - Bullet/TowerAutoPlacer"]
 position = Vector2(192, 176)
 script = ExtResource("6_sguqn")
 
-[node name="MineAutoPlacer" type="Node2D" parent="Common - Bomb"]
+[node name="MineAutoPlacer" type="Node2D" parent="Poison - Bullet"]
 script = ExtResource("3_fd1i8")
-BuildingsToPlace = Array[PackedScene]([ExtResource("7_28sq2")])
+BuildingsToPlace = Array[PackedScene]([ExtResource("8_4uvyt")])
 BuildingAmout = 1
 
-[node name="Spot" type="Node2D" parent="Common - Bomb/MineAutoPlacer"]
+[node name="Spot" type="Node2D" parent="Poison - Bullet/MineAutoPlacer"]
 position = Vector2(192, 80)
 rotation = 3.14159
 script = ExtResource("6_sguqn")
 color = Color(0.866667, 0, 0.105882, 1)
 
-[node name="Portal" parent="Common - Bomb" instance=ExtResource("8_s3ky7")]
+[node name="Portal" parent="Poison - Bullet" instance=ExtResource("8_s3ky7")]
 position = Vector2(176, 240)
 
-[node name="Belt" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
+[node name="Belt" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 96)
 rotation = -1.5708
 
-[node name="Belt2" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
+[node name="Belt2" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 112)
 rotation = -1.5708
 
-[node name="Belt3" parent="Common - Bomb" instance=ExtResource("8_hurtv")]
+[node name="Belt3" parent="Poison - Bullet" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 128)
+rotation = -1.5708
+
+[node name="Fire - Bomb" type="Node2D" parent="."]
+position = Vector2(256, 0)
+
+[node name="Path3D" type="TileMap" parent="Fire - Bomb" node_paths=PackedStringArray("path")]
+position = Vector2(160, 96)
+tile_set = ExtResource("2_4tj4x")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 3, 1, 1, 131075, 1, 65537, 131075, 2, 131073, 131075, 2, 65536, 3, 2, 131072, 3, 2, 196608, 3, 2, 196609, 131075, 2, 262145, 131075, 2, 262144, 3, 2, 327680, 3, 2, 327681, 131075, 2, 393217, 131075, 2, 393216, 3, 2, 458752, 3, 2, 458753, 131075, 2, 524288, 3, 3, 524289, 131075, 3)
+script = ExtResource("1_fbdlo")
+path = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Fire - Bomb/Path3D"]
+curve = SubResource("1")
+
+[node name="TowerAutoPlacer" type="Node2D" parent="Fire - Bomb"]
+position = Vector2(0, -16)
+script = ExtResource("3_fd1i8")
+BuildingsToPlace = Array[PackedScene]([ExtResource("5_51aso")])
+BuildingAmout = 1
+
+[node name="Spot" type="Node2D" parent="Fire - Bomb/TowerAutoPlacer"]
+position = Vector2(192, 176)
+script = ExtResource("6_sguqn")
+
+[node name="MineAutoPlacer" type="Node2D" parent="Fire - Bomb"]
+script = ExtResource("3_fd1i8")
+BuildingsToPlace = Array[PackedScene]([ExtResource("11_ficaa")])
+BuildingAmout = 1
+
+[node name="Spot" type="Node2D" parent="Fire - Bomb/MineAutoPlacer"]
+position = Vector2(192, 80)
+rotation = 3.14159
+script = ExtResource("6_sguqn")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Portal" parent="Fire - Bomb" instance=ExtResource("8_s3ky7")]
+position = Vector2(176, 240)
+
+[node name="Belt" parent="Fire - Bomb" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 96)
+rotation = -1.5708
+
+[node name="Belt2" parent="Fire - Bomb" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 112)
+rotation = -1.5708
+
+[node name="Belt3" parent="Fire - Bomb" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 128)
+rotation = -1.5708
+
+[node name="Fire - Bullet" type="Node2D" parent="."]
+position = Vector2(336, 0)
+
+[node name="Path3D" type="TileMap" parent="Fire - Bullet" node_paths=PackedStringArray("path")]
+position = Vector2(160, 96)
+tile_set = ExtResource("2_4tj4x")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 3, 1, 1, 131075, 1, 65537, 131075, 2, 131073, 131075, 2, 65536, 3, 2, 131072, 3, 2, 196608, 3, 2, 196609, 131075, 2, 262145, 131075, 2, 262144, 3, 2, 327680, 3, 2, 327681, 131075, 2, 393217, 131075, 2, 393216, 3, 2, 458752, 3, 2, 458753, 131075, 2, 524288, 3, 3, 524289, 131075, 3)
+script = ExtResource("1_fbdlo")
+path = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="Fire - Bullet/Path3D"]
+curve = SubResource("1")
+
+[node name="TowerAutoPlacer" type="Node2D" parent="Fire - Bullet"]
+position = Vector2(0, -16)
+script = ExtResource("3_fd1i8")
+BuildingsToPlace = Array[PackedScene]([ExtResource("4_gdkyh")])
+BuildingAmout = 1
+
+[node name="Spot" type="Node2D" parent="Fire - Bullet/TowerAutoPlacer"]
+position = Vector2(192, 176)
+script = ExtResource("6_sguqn")
+
+[node name="MineAutoPlacer" type="Node2D" parent="Fire - Bullet"]
+script = ExtResource("3_fd1i8")
+BuildingsToPlace = Array[PackedScene]([ExtResource("11_ficaa")])
+BuildingAmout = 1
+
+[node name="Spot" type="Node2D" parent="Fire - Bullet/MineAutoPlacer"]
+position = Vector2(192, 80)
+rotation = 3.14159
+script = ExtResource("6_sguqn")
+color = Color(0.866667, 0, 0.105882, 1)
+
+[node name="Portal" parent="Fire - Bullet" instance=ExtResource("8_s3ky7")]
+position = Vector2(176, 240)
+
+[node name="Belt" parent="Fire - Bullet" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 96)
+rotation = -1.5708
+
+[node name="Belt2" parent="Fire - Bullet" instance=ExtResource("8_hurtv")]
+position = Vector2(192, 112)
+rotation = -1.5708
+
+[node name="Belt3" parent="Fire - Bullet" instance=ExtResource("8_hurtv")]
 position = Vector2(192, 128)
 rotation = -1.5708

@@ -1,7 +1,8 @@
 ## Changelog
 
 #### 18.05.2023
-- testing polygon
+- Fire Ammo (first iteration)
+- Testing polygon
 
 #### 05.05.2023
 - Joystick controlls

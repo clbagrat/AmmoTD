@@ -17,3 +17,8 @@ res://Scripts/Config/ConfigSetter.gd
 res://Scripts/Config/SceneConfig.gd
 res://Scripts/Game/EconomyService.gd
 res://Scripts/Buildings/Mine.gd
+res://Scripts/Ammo/AmmoResource.gd
+res://Scenes/Buildings/Mines/FireMine.tscn
+res://Resources/Ammo/FireAmmo.tres
+res://Scenes/Ammo/Pullable.tscn
+res://Scripts/Ammo/AmmoService.gd

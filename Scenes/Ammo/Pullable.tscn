@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://b2nw6au2dmh86"]
 
 [ext_resource type="Script" path="res://Scripts/Ammo/Pullable.gd" id="1"]
 

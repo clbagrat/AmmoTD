@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AmmoResource" load_steps=7 format=3 uid="uid://biq3tomvoqvll"]
+
+[ext_resource type="Texture2D" uid="uid://duh68wo5txa83" path="res://Resources/Sprites/Single/Ammo/Fire/FireBomb.png" id="1_gd4yk"]
+[ext_resource type="PackedScene" uid="uid://cjrytvdfxcnml" path="res://Scenes/Buffs/PoisonBuff.tscn" id="2_7vtmy"]
+[ext_resource type="Texture2D" uid="uid://cxrvbesxj2gt6" path="res://Resources/Sprites/Single/Ammo/Fire/FireBullet.png" id="3_q1m2o"]
+[ext_resource type="Texture2D" uid="uid://be5vuv4uq5lg6" path="res://Resources/Sprites/Single/Ammo/Fire/FireExplosion.png" id="4_7slcm"]
+[ext_resource type="Texture2D" uid="uid://1f4xcwdelsdq" path="res://Resources/Sprites/Single/Ammo/Fire/FireRaw.png" id="5_ptdb0"]
+[ext_resource type="Script" path="res://Scripts/Ammo/AmmoResource.gd" id="6_vyyoo"]
+
+[resource]
+script = ExtResource("6_vyyoo")
+type = 3
+damage = 5
+explosionDamage = 50
+rawSprite = ExtResource("5_ptdb0")
+bulletSprite = ExtResource("3_q1m2o")
+bombSprite = ExtResource("1_gd4yk")
+explosionSprite = ExtResource("4_7slcm")
+buff = ExtResource("2_7vtmy")
+color = Color(0.988235, 0.317647, 0.0588235, 1)

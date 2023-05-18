@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://cukne5l0bu3lk"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/Mine.gd" id="1_8wi6p"]
+[ext_resource type="Texture2D" uid="uid://b36ns51ndfled" path="res://Resources/Sprites/Single/Buildings/AmmoSource.png" id="2_q5wiy"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="3_b77ea"]
+[ext_resource type="PackedScene" uid="uid://cepuwufijvlgd" path="res://Scenes/Inventory/AmmoSource.tscn" id="4_gp0ff"]
+[ext_resource type="PackedScene" uid="uid://d0tldo2vcb17c" path="res://Scenes/Buildings/NoBuildingArea.tscn" id="5_pgjry"]
+[ext_resource type="Texture2D" uid="uid://1ohed87hmq7j" path="res://Resources/Sprites/Single/UI/locked.png" id="6_6m03i"]
+[ext_resource type="Script" path="res://Scripts/UI/InGameCursor/InteractiveByCursor.gd" id="7_ytnvb"]
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingLock/BuildingLock.gd" id="8_pbjgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om0bl"]
+size = Vector2(16, 16)
+
+[node name="Mine" type="Node2D" node_paths=PackedStringArray("inventory", "ammoSource", "interactiveByCursor", "buildingLock", "LockVisual")]
+script = ExtResource("1_8wi6p")
+inventory = NodePath("Inventory")
+ammoSource = NodePath("Inventory/AmmoSource")
+ammoType = 3
+interactiveByCursor = NodePath("InteractiveByCursor")
+buildingLock = NodePath("BuildingLock")
+LockVisual = NodePath("LockedSprite")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q5wiy")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("3_b77ea")
+capacity = 100000000
+startAtFullCapacity = true
+
+[node name="AmmoSource" parent="Inventory" instance=ExtResource("4_gp0ff")]
+
+[node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
+wait_time = 1.5
+
+[node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
+position = Vector2(0, -16)
+
+[node name="NoBuildingArea" parent="." instance=ExtResource("5_pgjry")]
+
+[node name="LockedSprite" type="Sprite2D" parent="."]
+texture = ExtResource("6_6m03i")
+
+[node name="InteractiveByCursor" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("7_ytnvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveByCursor"]
+shape = SubResource("RectangleShape2D_om0bl")
+
+[node name="BuildingLock" type="Node2D" parent="." node_paths=PackedStringArray("building", "interractiveByCursor")]
+script = ExtResource("8_pbjgf")
+price = 100
+building = NodePath("..")
+interractiveByCursor = NodePath("../InteractiveByCursor")
+
+[editable path="Inventory/AmmoSource"]
