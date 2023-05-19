@@ -185,9 +185,9 @@ step = 1.0
 value = 60.0
 show_percentage = false
 
-[node name="BuffContainer" type="Node2D" parent="AliveCreature"]
+[node name="BuffContainer" type="Node2D" parent="AliveCreature" node_paths=PackedStringArray("aliveCreature")]
 script = ExtResource("4_is042")
-AliveCreaturePath = NodePath("..")
+aliveCreature = NodePath("..")
 
 [node name="DeathRattleChargeGenerate" type="Node2D" parent="."]
 script = ExtResource("5_o3oee")

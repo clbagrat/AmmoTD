@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 19.05.2023
+- Fire Ammo (fire buff)
+
 #### 18.05.2023
 - Fire Ammo (first iteration)
 - Testing polygon

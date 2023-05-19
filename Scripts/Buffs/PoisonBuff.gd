@@ -8,11 +8,11 @@ var target: AliveCreature;
 func _ready():
 	set_physics_process(false);
 
-func start(creature: AliveCreature) -> void:
+func start(creature: AliveCreature, _container: BuffContainer) -> void:
 	target = creature;
 	set_physics_process(true);
 
-func stop(_creature: AliveCreature) -> void:
+func stop(_creature: AliveCreature, _container: BuffContainer) -> void:
 	target = null
 	set_physics_process(false);
 	

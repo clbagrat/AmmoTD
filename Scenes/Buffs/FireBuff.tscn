@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv81abmgtf0s8"]
+
+[ext_resource type="Script" path="res://Scripts/Buffs/FireBuff.gd" id="1_o7kyo"]
+
+[node name="FireBuff" type="Node2D"]
+script = ExtResource("1_o7kyo")
+stacksRequired = 2
+damage = 100
+duration = 5
