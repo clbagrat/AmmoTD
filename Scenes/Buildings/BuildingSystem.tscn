@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvtp0j54mpg5b"]
+[gd_scene load_steps=15 format=3 uid="uid://dvtp0j54mpg5b"]
 
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingSystem.gd" id="1_q1knx"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingSystem/BuildingPlacer.gd" id="1_uyv0f"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bog62r6mj5s34" path="res://Resources/Sprites/Single/UI/Rotate.png" id="7_guxqg"]
 [ext_resource type="Texture2D" uid="uid://bvvdoetxkruyj" path="res://Resources/Sprites/Single/UI/StartBuilding.png" id="8_0105e"]
 [ext_resource type="Texture2D" uid="uid://brk0aatkuxmtq" path="res://Resources/Sprites/Single/UI/Cancel.png" id="9_ngebt"]
+[ext_resource type="Resource" uid="uid://bv2vkppf3hrbe" path="res://Resources/Buildings/AmmoThrower.tres" id="11_agnvh"]
 [ext_resource type="Resource" uid="uid://ist1gvjnbeq1" path="res://Resources/Buildings/Belt.tres" id="12_siyie"]
 [ext_resource type="Resource" uid="uid://daihfa3q65tm0" path="res://Resources/Buildings/AmmoCollector.tres" id="13_per58"]
 
@@ -77,7 +78,7 @@ visible = false
 script = ExtResource("5_1hrya")
 BuildingButtonPrefab = ExtResource("6_s2650")
 AvailableBuildingsBlock = NodePath("MarginContainer/AvailabeBuildingsBlock")
-AvailableBuildings = Array[Resource("res://Scripts/Buildings/BuildingResource.gd")]([ExtResource("12_siyie"), ExtResource("13_per58")])
+AvailableBuildings = Array[Resource("res://Scripts/Buildings/BuildingResource.gd")]([ExtResource("12_siyie"), ExtResource("13_per58"), ExtResource("11_agnvh")])
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/BuildingSelection"]
 offset_right = 640.0

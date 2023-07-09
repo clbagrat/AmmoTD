@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgodt17jjdnhl"]
+
+[ext_resource type="Script" path="res://Scripts/Buildings/AmmoPuller.gd" id="1_gvofm"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="2_da51n"]
+[ext_resource type="PackedScene" uid="uid://c5k8jecqkkj50" path="res://Scenes/Inventory/AmmoHolder.tscn" id="3_mc4or"]
+[ext_resource type="PackedScene" uid="uid://cepuwufijvlgd" path="res://Scenes/Inventory/AmmoSource.tscn" id="4_yxcgk"]
+[ext_resource type="Texture2D" uid="uid://cchcrp317q67y" path="res://Resources/Sprites/Single/Buildings/Arrow.png" id="5_hhigp"]
+[ext_resource type="Texture2D" uid="uid://d0mvujc8e6u48" path="res://Resources/Sprites/Single/Buildings/Crystal.png" id="6_u6i1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngupl"]
+size = Vector2(16, 16)
+
+[node name="AmmoThrower" type="Node2D" node_paths=PackedStringArray("inventory", "ammoSource")]
+script = ExtResource("1_gvofm")
+inventory = NodePath("Inventory")
+ammoSource = NodePath("Inventory/AmmoSource")
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("2_da51n")
+ammoType = 1
+capacity = 10000
+
+[node name="AmmoHolder" parent="Inventory" node_paths=PackedStringArray("ignoreAmmoProducedBy") instance=ExtResource("3_mc4or")]
+pickupTime = 0.0
+ignoreAmmoProducedBy = NodePath("")
+
+[node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_ngupl")
+
+[node name="AmmoSource" parent="Inventory" instance=ExtResource("4_yxcgk")]
+
+[node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
+wait_time = 0.001
+
+[node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
+position = Vector2(32, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/AmmoSource"]
+position = Vector2(32, 0)
+texture = ExtResource("5_hhigp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_u6i1l")
+
+[editable path="Inventory/AmmoHolder"]
+[editable path="Inventory/AmmoSource"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnbhubid7jaek"]
+[gd_scene load_steps=9 format=3 uid="uid://cnbhubid7jaek"]
 
 [ext_resource type="PackedScene" uid="uid://bddsitna5mq72" path="res://Scenes/World/Maps/map_1.tscn" id="1_7u1yf"]
 [ext_resource type="PackedScene" uid="uid://rbqemnci3n06" path="res://Scenes/UI/InGameCursor.tscn" id="4"]
@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ddcwf1l2wp8nb" path="res://Scenes/UI/ConstantsChanger.tscn" id="8_8tkn8"]
 [ext_resource type="PackedScene" uid="uid://xix6t67lt62m" path="res://Scenes/UI/StreakBar.tscn" id="9_8xugp"]
 [ext_resource type="Script" path="res://Scripts/UI/EconomyUI.gd" id="9_88bmk"]
-[ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="10_gp60q"]
-[ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="10_m8nfc"]
-[ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mines/Mine.tscn" id="11_5kuni"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -101,15 +98,5 @@ text = "upkeep: -30%"
 script = ExtResource("7_l8s67")
 
 [node name="ConstantsChanger" parent="UI" instance=ExtResource("8_8tkn8")]
-
-[node name="Storage" parent="." instance=ExtResource("10_m8nfc")]
-position = Vector2(480, 304)
-
-[node name="Portal" parent="." instance=ExtResource("10_gp60q")]
-position = Vector2(424, 216)
-
-[node name="Mine" parent="." instance=ExtResource("11_5kuni")]
-position = Vector2(288, 288)
-ammoType = 1
 
 [connection signal="timeout" from="UI/Center/AlertUI/Timer" to="UI/Center/AlertUI" method="_on_Timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bddsitna5mq72"]
+[gd_scene load_steps=14 format=3 uid="uid://bddsitna5mq72"]
 
 [ext_resource type="Script" path="res://Scripts/Creatures/Spawner.gd" id="1_aelwn"]
 [ext_resource type="TileSet" uid="uid://bkbiyr4trqoe7" path="res://Resources/TileMaps/World/GrassDirtWater.tres" id="2_dv6qn"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c6otyj7n8xh1e" path="res://Scenes/Buildings/Mines/Mine.tscn" id="8_y1cg3"]
 [ext_resource type="Script" path="res://Scripts/Buildings/BuildingRandomPlacer.gd" id="9_2bey1"]
 [ext_resource type="PackedScene" uid="uid://cenu6vrdocxei" path="res://Scenes/Buildings/Mines/PoisonMine.tscn" id="9_f50tn"]
+[ext_resource type="PackedScene" uid="uid://cm4sy0snangvo" path="res://Scenes/Buildings/Storage.tscn" id="11_igao0"]
+[ext_resource type="PackedScene" uid="uid://cndkhcd682mwy" path="res://Scenes/Buildings/Portal.tscn" id="12_efpny"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -17,9 +19,10 @@ _data = {
 }
 point_count = 4
 
-[node name="Map1" type="Node2D"]
+[node name="Map1" type="Node2D" node_paths=PackedStringArray("path")]
 script = ExtResource("1_aelwn")
 cooldown = 5.0
+path = NodePath("Path3D/Path2D")
 
 [node name="Sea" type="TileMap" parent="."]
 tile_set = ExtResource("2_dv6qn")
@@ -78,7 +81,7 @@ script = ExtResource("5_f80hm")
 [node name="MineAutoPlacer" type="Node2D" parent="."]
 script = ExtResource("9_2bey1")
 BuildingsToPlace = Array[PackedScene]([ExtResource("8_y1cg3"), ExtResource("9_f50tn")])
-BuildingAmout = 3
+BuildingAmout = 4
 
 [node name="Spot" type="Node2D" parent="MineAutoPlacer"]
 position = Vector2(384, 176)
@@ -128,3 +131,14 @@ position = Vector2(352, 256)
 position = Vector2(96, 80)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="Storage" parent="." instance=ExtResource("11_igao0")]
+position = Vector2(480, 304)
+
+[node name="Portal" parent="." instance=ExtResource("12_efpny")]
+position = Vector2(424, 216)
+
+[node name="Mine" parent="." instance=ExtResource("8_y1cg3")]
+position = Vector2(320, 304)
+ammoType = 1
+UnlockedByDefault = true

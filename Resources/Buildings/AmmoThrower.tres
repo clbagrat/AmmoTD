@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=5 format=3 uid="uid://bv2vkppf3hrbe"]
+
+[ext_resource type="PackedScene" uid="uid://bkpas61mcxnt8" path="res://Scenes/Buildings/BuildingDummies/AmmoThrowerDummy.tscn" id="1_154nv"]
+[ext_resource type="PackedScene" uid="uid://bgodt17jjdnhl" path="res://Scenes/Buildings/AmmoThrower.tscn" id="2_vitw2"]
+[ext_resource type="Script" path="res://Scripts/Buildings/BuildingResource.gd" id="3_7wlab"]
+[ext_resource type="Texture2D" uid="uid://d0mvujc8e6u48" path="res://Resources/Sprites/Single/Buildings/Crystal.png" id="4_5b6uq"]
+
+[resource]
+script = ExtResource("3_7wlab")
+name = "Ammo Thrower"
+scene = ExtResource("2_vitw2")
+buildingDummyScene = ExtResource("1_154nv")
+sprite = ExtResource("4_5b6uq")
+price = 0
+priceIncrement = 50

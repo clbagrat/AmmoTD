@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 09.07.2023
+- Ammo thrower (throws an ammo over 1 tile)
+
 #### 19.05.2023
 - Fire Ammo (fire buff)
 
