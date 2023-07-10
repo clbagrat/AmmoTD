@@ -1,3 +1,4 @@
+Curve
 GameConstantsResource
 BuildingResource
 Resource

@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmf34lwgcuubv"]
+[gd_scene load_steps=7 format=3 uid="uid://cmf34lwgcuubv"]
 
 [ext_resource type="Script" path="res://Scripts/Ammo/Representations/BaseBomb.gd" id="1_g38vu"]
 [ext_resource type="PackedScene" uid="uid://bbo2gbrpy1nbm" path="res://Scenes/Ammo/Effects/Explosion.tscn" id="2_k1b2m"]
 [ext_resource type="Texture2D" uid="uid://dlwjmwgwwjxpm" path="res://Resources/Sprites/Single/Ammo/AmmoShadow.png" id="3_bxah7"]
 [ext_resource type="Texture2D" uid="uid://c0wdiq047fgfn" path="res://Resources/Sprites/Single/Ammo/Common/CommonProjectile.png" id="4_qssbd"]
+[ext_resource type="PackedScene" uid="uid://ckh6p1rbv8wu0" path="res://Scenes/Ammo/Behaviours/ArcMovement.tscn" id="5_66a16"]
 
-[node name="BaseBomb" type="Node2D"]
+[sub_resource type="Curve" id="Curve_raycu"]
+_data = [Vector2(0, 0), 0.0, 3.0, 0, 0, Vector2(0.493506, 0.509202), 0.0, 0.0, 0, 0, Vector2(0.995699, 0.0184048), -2.94251, 0.0, 0, 0]
+point_count = 3
+
+[node name="BaseBomb" type="Node2D" node_paths=PackedStringArray("arcMovement")]
 script = ExtResource("1_g38vu")
 speed = 40
 maxHeight = 20
 explosionPrefab = ExtResource("2_k1b2m")
+arcMovement = NodePath("ArcMovement")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
@@ -17,3 +23,8 @@ texture = ExtResource("3_bxah7")
 
 [node name="Projectile" type="Sprite2D" parent="."]
 texture = ExtResource("4_qssbd")
+
+[node name="ArcMovement" parent="." node_paths=PackedStringArray("Sprite", "Shadow") instance=ExtResource("5_66a16")]
+FallbackCurve = SubResource("Curve_raycu")
+Sprite = NodePath("../Projectile")
+Shadow = NodePath("../Shadow")

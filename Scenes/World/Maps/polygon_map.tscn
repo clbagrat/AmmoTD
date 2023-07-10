@@ -141,6 +141,7 @@ position = Vector2(192, 128)
 rotation = -1.5708
 
 [node name="Poison - Bomb" type="Node2D" parent="."]
+process_mode = 4
 position = Vector2(80, 0)
 
 [node name="Path3D" type="TileMap" parent="Poison - Bomb" node_paths=PackedStringArray("path")]
@@ -241,6 +242,7 @@ position = Vector2(192, 128)
 rotation = -1.5708
 
 [node name="Fire - Bomb" type="Node2D" parent="."]
+process_mode = 4
 position = Vector2(256, 0)
 
 [node name="Path3D" type="TileMap" parent="Fire - Bomb" node_paths=PackedStringArray("path")]

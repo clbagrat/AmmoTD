@@ -8,6 +8,8 @@ class_name BaseBomb
 
 @export var explosionPrefab: PackedScene; 
 
+@export var arcMovement: ArcMovement;
+
 @onready var projectile: Sprite2D = $Projectile;
 
 
@@ -21,12 +23,7 @@ func _physics_process(delta):
 
 	global_position = global_position + global_position.direction_to(target_position) * speed * delta;
 
-	var total = _start_position.distance_to(target_position)
-	var current = total - global_position.distance_to(target_position)
-
-	var newHeight = maxHeight * (1-pow(1-2*(current/total), 2))
-
-	projectile.position = Vector2(0, -newHeight)
+	# projectile.position = Vector2(0, -newHeight)
 
 	if (global_position.distance_to(target_position) < 0.5):
 		var inst: Explosion = explosionPrefab.instantiate();
@@ -42,4 +39,6 @@ func on_res_applied(res: AmmoResource):
 func set_target_position(target: Vector2):
 	_start_position = global_position
 	target_position = target;
+	arcMovement.start(_start_position, target);
+
 

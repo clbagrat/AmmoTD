@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 10.07.2023
+- Arc Movement class for nice ammo interactions
+
 #### 09.07.2023
 - Ammo thrower (throws an ammo over 1 tile)
 

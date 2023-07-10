@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2nw6au2dmh86"]
+[gd_scene load_steps=4 format=3 uid="uid://d1sbycp0nk5gn"]
 
-[ext_resource type="Script" path="res://Scripts/Ammo/Pullable.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/Ammo/Behaviours/Pullable.gd" id="1_du118"]
 
 [sub_resource type="Curve" id="1"]
 _data = [Vector2(0.00179211, 0.953988), 0.0, 0.0, 0, 0, Vector2(0.489247, 0.518405), 0.0, 0.0, 0, 0]
@@ -11,7 +11,7 @@ offsets = PackedFloat32Array(0, 0.417518, 1)
 colors = PackedColorArray(0.865234, 0.622121, 0.622121, 1, 0.894118, 0.6, 0.6, 0, 0.937255, 0.564706, 0.564706, 0)
 
 [node name="Pullable" type="Node2D"]
-script = ExtResource("1")
+script = ExtResource("1_du118")
 
 [node name="Particles" type="CPUParticles2D" parent="."]
 rotation = -1.5708
