@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cepuwufijvlgd"]
+[gd_scene load_steps=3 format=3 uid="uid://cepuwufijvlgd"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/AmmoSource.gd" id="2"]
 
+[sub_resource type="Curve" id="Curve_3t2pe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="AmmoSource" type="Node2D"]
 script = ExtResource("2")
+arcCurve = SubResource("Curve_3t2pe")
+maxHeight = 10.0
+speed = 20.0
 
 [node name="Cooldown" type="Timer" parent="."]
 

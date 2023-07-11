@@ -3,6 +3,9 @@ extends Node2D
 class_name AmmoSource
 
 @export var activeByDefault = true;
+@export var arcCurve: Curve;
+@export var maxHeight: float;
+@export var speed: float;
 
 @onready var timer: Timer = $Cooldown;
 @onready var dropArea: Node2D = $DropAreaRect;
@@ -23,9 +26,20 @@ func _on_Timer_timeout():
 
 	var ammo = AmmoService.create_raw(ammoType, self);
 	get_tree().get_root().add_child(ammo);
+	ammo.global_position = global_position;
+	var arcMovement: ArcMovement =  ammo.get_node("ArcMovement")
+	arcMovement.start(
+		global_position, 
+		_get_random_drop_position(), 
+		arcCurve,
+		maxHeight,
+		speed,
+		func(): on_ammo_stop(ammo),
+	);
 
-	var ammoPos = _get_random_drop_position();
-	ammo.global_position = ammoPos;
+func on_ammo_stop(ammo: Node2D):
+	ammo.get_node("Draggable").enable()
+	pass;
 
 func _get_random_drop_position() -> Vector2:
 	var gridCoord = GridUtils.get_grid_coords(dropArea.global_position);

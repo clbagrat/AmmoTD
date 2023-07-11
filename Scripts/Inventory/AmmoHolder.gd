@@ -7,6 +7,8 @@ class_name AmmoHolder
 @export var pickupTime = 0.3
 @export var canPickOnlyStaleAmmo = false;
 @export var ignoreAmmoProducedBy: AmmoSource;
+@export var useAnimation: bool = false;
+@export var arcCurve: Curve;
 
 var inventory: Inventory;
 
@@ -62,13 +64,33 @@ func _physics_process(delta):
 		if (pullable.isPullInProgress()):
 			if (pullable.getTimeBeingPulled() > pickupTime):
 				if inventory.can_receive(1, type):
-					inventory.receive(1, type);
-					ammo.queue_free();
+					receive_ammo(ammo)
 			continue;
 		else:
 			pullable.startPull(self);
 			
 
+func receive_ammo(ammo: BaseAmmo):
+	if (useAnimation):
+		var arcMovement: ArcMovement =  ammo.get_node("ArcMovement")
+		ammo.get_node("Draggable").disable()
+		arcMovement.start(
+			ammo.global_position,
+			global_position, 
+			arcCurve,
+			5,
+			60,
+			func(): _r_ammo(ammo),
+		);
+		pass
+	else:
+		_r_ammo(ammo);
+
+func _r_ammo(ammo: BaseAmmo):
+	var type = ammo.get_ammo_type();
+	if inventory.can_receive(1, type):
+		inventory.receive(1, type);
+	ammo.queue_free();
 func _draw():
 	if !showShape:
 		return

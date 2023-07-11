@@ -24,9 +24,11 @@ func _on_Area2D_body_entered(body:Node):
 
 func _physics_process(delta):
 	for i in range(bodies_to_move.size() - 1, -1, -1):
-		var draggable = bodies_to_move[i]
+		var draggable: Draggable = bodies_to_move[i]
 		if !is_instance_valid(draggable):
 			bodies_to_move.remove_at(i)
+			continue
+		if !draggable.isEnabled:
 			continue
 		if draggable.current_handler == null:
 			draggable.set_handler(self)

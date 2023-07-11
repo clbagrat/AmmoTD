@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7eeei7hfkh7f"]
+[gd_scene load_steps=14 format=3 uid="uid://b7eeei7hfkh7f"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/Inventory.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Tower/FIFOCreatureTowerBehavior.gd" id="1_50vfa"]
@@ -12,6 +12,10 @@
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 22.0227
+
+[sub_resource type="Curve" id="Curve_srb6w"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(16, 16)
@@ -51,6 +55,8 @@ capacity = 5
 [node name="AmmoHolder" parent="Inventory" instance=ExtResource("2")]
 showShape = true
 pickupTime = 0.7
+useAnimation = true
+arcCurve = SubResource("Curve_srb6w")
 
 [node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
 position = Vector2(0, -16)

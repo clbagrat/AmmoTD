@@ -17,14 +17,7 @@ var target_position = Vector2(100, 100);
 @onready var _start_position = global_position;
 
 
-func _physics_process(delta):
-	if target_position == null:
-		return;
-
-	global_position = global_position + global_position.direction_to(target_position) * speed * delta;
-
-	# projectile.position = Vector2(0, -newHeight)
-
+func _physics_process(_delta):
 	if (global_position.distance_to(target_position) < 0.5):
 		var inst: Explosion = explosionPrefab.instantiate();
 		inst.configure_explosion(_res);

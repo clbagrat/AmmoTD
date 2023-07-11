@@ -22,15 +22,14 @@ capacity = 10000
 
 [node name="AmmoHolder" parent="Inventory" node_paths=PackedStringArray("ignoreAmmoProducedBy") instance=ExtResource("3_mc4or")]
 pickupTime = 0.0
-ignoreAmmoProducedBy = NodePath("")
+ignoreAmmoProducedBy = NodePath("../AmmoSource")
 
 [node name="CollisionShape2D" parent="Inventory/AmmoHolder/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_ngupl")
 
 [node name="AmmoSource" parent="Inventory" instance=ExtResource("4_yxcgk")]
-
-[node name="Cooldown" parent="Inventory/AmmoSource" index="0"]
-wait_time = 0.001
+maxHeight = 20.0
+speed = 30.0
 
 [node name="DropAreaRect" parent="Inventory/AmmoSource" index="1"]
 position = Vector2(32, 0)

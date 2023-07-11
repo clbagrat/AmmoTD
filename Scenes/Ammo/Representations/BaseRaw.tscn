@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://c87b0sf8v0b16"]
 
 [ext_resource type="Script" path="res://Scripts/Ammo/Representations/BaseRaw.gd" id="1_g36tn"]
 [ext_resource type="PackedScene" path="res://Scenes/Ammo/Behaviours/Draggable.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://bagl8k1gx4hd3" path="res://Resources/Sprites/Single/Ammo/Common/CommonRaw.png" id="2_3sjlc"]
-[ext_resource type="PackedScene" uid="uid://b2nw6au2dmh86" path="res://Scenes/Ammo/Behaviours/Pullable.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://dlwjmwgwwjxpm" path="res://Resources/Sprites/Single/Ammo/AmmoShadow.png" id="3_684n3"]
+[ext_resource type="PackedScene" uid="uid://d1sbycp0nk5gn" path="res://Scenes/Ammo/Behaviours/Pullable.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ckh6p1rbv8wu0" path="res://Scenes/Ammo/Behaviours/ArcMovement.tscn" id="6_elqas"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 2.23607
+
+[sub_resource type="Curve" id="Curve_nlt7g"]
+_data = [Vector2(0, 0), 0.0, 3.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="BaseRaw" type="CharacterBody2D" groups=["ammo"]]
 z_index = 1
@@ -16,6 +22,9 @@ script = ExtResource("1_g36tn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("3_684n3")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3sjlc")
 
@@ -23,3 +32,9 @@ texture = ExtResource("2_3sjlc")
 body_to_drag = NodePath("..")
 
 [node name="Pullable" parent="." instance=ExtResource("4")]
+
+[node name="ArcMovement" parent="." node_paths=PackedStringArray("Sprite", "Shadow", "bodyToMove") instance=ExtResource("6_elqas")]
+FallbackCurve = SubResource("Curve_nlt7g")
+Sprite = NodePath("../Sprite2D")
+Shadow = NodePath("../Shadow")
+bodyToMove = NodePath("..")
