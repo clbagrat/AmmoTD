@@ -1,5 +1,10 @@
 ## Changelog
 
+#### 18.07.2023
+- Animation bugfix
+- Arc movement now is a default
+- Remove inventory from the cursor
+
 #### 11.07.2023
 - Arc Movement for ammo source and ammo holder
 

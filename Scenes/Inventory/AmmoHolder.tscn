@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5k8jecqkkj50"]
+[gd_scene load_steps=5 format=3 uid="uid://c5k8jecqkkj50"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/AmmoHolder.gd" id="1"]
+
+[sub_resource type="Curve" id="Curve_krp8c"]
+_data = [Vector2(0.00107411, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.515337), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -10,6 +14,8 @@ radius = 16.0
 
 [node name="AmmoHolder" type="Node2D"]
 script = ExtResource("1")
+useAnimation = true
+arcCurve = SubResource("Curve_krp8c")
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.3
